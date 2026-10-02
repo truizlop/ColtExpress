@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { assertInvariants, createGame, legalActions, observe, step } from '../game/engine';
 import type { Action, GameConfig, GameState } from '../game/types';
-export type Difficulty = 'greenhorn' | 'bandit' | 'outlaw' | 'legend';
+import type { Difficulty } from '../ai/difficulty';
+export type { Difficulty } from '../ai/difficulty';
 export interface Settings {
   difficulty: Difficulty;
   speed: 'normal' | 'fast';

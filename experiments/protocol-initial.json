@@ -1,0 +1,124 @@
+{
+  "frozen_at_utc": "2026-10-02T22:33:32.205352+00:00",
+  "model": "public/models/champion.json",
+  "sha256": "bb904d8c3171e9281c42a291abd33952c7885c30f10f7a834bca770427456c6d",
+  "selection": "Highest overall 600-game validation win rate among measured architecture/checkpoint/search candidates; freeze before holdout. No tuning on these results.",
+  "training_games": 199680,
+  "holdout_seeds": "All >=1700000001, above every training and validation seed. Distinct 10,000,000-wide blocks; balanced mixed-player seats.",
+  "jobs": [
+    {
+      "name": "tactical-legend-1",
+      "opponent": "tactical",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1700000001
+    },
+    {
+      "name": "tactical-legend-2",
+      "opponent": "tactical",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1710000001
+    },
+    {
+      "name": "tactical-legend-3",
+      "opponent": "tactical",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1720000001
+    },
+    {
+      "name": "tactical-outlaw-1",
+      "opponent": "tactical",
+      "difficulty": "outlaw",
+      "games": 300,
+      "seed": 1700000001
+    },
+    {
+      "name": "tactical-outlaw-2",
+      "opponent": "tactical",
+      "difficulty": "outlaw",
+      "games": 300,
+      "seed": 1710000001
+    },
+    {
+      "name": "tactical-outlaw-3",
+      "opponent": "tactical",
+      "difficulty": "outlaw",
+      "games": 300,
+      "seed": 1720000001
+    },
+    {
+      "name": "tactical-bandit-1",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "games": 300,
+      "seed": 1700000001
+    },
+    {
+      "name": "tactical-bandit-2",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "games": 300,
+      "seed": 1710000001
+    },
+    {
+      "name": "tactical-bandit-3",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "games": 300,
+      "seed": 1720000001
+    },
+    {
+      "name": "tactical-greenhorn-1",
+      "opponent": "tactical",
+      "difficulty": "greenhorn",
+      "games": 300,
+      "seed": 1700000001
+    },
+    {
+      "name": "tactical-greenhorn-2",
+      "opponent": "tactical",
+      "difficulty": "greenhorn",
+      "games": 300,
+      "seed": 1710000001
+    },
+    {
+      "name": "tactical-greenhorn-3",
+      "opponent": "tactical",
+      "difficulty": "greenhorn",
+      "games": 300,
+      "seed": 1720000001
+    },
+    {
+      "name": "opponent-aggressive",
+      "opponent": "aggressive",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1800000001
+    },
+    {
+      "name": "opponent-greedy",
+      "opponent": "greedy",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1810000001
+    },
+    {
+      "name": "opponent-previous-model",
+      "opponent": "experiments/models/express32.json",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1820000001
+    },
+    {
+      "name": "expert-legend",
+      "opponent": "tactical",
+      "difficulty": "legend",
+      "games": 480,
+      "players": "3,4,5,6",
+      "expert": true,
+      "seed": 1830000001
+    }
+  ]
+}

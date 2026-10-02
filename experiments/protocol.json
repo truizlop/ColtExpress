@@ -1,0 +1,159 @@
+{
+  "frozen_at_utc": "2026-10-02T22:33:32.205352+00:00",
+  "model": "public/models/champion.json",
+  "sha256": "bb904d8c3171e9281c42a291abd33952c7885c30f10f7a834bca770427456c6d",
+  "selection": "Network and Legend search frozen before any holdout. Bandit difficulty calibrated separately as documented; final Bandit uses fresh seeds.",
+  "training_games": 199680,
+  "holdout_seeds": "All >=1700000001, above every training and validation seed. Distinct 10,000,000-wide blocks; balanced mixed-player seats.",
+  "jobs": [
+    {
+      "name": "tactical-legend-1",
+      "opponent": "tactical",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1700000001
+    },
+    {
+      "name": "tactical-legend-2",
+      "opponent": "tactical",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1710000001
+    },
+    {
+      "name": "tactical-legend-3",
+      "opponent": "tactical",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1720000001
+    },
+    {
+      "name": "tactical-outlaw-1",
+      "opponent": "tactical",
+      "difficulty": "outlaw",
+      "games": 300,
+      "seed": 1700000001
+    },
+    {
+      "name": "tactical-outlaw-2",
+      "opponent": "tactical",
+      "difficulty": "outlaw",
+      "games": 300,
+      "seed": 1710000001
+    },
+    {
+      "name": "tactical-outlaw-3",
+      "opponent": "tactical",
+      "difficulty": "outlaw",
+      "games": 300,
+      "seed": 1720000001
+    },
+    {
+      "name": "tactical-bandit-1",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "games": 300,
+      "seed": 1700000001,
+      "bandit_mistakes": 0,
+      "purpose": "initial calibration"
+    },
+    {
+      "name": "tactical-bandit-2",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "games": 300,
+      "seed": 1710000001,
+      "bandit_mistakes": 0,
+      "purpose": "initial calibration"
+    },
+    {
+      "name": "tactical-bandit-3",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "games": 300,
+      "seed": 1720000001,
+      "bandit_mistakes": 0,
+      "purpose": "initial calibration"
+    },
+    {
+      "name": "tactical-greenhorn-1",
+      "opponent": "tactical",
+      "difficulty": "greenhorn",
+      "games": 300,
+      "seed": 1700000001
+    },
+    {
+      "name": "tactical-greenhorn-2",
+      "opponent": "tactical",
+      "difficulty": "greenhorn",
+      "games": 300,
+      "seed": 1710000001
+    },
+    {
+      "name": "tactical-greenhorn-3",
+      "opponent": "tactical",
+      "difficulty": "greenhorn",
+      "games": 300,
+      "seed": 1720000001
+    },
+    {
+      "name": "opponent-aggressive",
+      "opponent": "aggressive",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1800000001
+    },
+    {
+      "name": "opponent-greedy",
+      "opponent": "greedy",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1810000001
+    },
+    {
+      "name": "opponent-previous-model",
+      "opponent": "experiments/models/express32.json",
+      "difficulty": "legend",
+      "games": 300,
+      "seed": 1820000001
+    },
+    {
+      "name": "expert-legend",
+      "opponent": "tactical",
+      "difficulty": "legend",
+      "games": 480,
+      "players": "3,4,5,6",
+      "expert": true,
+      "seed": 1830000001
+    },
+    {
+      "name": "tactical-bandit-final-1",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "bandit_mistakes": 0.15,
+      "games": 300,
+      "seed": 1950000001
+    },
+    {
+      "name": "tactical-bandit-final-2",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "bandit_mistakes": 0.15,
+      "games": 300,
+      "seed": 1960000001
+    },
+    {
+      "name": "tactical-bandit-final-3",
+      "opponent": "tactical",
+      "difficulty": "bandit",
+      "bandit_mistakes": 0.15,
+      "games": 300,
+      "seed": 1970000001
+    }
+  ],
+  "difficulty_calibration": {
+    "observed": "Temperature-only Bandit and Outlaw scored about the same in the first difficulty tournament. Network and Legend search remain frozen; only Bandit adds 15% random legal mistakes.",
+    "final_bandit_evaluation": "Three new 300-game blocks at seeds 1950000001, 1960000001 and 1970000001; initial Bandit results retained as calibration evidence, not final holdout.",
+    "revised_at_utc": "2026-10-02T22:40:33.306069+00:00"
+  }
+}

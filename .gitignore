@@ -10,3 +10,5 @@ test-results/
 training/bridge.mjs
 
 *.tsbuildinfo
+
+.ruff_cache/

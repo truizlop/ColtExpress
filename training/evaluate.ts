@@ -4,6 +4,7 @@ import { baseline, type Baseline } from '../src/ai/tactics';
 import { modelChoice, type Model } from '../src/ai/network';
 import { search } from '../src/ai/search';
 import { seeded } from '../src/game/random';
+import { difficultyChoice, type Difficulty } from '../src/ai/difficulty';
 const arg = (key: string, fallback: string) => {
   const i = process.argv.indexOf(key);
   return i < 0 ? fallback : process.argv[i + 1];
@@ -16,10 +17,17 @@ const candidate = arg('--candidate', 'tactical'),
   out = arg('--out', '');
 const load = (v: string) =>
   v.endsWith('.json') ? (JSON.parse(fs.readFileSync(v, 'utf8')) as Model) : null;
+const difficulty = arg('--difficulty', '') as Difficulty | '';
+const banditMistakes = Number(arg('--bandit-mistakes', '0.15'));
+const counts = playerArg === 'mixed' ? [2, 3, 4, 5, 6] : playerArg.split(',').map(Number);
+if (!counts.length || counts.some((n) => !Number.isInteger(n) || n < 2 || n > 6))
+  throw new Error('Player counts must be between 2 and 6.');
+if (!Number.isInteger(games) || games < 1) throw new Error('Games must be a positive integer.');
 const samples = Number(arg('--search', '0')),
   maxCandidates = Number(arg('--candidates', '6')),
   rollout = arg('--rollout', 'tactical') as 'tactical' | 'policy',
-  expert = arg('--expert', 'false') === 'true';
+  expert = arg('--expert', 'false') === 'true',
+  horizon = arg('--horizon', 'game') as 'game' | 'round';
 let searchMs = 0,
   searchCount = 0;
 const model = load(candidate),
@@ -28,8 +36,8 @@ const model = load(candidate),
   records: { players: number; seat: number; win: number; score: number; seed: number }[] = [];
 const start = performance.now();
 for (let game = 0; game < games; game++) {
-  const players = playerArg === 'mixed' ? 2 + (game % 5) : Number(playerArg),
-    seat = Math.floor(game / 5) % players,
+  const players = counts[game % counts.length],
+    seat = Math.floor(game / counts.length) % players,
     s = createGame({ players, expert, seed: seed + game * 31337 });
   let steps = 0;
   while (s.phase !== 'finished' && steps++ < 1500) {
@@ -43,8 +51,18 @@ for (let game = 0; game < games; game++) {
       m = isCandidate ? model : other,
       p = isCandidate ? candidate : opponent;
     let i: number;
-    if (isCandidate && m && samples) {
-      const result = search(m, o, Math.floor(r() * 2 ** 32), { samples, maxCandidates, rollout });
+    if (isCandidate && m && difficulty) {
+      const started = performance.now();
+      i = difficultyChoice(m, o, difficulty, r, banditMistakes);
+      searchMs += performance.now() - started;
+      searchCount++;
+    } else if (isCandidate && m && samples) {
+      const result = search(m, o, Math.floor(r() * 2 ** 32), {
+        samples,
+        maxCandidates,
+        rollout,
+        horizon,
+      });
       i = result.index;
       searchMs += result.milliseconds;
       searchCount++;
@@ -84,7 +102,15 @@ const report = {
   opponent,
   seed,
   expert,
-  search: { samples, maxCandidates, rollout, averageMs: searchCount ? searchMs / searchCount : 0 },
+  difficulty: difficulty || undefined,
+  banditMistakes: difficulty === 'bandit' ? banditMistakes : undefined,
+  search: {
+    samples: difficulty === 'legend' ? 8 : samples,
+    maxCandidates: difficulty === 'legend' ? 3 : maxCandidates,
+    rollout: difficulty === 'legend' ? 'policy' : rollout,
+    horizon: difficulty === 'legend' ? 'round' : horizon,
+    averageMs: searchCount ? searchMs / searchCount : 0,
+  },
   seconds: (performance.now() - start) / 1000,
   overall: summarize(records),
   byPlayers: Object.fromEntries(

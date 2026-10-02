@@ -14,7 +14,7 @@ export const DIFFICULTIES: { id: Difficulty; name: string; description: string }
   {
     id: 'legend',
     name: 'Legend',
-    description: 'The strongest available policy and extra planning.',
+    description: 'Samples hidden cards and plans through the next round.',
   },
 ];
 export function Setup({

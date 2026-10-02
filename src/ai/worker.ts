@@ -1,11 +1,17 @@
-import { infer, sample, validateModel, type Model } from './network';
-import { search } from './search';
+import { validateModel, type Model } from './network';
+import { difficultyChoice, type Difficulty } from './difficulty';
 import type { Observation } from '../game/types';
 let model: Model | null = null;
 self.onmessage = async ({
   data,
 }: {
-  data: { type: string; url?: string; id?: number; observation?: Observation; difficulty?: string };
+  data: {
+    type: string;
+    url?: string;
+    id?: number;
+    observation?: Observation;
+    difficulty?: Difficulty;
+  };
 }) => {
   try {
     if (data.type === 'init') {
@@ -24,21 +30,7 @@ self.onmessage = async ({
       if (!model) throw new Error('The trained model is not ready.');
       const o = data.observation!;
       const difficulty = data.difficulty ?? 'bandit';
-      const result = infer(model, o);
-      let index: number;
-      if (difficulty === 'legend')
-        index = search(model, o, Math.floor(Math.random() * 2 ** 32), {
-          samples: 12,
-          maxCandidates: 6,
-        }).index;
-      else if (difficulty === 'greenhorn' && Math.random() < 0.3)
-        index = Math.floor(Math.random() * o.legal.length);
-      else
-        index = sample(
-          result.logits,
-          Math.random,
-          difficulty === 'greenhorn' ? 1.5 : difficulty === 'bandit' ? 0.5 : 0.08,
-        );
+      const index = difficultyChoice(model, o, difficulty, Math.random);
       self.postMessage({ type: 'action', id: data.id, action: o.legal[index] });
     }
   } catch (error) {

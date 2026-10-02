@@ -1,0 +1,222 @@
+[
+  {
+    "model": "training/runs/ppo-conservative/ppo-0050.json",
+    "games": 600,
+    "winRate": 0.31666666666666665,
+    "approx95": [
+      0.2807114361929764,
+      0.35495460602736756
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2096.5833333333335
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0100.json",
+    "games": 600,
+    "winRate": 0.325,
+    "approx95": [
+      0.2887383648057751,
+      0.3634883118590987
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2126.4166666666665
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0150.json",
+    "games": 600,
+    "winRate": 0.3575,
+    "approx95": [
+      0.32016892124927,
+      0.39664422974927005
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2085.6666666666665
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0200.json",
+    "games": 600,
+    "winRate": 0.37416666666666665,
+    "approx95": [
+      0.336361651114119,
+      0.4135727687734807
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2164.75
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0250.json",
+    "games": 600,
+    "winRate": 0.35833333333333334,
+    "approx95": [
+      0.3209773836005338,
+      0.39749183084245926
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2163.5833333333335
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0300.json",
+    "games": 600,
+    "winRate": 0.36833333333333335,
+    "approx95": [
+      0.3306886047220614,
+      0.4076533710543675
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2157.25
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0350.json",
+    "games": 600,
+    "winRate": 0.335,
+    "approx95": [
+      0.29838831160153756,
+      0.37371112639677206
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2140.6666666666665
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0400.json",
+    "games": 600,
+    "winRate": 0.3566666666666667,
+    "approx95": [
+      0.3193605837831298,
+      0.3957965037709573
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2145.5
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0450.json",
+    "games": 600,
+    "winRate": 0.355,
+    "approx95": [
+      0.3177442842805108,
+      0.3941006763846703
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2124.6666666666665
+  },
+  {
+    "model": "training/runs/ppo-conservative/ppo-0500.json",
+    "games": 600,
+    "winRate": 0.3641666666666667,
+    "approx95": [
+      0.32664010095428064,
+      0.4034215575998834
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2162.75
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0050.json",
+    "games": 600,
+    "winRate": 0.3233333333333333,
+    "approx95": [
+      0.28713190056055543,
+      0.3617826492154123
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 1994.6666666666667
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0100.json",
+    "games": 600,
+    "winRate": 0.3458333333333333,
+    "approx95": [
+      0.308863651416161,
+      0.38476461136003737
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2121.9166666666665
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0150.json",
+    "games": 600,
+    "winRate": 0.37166666666666665,
+    "approx95": [
+      0.33392961413111566,
+      0.4110366154231251
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2134.3333333333335
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0200.json",
+    "games": 600,
+    "winRate": 0.38083333333333336,
+    "approx95": [
+      0.3428524107844474,
+      0.4203305166587763
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2127.1666666666665
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0250.json",
+    "games": 600,
+    "winRate": 0.36333333333333334,
+    "approx95": [
+      0.3258307696811062,
+      0.40257482542860484
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2115.6666666666665
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0300.json",
+    "games": 600,
+    "winRate": 0.4041666666666667,
+    "approx95": [
+      0.36563012765880276,
+      0.44392257622910436
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2180.1666666666665
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0350.json",
+    "games": 600,
+    "winRate": 0.39,
+    "approx95": [
+      0.3517897410065838,
+      0.42960988432562264
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2173.5833333333335
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0400.json",
+    "games": 600,
+    "winRate": 0.37583333333333335,
+    "approx95": [
+      0.3379836161193643,
+      0.4152629306571414
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2208
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0450.json",
+    "games": 600,
+    "winRate": 0.355,
+    "approx95": [
+      0.3177442842805108,
+      0.3941006763846703
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2152.4166666666665
+  },
+  {
+    "model": "training/runs/ppo-exploratory/ppo-0500.json",
+    "games": 600,
+    "winRate": 0.36583333333333334,
+    "approx95": [
+      0.3282591335133169,
+      0.40511465192975304
+    ],
+    "chance": 0.2899999999999997,
+    "averageScore": 2137.5833333333335
+  }
+]

@@ -6,7 +6,9 @@ import {
   observe,
   assertInvariants,
 } from '../src/game/engine';
-import { sampleWorld } from '../src/ai/search';
+import { sampleWorld, search } from '../src/ai/search';
+import fs from 'node:fs';
+import type { Model } from '../src/ai/network';
 import { seeded } from '../src/game/random';
 describe('Information-set sampling', () => {
   it('samples complete, legal, conserved worlds across all player counts and deck rules', () => {
@@ -44,5 +46,27 @@ describe('Information-set sampling', () => {
     const b = observe(s, 0);
     expect(a).toEqual(b);
     expect(sampleWorld(a, 1234)).toEqual(sampleWorld(b, 1234));
+  });
+  it('makes repeatable legal neural-leaf search decisions without mutating observations', () => {
+    const model = JSON.parse(fs.readFileSync('public/models/champion.json', 'utf8')) as Model;
+    for (const players of [2, 3, 4, 5, 6]) {
+      const s = createGame({ players, seed: 4242, firstPlayer: 0 });
+      while (s.phase === 'choose') applyAction(s, legalActions(s)[0], false);
+      const o = observe(s, s.actor),
+        before = JSON.stringify(o);
+      const options = {
+        samples: 2,
+        maxCandidates: 3,
+        rollout: 'policy' as const,
+        horizon: 'round' as const,
+      };
+      const a = search(model, o, 728, options),
+        b = search(model, o, 728, options);
+      expect(o.legal[a.index]).toBeDefined();
+      expect(a.estimates).toEqual(b.estimates);
+      expect(a.simulations).toBeGreaterThan(0);
+      expect(a.estimates.every((e) => Number.isFinite(e.value))).toBe(true);
+      expect(JSON.stringify(o)).toBe(before);
+    }
   });
 });

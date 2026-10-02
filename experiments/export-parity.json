@@ -1,0 +1,8 @@
+{
+  "checkpoint": "training/runs/ppo-w64/ppo-0900.pt",
+  "model": "public/models/champion.json",
+  "probes": 100,
+  "maximum_absolute_error": 5.023444613172501e-06,
+  "tolerance": 0.0001,
+  "passed": true
+}

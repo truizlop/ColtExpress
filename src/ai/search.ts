@@ -169,6 +169,7 @@ export interface SearchOptions {
   maxCandidates?: number;
   prior?: number;
   rollout?: 'tactical' | 'policy';
+  horizon?: 'game' | 'round';
 }
 export interface SearchResult {
   index: number;
@@ -208,7 +209,17 @@ export function search(
         rr = seeded(rollSeed);
       applyAction(s, o.legal[candidates[ci]], false);
       let steps = 0;
+      let leaf: number | null = null;
       while (s.phase !== 'finished' && steps++ < 1300) {
+        if (
+          options.horizon === 'round' &&
+          s.round > o.round &&
+          s.actor === o.viewer &&
+          ['scheme', 'cover', 'execute'].includes(s.phase)
+        ) {
+          leaf = Math.max(0, Math.min(1, infer(m, observe(s, o.viewer, false)).value));
+          break;
+        }
         const actions = legalActions(s);
         let index = 0;
         if (actions.length > 1) {
@@ -224,6 +235,10 @@ export function search(
             );
         }
         applyAction(s, actions[index], false);
+      }
+      if (leaf !== null) {
+        sums[ci] += leaf;
+        continue;
       }
       if (s.phase !== 'finished') throw new Error('Search rollout did not finish.');
       const win = s.winners.includes(o.viewer) ? 1 / s.winners.length : 0,
