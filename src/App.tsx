@@ -401,7 +401,7 @@ function Results({ o, onNew }: { o: Observation; onNew: () => void }) {
       <h2>
         {o.winners.includes(0)
           ? 'You pulled off the heist.'
-          : `${winnerNames.join(' and ')} ${o.winners.length > 1 ? 'share the win' : 'wins the heist'}.`}
+          : `${winnerNames.join(' and ')} ${o.winners.length > 1 ? 'share the win' : o.team ? 'win the heist' : 'wins the heist'}.`}
       </h2>
       <p>The final haul, including the $1,000 Gunslinger prize.</p>
       <ol>
@@ -415,8 +415,8 @@ function Results({ o, onNew }: { o: Observation; onNew: () => void }) {
                 {bs.map((b) => CHARACTER_INFO[b.character].name).join(' & ')}
                 {p === 0 ? ' (you)' : ''}
                 <small>
-                  {bs.reduce((n, b) => n + b.shots, 0)} shots ·{' '}
-                  {bs.reduce((n, b) => n + b.wounds, 0)} wounds
+                  {bs.reduce((n, b) => n + (o.team ? b.creditedShots : b.shots), 0)}{' '}
+                  {o.team ? 'enemy shots' : 'shots'} · {bs.reduce((n, b) => n + b.wounds, 0)} wounds
                 </small>
               </span>
               <strong>${o.scores[p].toLocaleString()}</strong>

@@ -46,7 +46,9 @@ export function TurnControls({
     : `${o.bandits
         .filter((b) => b.controller === o.actor)
         .map((b) => CHARACTER_INFO[b.character].name)
-        .join(' & ')} ${thinking ? 'is thinking…' : 'is playing'}`;
+        .join(
+          ' & ',
+        )} ${o.team ? (thinking ? 'are thinking…' : 'are playing') : thinking ? 'is thinking…' : 'is playing'}`;
   const slot = o.schedule[o.scheduleIndex],
     turn = slot ? o.roundCard.turns[slot.turn] : null;
   let description =
@@ -149,7 +151,11 @@ export function TurnControls({
                   />
                 ))}
                 {!cards.length ? (
-                  <p className="empty-hand">No cards in hand. Draw to find your next move.</p>
+                  <p className="empty-hand">
+                    {o.phase === 'choose' && !mine
+                      ? 'Your opening card choice is next.'
+                      : 'No cards in hand. Draw to find your next move.'}
+                  </p>
                 ) : null}
               </div>
               {ghost ? (
