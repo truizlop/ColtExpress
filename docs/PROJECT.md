@@ -35,3 +35,5 @@ Western tabletop: warm parchment, charcoal ink, brass and oxblood. Large cutaway
 - https://arxiv.org/abs/1707.06347
 - https://eprints.whiterose.ac.uk/id/eprint/75048/
 - https://arxiv.org/abs/1711.00832
+
+- Rules engine implemented against 2016 edition. 47 tests passing, including 300 complete seeded standard/expert/team games and hidden-information boundary checks. Exact schedules transcribed from official card PDF and all six carriage floor counts inspected. PyTorch 2.14.1 with MPS installed. Original portrait/action/background production art generated.
