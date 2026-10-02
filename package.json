@@ -9,7 +9,7 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "vitest run",
     "test:watch": "vitest",
-    "ai:build": "esbuild training/bridge.ts --bundle --platform=node --format=esm --outfile=training/bridge.mjs",
+    "ai:build": "node training/build.mjs",
     "ai:evaluate": "tsx training/evaluate.ts"
   },
   "dependencies": {

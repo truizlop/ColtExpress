@@ -7,3 +7,4 @@ training/runs/
 playwright-report/
 test-results/
 *.log
+training/bridge.mjs
