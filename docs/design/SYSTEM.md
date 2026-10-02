@@ -1,6 +1,6 @@
 # Tabletop design system
 
-Visual references: desktop-concept.png (1536x1024), mobile-concept.png (portrait). Assets: public/art/{portraits,actions,desert}.png. All gameplay text and controls are live HTML; train, bandits, loot and track are actual Three.js geometry, as requested.
+Visual references: desktop-concept.png (1536x1024), mobile-concept.png (portrait). Assets: public/art/{portraits,actions,desert}.webp (lossless source masters in docs/artwork). All gameplay text and controls are live HTML; train, bandits, loot and track are actual Three.js geometry, as requested.
 
 Palette: parchment #f2e8d4, paper #faf2df, ink #292721, secondary #766853, oxblood #943e32, brass #b9914c. Portraits use six character colors. Body Source Sans 3 (16px, 1.45), display Rye (24px desktop, 19px mobile), controls 15px semibold, captions 12px. Thin ink/brass rules, ticket-corner geometry, 4px or smaller corners. Primary actions oxblood, secondary ink outlines. Focus rings 3px green. Minimum controls 44px.
 

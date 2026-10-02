@@ -7,3 +7,6 @@ Created with the built-in Imagegen tool. Prompts requested original Western edit
 - desert.png: panoramic painted Arizona mesas, pale blue sky, muted apricot cliffs and open cream sand foreground. No train or characters, intended behind the live 3D scene.
 
 Concepts are visual direction references. Required deviations: all game pieces are actual Three.js models as explicitly requested by the user; action cards and labels are live HTML; opponent purse values hidden; correct legal hand sizes, cards and events.
+
+
+Production download optimization: source PNG masters are retained in `docs/artwork/`. The browser loads WebP copies from `public/art/`, encoded at quality 88 without resizing or altering the illustrations. Combined artwork transfer falls from 8.30 MB to 0.99 MB.
