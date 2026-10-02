@@ -93,9 +93,13 @@ def train(args):
         saved=torch.load(args.resume,map_location=device,weights_only=True);net.load_state_dict(saved['state_dict'])
     opt=torch.optim.Adam(net.parameters(),lr=args.lr)
     bridge=Bridge(args.node);out=Path(args.output);out.mkdir(parents=True,exist_ok=True)
-    steps=0;start=time.time();history=[];pool=[]
+    (out/'config.json').write_text(json.dumps(vars(args),indent=2))
+    steps=0;start=time.time();history=[];pool=list(args.pool or [])
+    if pool: bridge.send({'cmd':'pool','paths':pool})
     try:
         for iteration in range(args.iterations):
+            if args.lr_final is not None:
+                for group in opt.param_groups: group['lr']=args.lr+(args.lr_final-args.lr)*iteration/max(1,args.iterations-1)
             data,finished=collect(bridge,net,args,iteration,device);steps+=len(data);net.train()
             adv=np.array([x['adv'] for x in data],dtype=np.float32);adv=(adv-adv.mean())/(adv.std()+1e-8)
             sums=[]
@@ -139,4 +143,4 @@ def train(args):
         if error>=1e-4:raise RuntimeError(f'Inference parity failed: {error}')
     finally:bridge.close()
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--mode',choices=['imitation','ppo'],default='imitation');ap.add_argument('--iterations',type=int,default=40);ap.add_argument('--batch',type=int,default=48);ap.add_argument('--width',type=int,default=64);ap.add_argument('--epochs',type=int,default=3);ap.add_argument('--minibatch',type=int,default=512);ap.add_argument('--lr',type=float,default=3e-4);ap.add_argument('--entropy',type=float,default=.015);ap.add_argument('--gamma',type=float,default=.995);ap.add_argument('--seed',type=int,default=1701);ap.add_argument('--device',choices=['cpu','mps'],default='cpu');ap.add_argument('--threads',type=int,default=4);ap.add_argument('--players',type=int);ap.add_argument('--save-every',type=int,default=10);ap.add_argument('--resume');ap.add_argument('--output',default=str(ROOT/'training/runs/initial'));ap.add_argument('--node',default='node');train(ap.parse_args())
+    ap=argparse.ArgumentParser();ap.add_argument('--mode',choices=['imitation','ppo'],default='imitation');ap.add_argument('--iterations',type=int,default=40);ap.add_argument('--batch',type=int,default=48);ap.add_argument('--width',type=int,default=64);ap.add_argument('--epochs',type=int,default=3);ap.add_argument('--minibatch',type=int,default=512);ap.add_argument('--lr',type=float,default=3e-4);ap.add_argument('--lr-final',type=float);ap.add_argument('--pool',nargs='+');ap.add_argument('--entropy',type=float,default=.015);ap.add_argument('--gamma',type=float,default=.995);ap.add_argument('--seed',type=int,default=1701);ap.add_argument('--device',choices=['cpu','mps'],default='cpu');ap.add_argument('--threads',type=int,default=4);ap.add_argument('--players',type=int);ap.add_argument('--save-every',type=int,default=10);ap.add_argument('--resume');ap.add_argument('--output',default=str(ROOT/'training/runs/initial'));ap.add_argument('--node',default='node');train(ap.parse_args())

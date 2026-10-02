@@ -4,7 +4,7 @@ import type {Action,GameConfig,GameState} from '../game/types';
 export type Difficulty='greenhorn'|'bandit'|'outlaw'|'legend';
 export interface Settings {difficulty:Difficulty;speed:'normal'|'fast';sound:boolean}
 const SAVE_KEY='colt-express-save-v1';
-function load(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return null;const saved=JSON.parse(raw);if(saved.version!==1||saved.game.version!==1)throw new Error();assertInvariants(saved.game);return saved as {version:1;game:GameState;settings:Settings};}catch{return null;}}
+function load(){try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)return null;const saved=JSON.parse(raw);if(saved.version!==1||saved.game.version!==1||!['greenhorn','bandit','outlaw','legend'].includes(saved.settings.difficulty)||!['normal','fast'].includes(saved.settings.speed)||typeof saved.settings.sound!=='boolean')throw new Error();assertInvariants(saved.game);return saved as {version:1;game:GameState;settings:Settings};}catch{return null;}}
 export function useGame(){const [initial]=useState(load);const [game,setGame]=useState<GameState|null>(initial?.game??null),[settings,setSettings]=useState<Settings>(initial?.settings??{difficulty:'bandit',speed:'normal',sound:false});
  const [status,setStatus]=useState<'loading'|'ready'|'error'>('loading'),[error,setError]=useState(''),[saveError,setSaveError]=useState(''),[thinking,setThinking]=useState(false),[modelName,setModelName]=useState('');
  const worker=useRef<Worker|null>(null),request=useRef(0),latest=useRef(game),audio=useRef<AudioContext|null>(null);latest.current=game;

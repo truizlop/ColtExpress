@@ -22,7 +22,7 @@ const rl=readline.createInterface({input:process.stdin,crlfDelay:Infinity});
 for await(const line of rl){try{const msg=JSON.parse(line);if(msg.cmd==='start'){
  envs=[];completed=[];rng=seeded(msg.seed??1);runningSeed=msg.seed??1;
  for(let id=0;id<(msg.batch??64);id++){
-  const players=msg.players??(2+Math.floor(rng()*5));const state=createGame({players,seed:runningSeed+id*7919,expert:!!msg.expert});
+  const players=msg.players??(2+Math.floor(rng()*5));const state=createGame({players,seed:runningSeed+id*7919,expert:msg.expert??(players>2&&rng()<.15)});
   const policies=state.players.map(()=>{const r=rng();return msg.mode==='imitation'||r<.65?'learner':r<.76?'tactical':r<.84?'greedy':r<.92?'aggressive':pool.length?'past':'tactical';});
   policies[Math.floor(rng()*players)]='learner';const e={id,episode:episode++,state,policies,steps:0};settle(e);envs.push(e);
  }console.log(JSON.stringify(response()));

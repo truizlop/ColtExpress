@@ -37,3 +37,11 @@ Western tabletop: warm parchment, charcoal ink, brass and oxblood. Large cutaway
 - https://arxiv.org/abs/1711.00832
 
 - Rules engine implemented against 2016 edition. 47 tests passing, including 300 complete seeded standard/expert/team games and hidden-information boundary checks. Exact schedules transcribed from official card PDF and all six carriage floor counts inspected. PyTorch 2.14.1 with MPS installed. Original portrait/action/background production art generated.
+
+## Working checkpoint (2026-10-02, ~23:15 Madrid)
+
+- Full responsive UI implemented and committed (923ab22, 1cbe14a). Mobile complete four-player game verified in IAB. Six-player expert/Ghost game in progress; keep/discard and saved-game recovery tested. Model missing-file failure and explicit Reload AI recovery verified. New errors since removing Drei Html labels: none. Original generated art compressed to 0.99 MB total with source masters retained.
+- 52 tests pass including sampled-world conservation/legal-action/hidden-seed checks. Root information-set Monte Carlo search implemented; Legend uses 12 samples × up to 6 candidates, complete tactical-policy rollouts. Uniform beliefs are approximate. Runtime around 1.1 s on a cold four-player decision. Full 200-game search evaluation still running.
+- Completed two imitation architectures (32/64), 3,840 games each. Completed two width-32 PPO runs (32,000 games each). 20 checkpoints × 600 validation games. Best observed PPO exploratory iteration 300: 40.42% wins against tactical baseline vs average 29% chance (mixed 2–6 players). This is model-selection evidence, not a final holdout or a human-strength claim.
+- Longer runs currently active: ppo-w64 (1,000 iterations ×64, lr .0003→.00005, seed24719, starts imitation-w64) and ppo-refined (1,000 ×64, lr .00008→.00002, entropy .03, seed34719, starts PPO exploratory300). Both seeded with strongest previous opponents, checkpoint every100.
+- No remote created or push performed. Remaining: finish model experiments/holdout, strength levels validation, production subpath/browser QA including duel, responsive fidelity comparison, documentation/model card/repro commands, CI+Pages, final local gates, public repo and deployment.
