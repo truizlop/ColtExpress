@@ -10,7 +10,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "ai:build": "node training/build.mjs",
-    "ai:evaluate": "tsx training/evaluate.ts"
+    "ai:evaluate": "tsx training/evaluate.ts",
+    "format": "prettier --write src tests training/*.ts training/*.mjs vite.config.ts",
+    "format:check": "prettier --check src tests training/*.ts training/*.mjs vite.config.ts"
   },
   "dependencies": {
     "@fontsource/rye": "^5.3.0",
@@ -29,9 +31,14 @@
     "@types/three": "^0.180.0",
     "@vitejs/plugin-react": "^5.0.0",
     "esbuild": "^0.25.0",
+    "prettier": "^3.9.9",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0",
     "vite": "^7.1.0",
     "vitest": "^3.2.0"
-  }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.19.0"
 }

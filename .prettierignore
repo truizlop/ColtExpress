@@ -1,0 +1,7 @@
+node_modules
+dist
+training/runs
+training/bridge.mjs
+public/models
+.venv
+pnpm-lock.yaml

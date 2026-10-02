@@ -1,4 +1,60 @@
-import type {Observation} from '../game/types';
-import {CHARACTER_INFO} from '../game/data';
-import {Portrait} from './Portrait';
-export function PlayerRail({o}:{o:Observation}){return <div className="opponent-rail" aria-label="Opponents">{o.players.filter(p=>p.id!==0).map(p=>{const bs=o.bandits.filter(b=>b.controller===p.id),shots=bs.reduce((n,b)=>n+b.shots,0),loot=bs.flatMap(b=>b.loot);return <section key={p.id} className={'opponent '+(o.actor===p.id&&o.phase!=='finished'?'current':'')}><div className="opponent-portraits">{bs.map(b=><Portrait key={b.id} character={b.character}/>)}</div><div className="opponent-detail"><h2 style={{color:CHARACTER_INFO[bs[0].character].color}}>{bs.map(b=>CHARACTER_INFO[b.character].name).join(' & ')}</h2><div className="opponent-stats"><span title="Purse values stay hidden">{loot.filter(l=>l.kind==='purse').length} {loot.filter(l=>l.kind==='purse').length===1?'purse':'purses'}</span>{loot.some(l=>l.kind==='jewel')?<span>{loot.filter(l=>l.kind==='jewel').length} {loot.filter(l=>l.kind==='jewel').length===1?'gem':'gems'}</span>:null}{loot.some(l=>l.kind==='strongbox')?<span>{loot.filter(l=>l.kind==='strongbox').length} {loot.filter(l=>l.kind==='strongbox').length===1?'case':'cases'}</span>:null}<span>{p.handCount} cards</span></div><div className="ammunition" aria-label={`${shots} shots fired`}>{Array.from({length:o.team?12:6},(_,i)=><i key={i} className={i<shots?'spent':''}/>)}<small>{shots} fired</small></div></div></section>;})}</div>;}
+import type { Observation } from '../game/types';
+import { CHARACTER_INFO } from '../game/data';
+import { Portrait } from './Portrait';
+export function PlayerRail({ o }: { o: Observation }) {
+  return (
+    <div className="opponent-rail" aria-label="Opponents">
+      {o.players
+        .filter((p) => p.id !== 0)
+        .map((p) => {
+          const bs = o.bandits.filter((b) => b.controller === p.id),
+            shots = bs.reduce((n, b) => n + b.shots, 0),
+            loot = bs.flatMap((b) => b.loot);
+          return (
+            <section
+              key={p.id}
+              className={
+                'opponent ' + (o.actor === p.id && o.phase !== 'finished' ? 'current' : '')
+              }
+            >
+              <div className="opponent-portraits">
+                {bs.map((b) => (
+                  <Portrait key={b.id} character={b.character} />
+                ))}
+              </div>
+              <div className="opponent-detail">
+                <h2 style={{ color: CHARACTER_INFO[bs[0].character].color }}>
+                  {bs.map((b) => CHARACTER_INFO[b.character].name).join(' & ')}
+                </h2>
+                <div className="opponent-stats">
+                  <span title="Purse values stay hidden">
+                    {loot.filter((l) => l.kind === 'purse').length}{' '}
+                    {loot.filter((l) => l.kind === 'purse').length === 1 ? 'purse' : 'purses'}
+                  </span>
+                  {loot.some((l) => l.kind === 'jewel') ? (
+                    <span>
+                      {loot.filter((l) => l.kind === 'jewel').length}{' '}
+                      {loot.filter((l) => l.kind === 'jewel').length === 1 ? 'gem' : 'gems'}
+                    </span>
+                  ) : null}
+                  {loot.some((l) => l.kind === 'strongbox') ? (
+                    <span>
+                      {loot.filter((l) => l.kind === 'strongbox').length}{' '}
+                      {loot.filter((l) => l.kind === 'strongbox').length === 1 ? 'case' : 'cases'}
+                    </span>
+                  ) : null}
+                  <span>{p.handCount} cards</span>
+                </div>
+                <div className="ammunition" aria-label={`${shots} shots fired`}>
+                  {Array.from({ length: o.team ? 12 : 6 }, (_, i) => (
+                    <i key={i} className={i < shots ? 'spent' : ''} />
+                  ))}
+                  <small>{shots} fired</small>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+    </div>
+  );
+}

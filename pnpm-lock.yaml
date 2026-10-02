@@ -51,6 +51,9 @@ importers:
       esbuild:
         specifier: ^0.25.0
         version: 0.25.12
+      prettier:
+        specifier: ^3.9.9
+        version: 3.9.9
       tsx:
         specifier: ^4.20.0
         version: 4.23.15
@@ -1028,6 +1031,11 @@ packages:
 
   potpack@1.0.2:
     resolution: {integrity: sha512-choctRBIV9EMT9WGAZHn3V7t0Z2pMQyl0EZE6pFc/6ml3ssw7Dlf/oAOvFwjm1HVsqfQN8GfeFyJ+d8tRzqueQ==}
+
+  prettier@3.9.9:
+    resolution: {integrity: sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   promise-worker-transferable@1.0.4:
     resolution: {integrity: sha512-bN+0ehEnrXfxV2ZQvU2PetO0n4gqBD4ulq3MI1WOPLgr7/Mg9yRQkX5+0v1vagr74ZTsl7XtzlaYDo2EuCeYJw==}
@@ -2113,6 +2121,8 @@ snapshots:
       source-map-js: 1.2.2
 
   potpack@1.0.2: {}
+
+  prettier@3.9.9: {}
 
   promise-worker-transferable@1.0.4:
     dependencies:
