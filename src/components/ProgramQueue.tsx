@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Observation } from '../game/types';
+import { ACTION_KINDS } from '../game/types';
 import { CHARACTER_INFO, ACTION_INFO } from '../game/data';
 export function ProgramQueue({ o }: { o: Observation }) {
-  const [expanded, setExpanded] = useState(false),
+  const [expanded, setExpanded] = useState(true),
     ref = useRef<HTMLOListElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -11,7 +12,11 @@ export function ProgramQueue({ o }: { o: Observation }) {
       if (current) {
         const item = current as HTMLElement;
         el.scrollTop = item.offsetTop - el.offsetTop - el.clientHeight / 2 + item.clientHeight / 2;
-      } else el.scrollTop = el.scrollHeight;
+        el.scrollLeft = item.offsetLeft - el.offsetLeft - el.clientWidth / 2 + item.clientWidth / 2;
+      } else {
+        el.scrollTop = el.scrollHeight;
+        el.scrollLeft = el.scrollWidth;
+      }
     }
   }, [o.queue.length, o.executionIndex]);
   return (
@@ -45,15 +50,39 @@ export function ProgramQueue({ o }: { o: Observation }) {
             return (
               <li key={i} className={(resolved ? 'resolved ' : '') + (active ? 'resolving' : '')}>
                 <span className="queue-number">{i + 1}</span>
-                <i
+                <svg
                   className="queue-marker"
-                  style={{ background: b ? CHARACTER_INFO[b.character].color : '#947d59' }}
-                />
+                  viewBox="0 0 24 32"
+                  aria-hidden="true"
+                  style={{ color: b ? CHARACTER_INFO[b.character].color : '#947d59' }}
+                >
+                  <path
+                    fill="currentColor"
+                    stroke="#392e23"
+                    strokeWidth="1.2"
+                    d="M8 1h8l2 7 4 2v3H2v-3l4-2zm-2 13h12l5 9-5 2-1-5 1 11h-5l-1-6-1 6H6l1-11-1 5-5-2z"
+                  />
+                </svg>
                 <span className="queue-owner">
                   {b ? CHARACTER_INFO[b.character].name : `Player ${q.controller + 1}`}
                 </span>
-                <span className={'queue-action ' + (q.kind === null ? 'concealed' : '')}>
-                  {q.kind ? ACTION_INFO[q.kind].name : '?'}
+                <span
+                  className={'queue-action ' + (q.kind === null ? 'concealed' : '')}
+                  aria-label={q.kind ? ACTION_INFO[q.kind].name : 'Face-down card'}
+                >
+                  {q.kind ? (
+                    <>
+                      <strong>{ACTION_INFO[q.kind].name}</strong>
+                      <span
+                        className="action-art"
+                        style={{
+                          backgroundPosition: `${(ACTION_KINDS.indexOf(q.kind) % 3) * 50}% ${Math.floor(ACTION_KINDS.indexOf(q.kind) / 3) * 100}%`,
+                        }}
+                      />
+                    </>
+                  ) : (
+                    <span className="sr-only">Face down</span>
+                  )}
                   {q.hidden && q.kind !== null && !q.revealed ? <small>hidden</small> : null}
                 </span>
               </li>

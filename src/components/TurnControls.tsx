@@ -89,6 +89,13 @@ export function TurnControls({
     const action = options.find((a) => a.hidden === hidden) ?? options[0];
     if (action) onAction(action);
   };
+  const equivalent = (card: Card) =>
+    cards.find(
+      (c) =>
+        c.kind === card.kind &&
+        c.bandit === card.bandit &&
+        legal.some((a) => 'card' in a && a.card === c.id),
+    ) ?? card;
   const cards = o.phase === 'choose' && mine ? o.selectionCards : hand;
   return (
     <section className="turn-area">
@@ -113,6 +120,7 @@ export function TurnControls({
               {own.reduce((n, b) => n + b.wounds, 0)} wounds · {o.players[0].deckCount} in deck
             </p>
           </div>
+          <p className="your-power">{CHARACTER_INFO[own[0].character].power}</p>
         </aside>
         <div className="decision-area">
           {o.phase === 'scheme' || o.phase === 'cover' || o.phase === 'choose' ? (
@@ -121,17 +129,22 @@ export function TurnControls({
                 className="hand-scroll"
                 aria-label={o.phase === 'choose' ? 'Opening card choices' : 'Your action cards'}
               >
-                {groupCards(cards).map(({ card, count }) => (
+                {(o.phase === 'choose'
+                  ? groupCards(cards)
+                  : cards.map((card) => ({ card, count: 1 }))
+                ).map(({ card, count }) => (
                   <ActionCard
                     key={card.id}
                     card={card}
                     count={count}
                     character={o.team ? o.bandits[card.bandit].character : undefined}
-                    disabled={!mine || !legal.some((a) => 'card' in a && a.card === card.id)}
+                    disabled={
+                      !mine || !legal.some((a) => 'card' in a && a.card === equivalent(card).id)
+                    }
                     onClick={() =>
                       o.phase === 'choose'
-                        ? onAction({ kind: 'choose', card: card.id })
-                        : play(card)
+                        ? onAction({ kind: 'choose', card: equivalent(card).id })
+                        : play(equivalent(card))
                     }
                   />
                 ))}

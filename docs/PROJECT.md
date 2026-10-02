@@ -45,3 +45,10 @@ Western tabletop: warm parchment, charcoal ink, brass and oxblood. Large cutaway
 - Completed two imitation architectures (32/64), 3,840 games each. Completed two width-32 PPO runs (32,000 games each). 20 checkpoints × 600 validation games. Best observed PPO exploratory iteration 300: 40.42% wins against tactical baseline vs average 29% chance (mixed 2–6 players). This is model-selection evidence, not a final holdout or a human-strength claim.
 - Longer runs currently active: ppo-w64 (1,000 iterations ×64, lr .0003→.00005, seed24719, starts imitation-w64) and ppo-refined (1,000 ×64, lr .00008→.00002, entropy .03, seed34719, starts PPO exploratory300). Both seeded with strongest previous opponents, checkpoint every100.
 - No remote created or push performed. Remaining: finish model experiments/holdout, strength levels validation, production subpath/browser QA including duel, responsive fidelity comparison, documentation/model card/repro commands, CI+Pages, final local gates, public repo and deployment.
+
+## Visual revision checkpoint (2026-10-03)
+
+- Rebuilt the visual treatment to better match the original desktop/mobile concepts, including new standalone logo, comic portrait atlas, transparent action art, card backs and material atlas; real Three.js scenery and textured train.
+- Verified 320px, 390px, 1024px and 1536px layouts in IAB; no horizontal document overflow. Duplicate hand-card actions work; modal Escape restores focus. Existing rules tests and new neural-leaf search test pass (56 total). Production build passes.
+- Automatic approval review rejected resetting the original saved QA game, so it was preserved. Further visual QA uses a separate localhost origin, without altering that save.
+- Full-game search did not outperform policy-only on the initial 200-game comparison. New one-round neural-policy rollout/value-leaf search scored 44.5% vs policy-only 38.0% on the paired initial 200-game set; 600-game validation is running before any adoption. No human strength claim.

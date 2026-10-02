@@ -1,0 +1,1030 @@
+@layer refinement {
+  :root {
+    --paper: #f0e4ce;
+    --surface: #f8eed9;
+    --muted: #715f48;
+  }
+  body {
+    background-color: var(--paper);
+    background-image: url('/art/materials.webp');
+    background-size: 200% 200%;
+    background-position: right top;
+    background-attachment: fixed;
+  }
+  h2,
+  h3,
+  legend {
+    font-family: 'Alfa Slab One', Georgia, serif;
+    font-weight: 400;
+  }
+  .topbar {
+    height: 78px;
+    margin: 0 28px;
+    padding: 0 12px;
+    border-bottom: 2px solid #4d3829;
+  }
+  .wordmark {
+    display: block;
+    width: 410px;
+    height: 76px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .wordmark img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .topbar nav button {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 15px;
+  }
+  .tabletop-header {
+    border-bottom: 1px solid #b59a74;
+  }
+  .opponent-rail {
+    padding: 13px 36px;
+    min-height: 119px;
+  }
+  .opponent {
+    gap: 15px;
+    min-width: 222px;
+    padding: 0 26px;
+  }
+  .portrait {
+    background-image: url('/art/portraits-comic.webp');
+  }
+  .opponent .portrait {
+    width: 93px;
+    height: 93px;
+  }
+  .opponent h2 {
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+  }
+  .opponent-stats {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .ammunition {
+    gap: 4px;
+    height: 26px;
+    margin-top: 7px;
+  }
+  .ammunition i {
+    width: 8px;
+    height: 23px;
+    border-radius: 5px 5px 1px 1px;
+    background: #c6ad72;
+    box-shadow:
+      inset 2px 0 #ead6a1,
+      inset -2px 0 #a38651;
+  }
+  .ammunition i.spent {
+    opacity: 0.42;
+    background: #65523d;
+    box-shadow: none;
+  }
+  .round-title > span {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .round-title > strong {
+    font-family: 'Alfa Slab One', Georgia, serif;
+    font-size: 24px;
+  }
+  .round-event strong {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .round-strip {
+    border-bottom: 0;
+  }
+  .play-surface {
+    grid-template-columns: minmax(0, 1fr) 258px;
+    height: clamp(420px, 48vh, 550px);
+  }
+  .train-stage {
+    isolation: isolate;
+  }
+  .train-stage:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 6;
+    box-shadow:
+      inset 0 12px 22px -18px #61421d,
+      inset 0 -12px 25px -22px #61421d;
+  }
+  .car-label {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 10px;
+    background: #eee0bfa8;
+    border: 0;
+    border-bottom: 1px solid #9b7d4d;
+    padding: 2px 8px;
+  }
+  .pawn-label {
+    font-size: 10px;
+    background: #eee3cbb0;
+  }
+  .program-panel {
+    padding: 18px 17px 14px;
+    margin: 17px 19px 17px 0;
+    background-image: url('/art/materials.webp');
+    background-size: 200% 200%;
+    background-position: right top;
+    border-color: #9d7b4e;
+    box-shadow:
+      inset 0 0 0 4px #e9d9bd,
+      inset 0 0 0 5px #ad8b5b,
+      0 4px 10px #65482820;
+  }
+  .program-heading h2 {
+    font-size: 21px;
+  }
+  .program-heading > span {
+    font-size: 11px;
+  }
+  .program-list {
+    margin: 8px 0;
+    position: relative;
+  }
+  .program-list li {
+    min-height: 81px;
+    padding: 5px 4px;
+    display: grid;
+    grid-template-columns: 16px 20px 1fr 49px;
+    gap: 6px;
+  }
+  .program-list li.resolving {
+    background: #faf1d9b0;
+    outline-color: #916b36;
+  }
+  .program-list li.resolved {
+    opacity: 0.44;
+  }
+  .queue-number {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 14px;
+    color: #8a7252;
+  }
+  .queue-marker {
+    width: 19px;
+    height: 27px;
+    border-radius: 0;
+  }
+  .queue-owner {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 11px;
+  }
+  .queue-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 48px;
+    min-width: 0;
+    height: 66px;
+    padding: 4px 3px;
+    border: 1px solid #a88a5b;
+    border-radius: 3px;
+    box-shadow: 1px 2px 2px #67471f30;
+    background: #f3e7cd;
+    overflow: hidden;
+  }
+  .queue-action strong {
+    font-family: 'Alfa Slab One', Georgia, serif;
+    font-size: 7px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .queue-action .action-art {
+    width: 41px;
+    height: 41px;
+    flex-shrink: 0;
+  }
+  .queue-action small {
+    position: absolute;
+    margin-top: 49px;
+    font-size: 7px;
+    line-height: 1;
+    color: #643d20;
+  }
+  .queue-action.concealed {
+    background: #775132 url('/art/card-back.webp') center/cover;
+    border: 1px solid #7b5736;
+  }
+  .program-list li.queue-empty {
+    display: block;
+    border: 0;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 12px;
+    padding: 42px 14px;
+  }
+  .queue-note {
+    font-size: 11px;
+  }
+  .turn-area {
+    padding: 16px 34px 19px;
+    border-top: 1px solid #96794e;
+    box-shadow: inset 0 3px #cfba96;
+  }
+  .turn-prompt {
+    margin-bottom: 13px;
+    min-height: 56px;
+  }
+  .turn-prompt h2 {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+  .turn-prompt h2:before,
+  .turn-prompt h2:after {
+    width: 48px;
+    background: #a2855b;
+  }
+  .turn-prompt p {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 14px;
+  }
+  .hand-layout {
+    grid-template-columns: 225px minmax(0, 1fr) 178px;
+    gap: 24px;
+    align-items: center;
+  }
+  .your-bandit {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 10px 11px;
+    align-content: center;
+    padding-right: 16px;
+  }
+  .your-bandit .portrait {
+    width: 100px;
+    height: 100px;
+  }
+  .your-bandit h2 {
+    font-size: 17px;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .your-loot {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 30px;
+    line-height: 1.25;
+  }
+  .your-bandit .your-power {
+    grid-column: 1/-1;
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 11px;
+    line-height: 1.55;
+    margin-top: 6px;
+    color: #776247;
+  }
+  .your-caption {
+    display: none;
+  }
+  .hand-scroll {
+    min-height: 219px;
+    gap: 10px;
+    padding: 5px 5px 9px;
+  }
+  .action-card {
+    width: 143px;
+    height: 205px;
+    padding: 17px 13px 16px;
+    border: 1px solid #b5986d;
+    border-radius: 5px;
+    background-color: #f6ecd8;
+    background-image: url('/art/card-frame.svg'), url('/art/materials.webp');
+    background-size:
+      100% 100%,
+      200% 200%;
+    background-position:
+      center,
+      right top;
+    box-shadow: 1px 3px 4px #70563135;
+  }
+  .action-card:before,
+  .action-card:after {
+    display: none;
+  }
+  .action-card:hover:not(:disabled) {
+    background-color: #fff4da;
+    background-image: url('/art/card-frame.svg'), url('/art/materials.webp');
+    background-size:
+      100% 100%,
+      200% 200%;
+    background-position:
+      center,
+      right top;
+    box-shadow: 1px 6px 10px #70563138;
+    border-color: #76522e;
+  }
+  .action-card-title {
+    font-family: 'Alfa Slab One', Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+  }
+  .action-art {
+    background-image: url('/art/actions-transparent.webp');
+    mix-blend-mode: multiply;
+  }
+  .action-card-foot {
+    justify-content: center;
+    font-size: 11px;
+  }
+  .action-card-foot > span {
+    max-width: none;
+    text-align: center;
+  }
+  .action-card-foot b {
+    margin-left: 5px;
+  }
+  .action-card:disabled {
+    opacity: 0.7;
+  }
+  .hand-actions .primary {
+    font-family: 'Roboto Slab', Georgia, serif;
+    font-size: 18px;
+    padding: 15px 12px;
+    box-shadow:
+      inset 0 0 0 3px #ffffff14,
+      0 2px 1px #552716;
+    border-radius: 3px;
+  }
+  .deck-stack {
+    width: 41px;
+    height: 56px;
+  }
+  .deck-stack i {
+    background: #775132 url('/art/card-back.webp') center/cover;
+    border: 1px solid #a2865c;
+    outline: none;
+    box-shadow: 1px 1px 2px #6e4d2c70;
+  }
+  .game-footer {
+    border-top: 1px solid #b29976;
+    margin: 0 28px;
+    padding: 12px 8px;
+  }
+  dialog {
+    background-color: var(--paper);
+    background-image: url('/art/materials.webp');
+    background-size: 200% 200%;
+    background-position: right top;
+  }
+  dialog h2 {
+    font-size: 27px;
+    text-transform: uppercase;
+  }
+  .setup-intro {
+    font-family: 'Roboto Slab', Georgia, serif;
+  }
+  .character-picker button {
+    background: transparent;
+  }
+  .character-picker .portrait {
+    width: 73px;
+    height: 73px;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  body,
+  dialog,
+  .program-panel {
+    background-image: linear-gradient(#f4e9d5c9, #f4e9d5c9), url('/art/materials.webp');
+    background-size:
+      100% 100%,
+      200% 200%;
+    background-position:
+      center,
+      right top;
+  }
+  .action-card,
+  .action-card:hover:not(:disabled) {
+    background-image:
+      url('/art/card-frame.svg'), linear-gradient(#f5edd8c9, #f5edd8c9), url('/art/materials.webp');
+    background-size:
+      100% 100%,
+      100% 100%,
+      200% 200%;
+    background-position:
+      center,
+      center,
+      right top;
+  }
+  .queue-owner {
+    display: block;
+  }
+  .program-heading > span {
+    display: block;
+  }
+  .your-bandit {
+    flex-direction: row;
+  }
+  .queue-action {
+    margin-left: 0;
+  }
+  @media (min-width: 1201px) {
+    .tabletop-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+    }
+    .opponent-rail {
+      padding-right: 22px;
+    }
+    .round-strip {
+      border-top: 0;
+      border-left: 1px solid #b59a7470;
+      margin: 9px 20px 9px 0;
+      padding: 0 0 0 24px;
+      gap: 0 15px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-content: center;
+    }
+    .round-title {
+      display: block;
+      grid-column: 1/-1;
+      min-height: 35px;
+    }
+    .round-title > span {
+      margin-right: 12px;
+    }
+    .round-title > strong {
+      font-size: 22px;
+    }
+    .round-turns {
+      gap: 2px;
+    }
+    .round-event {
+      border: 0;
+      padding: 0;
+      margin: 3px 0 0;
+      grid-column: 1;
+    }
+    .round-event > span {
+      display: none;
+    }
+    .round-event strong {
+      font-size: 11px;
+    }
+    .log-button {
+      grid-column: 2;
+      grid-row: 2/4;
+      padding: 7px;
+    }
+    .log-button span {
+      display: none;
+    }
+  }
+  @media (min-width: 1201px) {
+    .tabletop-header:has(.opponent:nth-child(4)) {
+      display: block;
+    }
+    .tabletop-header:has(.opponent:nth-child(4)) .opponent-rail {
+      min-height: 106px;
+    }
+    .tabletop-header:has(.opponent:nth-child(4)) .opponent {
+      min-width: 220px;
+      flex-basis: 0;
+    }
+    .tabletop-header:has(.opponent:nth-child(4)) .opponent .portrait {
+      width: 80px;
+      height: 80px;
+    }
+    .tabletop-header:has(.opponent:nth-child(4)) .opponent h2 {
+      font-size: 18px;
+    }
+    .tabletop-header:has(.opponent:nth-child(4)) .round-strip {
+      display: flex;
+      margin: 0;
+      padding: 5px 36px;
+      min-height: 51px;
+      gap: 20px;
+      border-left: 0;
+      border-top: 1px solid #b59a7470;
+    }
+    .tabletop-header:has(.opponent:nth-child(4)) .round-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .tabletop-header:has(.opponent:nth-child(4)) .round-event {
+      margin-left: auto;
+    }
+    .tabletop-header:has(.opponent:nth-child(4)) .log-button span {
+      display: inline;
+    }
+  }
+  @media (max-width: 1200px) and (min-width: 701px) {
+    .topbar {
+      height: 79px;
+    }
+    .wordmark {
+      width: 340px;
+      height: 77px;
+    }
+    .opponent-rail {
+      min-height: 101px;
+      padding: 10px 28px;
+    }
+    .opponent {
+      min-width: 201px;
+      padding: 0 17px;
+      gap: 10px;
+    }
+    .opponent .portrait {
+      width: 77px;
+      height: 77px;
+    }
+    .opponent h2 {
+      font-size: 17px;
+    }
+    .play-surface {
+      grid-template-columns: minmax(0, 1fr) 220px;
+      height: 440px;
+    }
+    .program-panel {
+      padding: 14px 11px;
+      margin: 15px 15px 15px 0;
+    }
+    .program-heading h2 {
+      font-size: 19px;
+    }
+    .queue-owner {
+      font-size: 10px;
+    }
+    .program-list li {
+      grid-template-columns: 14px 17px 1fr 44px;
+      gap: 4px;
+    }
+    .queue-action {
+      width: 44px;
+    }
+    .hand-layout {
+      grid-template-columns: 155px minmax(0, 1fr) 147px;
+      gap: 16px;
+    }
+    .your-bandit {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: 2px;
+    }
+    .your-bandit .portrait {
+      width: 75px;
+      height: 75px;
+    }
+    .your-bandit .your-power {
+      display: none;
+    }
+    .your-bandit h2 {
+      font-size: 15px;
+    }
+    .your-loot {
+      font-size: 26px;
+    }
+    .hand-actions .primary {
+      font-size: 16px;
+    }
+    .action-card {
+      width: 127px;
+      height: 184px;
+      padding: 14px 11px;
+    }
+    .action-card-title {
+      font-size: 15px;
+    }
+    .hand-scroll {
+      min-height: 197px;
+    }
+  }
+  @media (max-width: 700px) {
+    .topbar {
+      height: 72px;
+      margin: 0 13px;
+      padding: 0 0 0 2px;
+      border-bottom-width: 1px;
+    }
+    .wordmark {
+      width: 270px;
+      height: 70px;
+    }
+    .topbar nav {
+      gap: 0;
+    }
+    .topbar nav .sound-button {
+      display: none;
+    }
+    .topbar nav .mobile-menu {
+      display: flex;
+      border-left: 0;
+      padding: 10px 7px;
+    }
+    .opponent-rail {
+      min-height: 83px;
+      padding: 8px 17px;
+      gap: 0;
+    }
+    .opponent {
+      min-width: 160px;
+      padding: 0 13px;
+      gap: 7px;
+    }
+    .opponent .portrait {
+      width: 61px;
+      height: 61px;
+    }
+    .opponent h2 {
+      font-size: 13px;
+    }
+    .opponent-stats {
+      font-size: 10px;
+      gap: 4px;
+      margin-top: 2px;
+    }
+    .opponent-stats span + span:before {
+      margin-right: 4px;
+    }
+    .ammunition {
+      height: 17px;
+      margin-top: 3px;
+      gap: 3px;
+    }
+    .ammunition i {
+      width: 5px;
+      height: 15px;
+    }
+    .ammunition small {
+      display: none;
+    }
+    .opponent.current:after {
+      bottom: -6px;
+      left: 9px;
+      right: 15px;
+      height: 2px;
+    }
+    .round-strip {
+      padding: 5px 16px;
+      min-height: 56px;
+      gap: 7px;
+      justify-content: space-between;
+    }
+    .round-title {
+      gap: 8px;
+    }
+    .round-title > span {
+      font-size: 11px;
+    }
+    .round-title > strong {
+      font-size: 18px;
+    }
+    .turn-symbol {
+      min-width: 23px;
+      height: 35px;
+      padding: 3px 4px 8px;
+    }
+    .turn-symbol svg {
+      width: 16px;
+    }
+    .round-turns {
+      gap: 1px;
+    }
+    .round-event,
+    .log-button {
+      display: none;
+    }
+    .play-surface {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: 0;
+    }
+    .train-stage {
+      height: 326px;
+      min-height: 326px;
+    }
+    .train-controls {
+      left: 15px;
+      right: 15px;
+      bottom: 12px;
+    }
+    .train-controls button {
+      width: 44px;
+      height: 44px;
+      min-height: 44px;
+    }
+    .train-controls button.fit-train {
+      width: auto;
+      height: 44px;
+      min-height: 44px;
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+    .car-label {
+      font-size: 9px;
+    }
+    .pawn-label {
+      font-size: 9px;
+    }
+    .program-panel {
+      padding: 0 15px;
+      margin: 0;
+      border: 0;
+      border-top: 1px solid #af926a;
+      border-bottom: 1px solid #af926a;
+      box-shadow:
+        inset 0 2px #e7d4b2,
+        inset 0 -2px #e7d4b2;
+    }
+    .program-heading {
+      cursor: pointer;
+      min-height: 44px;
+      width: 100%;
+      justify-content: space-between;
+      padding: 0 0 0 1px;
+      border-bottom: 0;
+    }
+    .program-heading h2 {
+      font-size: 17px;
+    }
+    .program-heading > span {
+      font-size: 11px;
+    }
+    .program-heading svg {
+      display: inline;
+      margin-left: 5px;
+    }
+    .program-list {
+      display: none;
+    }
+    .program-panel.expanded .program-list {
+      display: flex;
+      gap: 12px;
+      flex: none;
+      height: 91px;
+      max-height: none;
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0;
+      padding: 0 3px 7px;
+    }
+    .program-list li {
+      flex: 0 0 64px;
+      display: block;
+      position: relative;
+      min-height: 0;
+      height: 80px;
+      padding: 0 7px 13px;
+      border: 0;
+    }
+    .queue-action {
+      margin: 0;
+      width: 49px;
+      height: 66px;
+    }
+    .queue-action strong {
+      font-size: 7px;
+    }
+    .queue-number {
+      position: absolute;
+      left: -5px;
+      bottom: 13px;
+      z-index: 1;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #947041;
+      border-radius: 50%;
+      font-size: 11px;
+      background: #f5e8cb;
+      display: grid;
+      place-items: center;
+    }
+    .queue-marker {
+      position: absolute;
+      right: -3px;
+      bottom: 13px;
+      z-index: 1;
+      width: 17px;
+      height: 22px;
+      filter: drop-shadow(1px 1px #efddba);
+    }
+    .queue-owner {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 9px;
+    }
+    .program-list li.queue-empty {
+      min-width: 100%;
+      padding: 21px 10px;
+      text-align: left;
+      font-size: 12px;
+    }
+    .queue-note {
+      display: none;
+    }
+    .turn-area {
+      padding: 13px 14px 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 137px;
+      gap: 13px 12px;
+    }
+    .hand-layout {
+      display: contents;
+    }
+    .your-bandit {
+      order: 0;
+      grid-column: 1;
+      display: flex;
+      border: 0;
+      padding: 0;
+      gap: 7px;
+      text-align: left;
+    }
+    .your-bandit .portrait {
+      width: 63px;
+      height: 63px;
+    }
+    .your-bandit h2 {
+      font-size: 13px;
+    }
+    .your-loot {
+      font-size: 24px;
+      margin-top: 0;
+    }
+    .your-bandit p {
+      font-size: 10px;
+      margin-top: 3px;
+    }
+    .your-bandit .your-power {
+      display: none;
+    }
+    .hand-actions {
+      order: 1;
+      grid-column: 2;
+      gap: 6px;
+      justify-content: center;
+    }
+    .hand-actions .primary {
+      font-size: 14px;
+      padding: 12px 9px;
+      min-height: 45px;
+    }
+    .hand-actions .deck-stack {
+      display: none;
+    }
+    .hand-actions p {
+      font-size: 10px;
+      line-height: 1.2;
+    }
+    .hand-actions p br {
+      display: none;
+    }
+    .hand-actions p strong {
+      font-size: 10px;
+      margin-right: 3px;
+    }
+    .turn-prompt {
+      order: 2;
+      grid-column: 1/-1;
+      margin: 0;
+      min-height: 0;
+      padding-top: 9px;
+      border-top: 1px solid #b7a07b88;
+    }
+    .turn-prompt h2 {
+      font-size: 19px;
+      gap: 10px;
+      letter-spacing: -0.4px;
+    }
+    .turn-prompt h2:before,
+    .turn-prompt h2:after {
+      width: 22px;
+    }
+    .turn-prompt p {
+      font-size: 11px;
+      margin-top: 4px;
+    }
+    .decision-area {
+      order: 3;
+      grid-column: 1/-1;
+    }
+    .hand-scroll {
+      min-height: 162px;
+      gap: 8px;
+      padding: 4px 2px 8px;
+      margin: 0 -1px;
+    }
+    .action-card {
+      width: 108px;
+      height: 155px;
+      padding: 12px 10px 11px;
+    }
+    .action-card-title {
+      font-size: 12px;
+    }
+    .action-card-foot {
+      font-size: 8px;
+    }
+    .action-card.compact {
+      width: 78px;
+      height: 112px;
+      padding: 10px 8px;
+    }
+    .action-card.compact .action-art {
+      width: 59px;
+    }
+    .action-card.compact .action-card-title {
+      font-size: 9px;
+    }
+    .ghost-toggle {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    .game-footer {
+      margin: 0 14px;
+      padding: 10px 0;
+      font-size: 11px;
+    }
+    dialog h2 {
+      font-size: 23px;
+    }
+    .character-picker .portrait {
+      width: 43px;
+      height: 43px;
+    }
+    .resolution-grid {
+      min-height: 135px;
+    }
+  }
+  @media (max-width: 370px) {
+    .wordmark {
+      width: 235px;
+    }
+    .round-title > strong {
+      font-size: 15px;
+    }
+    .round-title > span {
+      font-size: 10px;
+    }
+    .round-title {
+      gap: 6px;
+    }
+    .round-strip {
+      padding-left: 12px;
+      padding-right: 12px;
+      gap: 3px;
+    }
+    .turn-symbol {
+      min-width: 21px;
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+    .turn-area {
+      grid-template-columns: minmax(0, 1fr) 120px;
+      padding-left: 12px;
+      padding-right: 12px;
+      gap: 12px 8px;
+    }
+    .your-bandit .portrait {
+      width: 48px;
+      height: 48px;
+    }
+    .your-bandit h2 {
+      font-size: 11px;
+    }
+    .your-loot {
+      font-size: 22px;
+    }
+    .your-bandit p {
+      font-size: 9px;
+    }
+    .hand-actions .primary {
+      font-size: 12px;
+    }
+    .turn-prompt h2 {
+      font-size: 17px;
+    }
+  }
+}

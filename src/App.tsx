@@ -101,8 +101,10 @@ export default function App() {
           onClick={(e) => e.preventDefault()}
           aria-label="Colt Express"
         >
-          Colt Express
-          <span className="wordmark-track" />
+          <img
+            src={import.meta.env.BASE_URL + 'art/wordmark.webp'}
+            alt="Colt Express — All aboard for trouble"
+          />
         </a>
         <nav aria-label="Game menu">
           <button onClick={() => setNewGame(true)}>New game</button>
@@ -129,75 +131,77 @@ export default function App() {
           </button>
         </nav>
       </header>
-      <PlayerRail o={o} />
-      <div className="round-strip">
-        <button
-          className="round-title"
-          aria-label="Round details"
-          onClick={() => setRoundInfo(true)}
-        >
-          <span>
-            Round <b>{o.round + 1}</b> / 5
-          </span>
-          <strong>
-            {o.phase === 'scheme' ||
-            o.phase === 'cover' ||
-            o.phase === 'choose' ||
-            o.phase === 'retain'
-              ? 'Schemin’'
-              : o.phase === 'finished'
-                ? 'End of the line'
-                : 'Stealin’'}
-          </strong>
-        </button>
-        <div className="round-turns" aria-label="This round’s turns">
-          {o.roundCard.turns.map((t, i) => (
-            <span
-              key={i}
-              className={
-                'turn-symbol ' +
-                (i === slot?.turn && (o.phase === 'scheme' || o.phase === 'cover')
-                  ? 'active '
-                  : '') +
-                (t === 'tunnel' ? 'tunnel' : '')
-              }
-              title={
-                t === 'double'
-                  ? 'Speeding up: two turns'
-                  : t === 'reverse'
-                    ? 'Switching: reverse order'
-                    : t === 'tunnel'
-                      ? 'Tunnel: face down'
-                      : 'Standard: face up'
-              }
-              aria-label={t}
-            >
-              <TurnSymbol type={t} />
-              <small>{i + 1}</small>
-            </span>
-          ))}
-        </div>
-        <div className="round-event">
-          <span>At round’s end</span>
-          <strong>{event.name}</strong>
-        </div>
-        <button
-          className="log-button"
-          aria-label="Open game history"
-          onClick={() => setHistory(true)}
-        >
-          <svg
-            width="18"
-            height="19"
-            viewBox="0 0 20 22"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
+      <div className="tabletop-header">
+        <PlayerRail o={o} />
+        <div className="round-strip">
+          <button
+            className="round-title"
+            aria-label="Round details"
+            onClick={() => setRoundInfo(true)}
           >
-            <path d="M3 2h14v18H3zM6 6h8M6 10h8M6 14h5" />
-          </svg>
-          <span>History</span>
-        </button>
+            <span>
+              Round <b>{o.round + 1}</b> / 5
+            </span>
+            <strong>
+              {o.phase === 'scheme' ||
+              o.phase === 'cover' ||
+              o.phase === 'choose' ||
+              o.phase === 'retain'
+                ? 'Schemin’'
+                : o.phase === 'finished'
+                  ? 'End of the line'
+                  : 'Stealin’'}
+            </strong>
+          </button>
+          <div className="round-turns" aria-label="This round’s turns">
+            {o.roundCard.turns.map((t, i) => (
+              <span
+                key={i}
+                className={
+                  'turn-symbol ' +
+                  (i === slot?.turn && (o.phase === 'scheme' || o.phase === 'cover')
+                    ? 'active '
+                    : '') +
+                  (t === 'tunnel' ? 'tunnel' : '')
+                }
+                title={
+                  t === 'double'
+                    ? 'Speeding up: two turns'
+                    : t === 'reverse'
+                      ? 'Switching: reverse order'
+                      : t === 'tunnel'
+                        ? 'Tunnel: face down'
+                        : 'Standard: face up'
+                }
+                aria-label={t}
+              >
+                <TurnSymbol type={t} />
+                <small>{i + 1}</small>
+              </span>
+            ))}
+          </div>
+          <div className="round-event">
+            <span>At round’s end</span>
+            <strong>{event.name}</strong>
+          </div>
+          <button
+            className="log-button"
+            aria-label="Open game history"
+            onClick={() => setHistory(true)}
+          >
+            <svg
+              width="18"
+              height="19"
+              viewBox="0 0 20 22"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+            >
+              <path d="M3 2h14v18H3zM6 6h8M6 10h8M6 14h5" />
+            </svg>
+            <span>History</span>
+          </button>
+        </div>
       </div>
       {g.error ? (
         <div className="error-banner" role="alert">

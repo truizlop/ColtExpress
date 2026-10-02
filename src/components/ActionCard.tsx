@@ -68,7 +68,7 @@ export function ActionCard({
                         : 'Move one car'}
           </span>
         )}
-        <b>×{count}</b>
+        {count > 1 ? <b>×{count}</b> : null}
       </span>
     </button>
   );
