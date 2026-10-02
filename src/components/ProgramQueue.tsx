@@ -3,6 +3,14 @@ import type { Observation } from '../game/types';
 import { ACTION_KINDS } from '../game/types';
 import { CHARACTER_INFO, ACTION_INFO } from '../game/data';
 export function ProgramQueue({ o }: { o: Observation }) {
+  const [mobile, setMobile] = useState(() => window.matchMedia('(max-width:700px)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width:700px)');
+    const change = () => setMobile(mq.matches);
+    mq.addEventListener('change', change);
+    return () => mq.removeEventListener('change', change);
+  }, []);
+  const Heading = mobile ? 'button' : 'div';
   const [expanded, setExpanded] = useState(true),
     ref = useRef<HTMLOListElement>(null);
   useEffect(() => {
@@ -21,10 +29,10 @@ export function ProgramQueue({ o }: { o: Observation }) {
   }, [o.queue.length, o.executionIndex]);
   return (
     <aside className={'program-panel ' + (expanded ? 'expanded' : '')}>
-      <button
+      <Heading
         className="program-heading"
-        onClick={() => setExpanded((v) => !v)}
-        aria-expanded={expanded}
+        onClick={mobile ? () => setExpanded((v) => !v) : undefined}
+        aria-expanded={mobile ? expanded : undefined}
       >
         <h2>The plan</h2>
         <span>
@@ -40,7 +48,7 @@ export function ProgramQueue({ o }: { o: Observation }) {
             <path d={expanded ? 'm3 10 5-5 5 5' : 'm3 6 5 5 5-5'} />
           </svg>
         </span>
-      </button>
+      </Heading>
       <ol ref={ref} className="program-list">
         {o.queue.length ? (
           o.queue.map((q, i) => {

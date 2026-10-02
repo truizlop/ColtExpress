@@ -59,15 +59,21 @@ export function TurnControls({
         : 'Play a card or draw 3 cards.';
   if (o.phase === 'choose') {
     title = mine ? 'Choose your opening card' : title;
-    description = 'Keep one card, then draw the rest of your team’s hand.';
+    description = mine
+      ? 'Keep one card, then draw the rest of your team’s hand.'
+      : 'Choosing an opening card before drawing the team’s hand.';
   }
   if (o.phase === 'cover') {
     title = mine ? 'Give your partner cover' : title;
-    description = 'Your shot lets your other bandit play one extra action. Marshal is excluded.';
+    description = mine
+      ? 'Your shot lets your other bandit play one extra action. Marshal is excluded.'
+      : 'An extra action may be added for the other bandit.';
   }
   if (o.phase === 'retain') {
     title = mine ? 'Plan for the next round' : title;
-    description = 'Keep this card in your hand or send it to your discard pile.';
+    description = mine
+      ? 'Keep this card in your hand or send it to your discard pile.'
+      : 'Choosing which cards to keep for the next round.';
   }
   if (o.phase === 'execute') {
     title = `${CHARACTER_INFO[b.character].name} · ${ACTION_INFO[q?.kind ?? 'move'].name}`;
@@ -79,7 +85,9 @@ export function TurnControls({
   }
   if (o.phase === 'event') {
     title = mine ? 'A chance to pick a pocket' : title;
-    description = 'You are alone here. You may take one purse.';
+    description = mine
+      ? 'You are alone here. You may take one purse.'
+      : 'An isolated bandit may take one purse.';
   }
   const ghost =
     legal.some((a) => a.kind === 'play' && a.hidden) &&

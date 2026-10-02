@@ -95,17 +95,12 @@ export default function App() {
   return (
     <main className="game-shell">
       <header className="topbar">
-        <a
-          href="#"
-          className="wordmark"
-          onClick={(e) => e.preventDefault()}
-          aria-label="Colt Express"
-        >
+        <div className="wordmark">
           <img
             src={import.meta.env.BASE_URL + 'art/wordmark.webp'}
             alt="Colt Express — All aboard for trouble"
           />
-        </a>
+        </div>
         <nav aria-label="Game menu">
           <button onClick={() => setNewGame(true)}>New game</button>
           <button onClick={() => setHelp(true)}>How to play</button>
