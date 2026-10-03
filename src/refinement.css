@@ -257,20 +257,20 @@
     font-size: 14px;
   }
   .hand-layout {
-    grid-template-columns: 225px minmax(0, 1fr) 178px;
+    grid-template-columns: 270px minmax(0, 1fr) 178px;
     gap: 24px;
     align-items: center;
   }
   .your-bandit {
     display: grid;
-    grid-template-columns: 100px minmax(0, 1fr);
+    grid-template-columns: 135px minmax(0, 1fr);
     gap: 10px 11px;
     align-content: center;
     padding-right: 16px;
   }
   .your-bandit .portrait {
-    width: 100px;
-    height: 100px;
+    width: 135px;
+    height: 135px;
   }
   .your-bandit h2 {
     font-size: 17px;
@@ -397,6 +397,19 @@
     width: 73px;
     height: 73px;
   }
+  .icon-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .game-footer select,
+  .segmented button,
+  .difficulty-picker button {
+    min-height: 44px;
+  }
+  .checkbox-row,
+  .ghost-toggle {
+    min-height: 44px;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -443,6 +456,10 @@
     margin-left: 0;
   }
   @media (min-width: 1201px) {
+    .your-portraits:has(.portrait:nth-child(2)) .portrait {
+      width: 95px;
+      height: 95px;
+    }
     .tabletop-header {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 330px;
@@ -619,14 +636,14 @@
   }
   @media (max-width: 700px) {
     .topbar {
-      height: 72px;
+      height: 62px;
       margin: 0 13px;
       padding: 0 0 0 2px;
       border-bottom-width: 1px;
     }
     .wordmark {
-      width: 270px;
-      height: 70px;
+      width: 250px;
+      height: 60px;
     }
     .topbar nav {
       gap: 0;
@@ -640,18 +657,18 @@
       padding: 10px 7px;
     }
     .opponent-rail {
-      min-height: 83px;
+      min-height: 72px;
       padding: 8px 17px;
       gap: 0;
     }
     .opponent {
-      min-width: 160px;
+      min-width: 150px;
       padding: 0 13px;
       gap: 7px;
     }
     .opponent .portrait {
-      width: 61px;
-      height: 61px;
+      width: 53px;
+      height: 53px;
     }
     .opponent h2 {
       font-size: 13px;
@@ -683,12 +700,14 @@
       height: 2px;
     }
     .round-strip {
-      padding: 5px 16px;
-      min-height: 56px;
+      padding: 0 16px;
+      min-height: 44px;
       gap: 7px;
       justify-content: space-between;
     }
     .round-title {
+      display: flex;
+      align-items: center;
       gap: 8px;
     }
     .round-title > span {
@@ -719,8 +738,8 @@
       min-height: 0;
     }
     .train-stage {
-      height: 326px;
-      min-height: 326px;
+      height: clamp(230px, 31.5dvh, 305px);
+      min-height: 230px;
     }
     .train-controls {
       left: 15px;
@@ -778,9 +797,9 @@
     }
     .program-panel.expanded .program-list {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex: none;
-      height: 91px;
+      height: 66px;
       max-height: none;
       overflow-x: auto;
       overflow-y: hidden;
@@ -788,32 +807,36 @@
       padding: 0 3px 7px;
     }
     .program-list li {
-      flex: 0 0 64px;
+      flex: 0 0 49px;
       display: block;
       position: relative;
       min-height: 0;
-      height: 80px;
-      padding: 0 7px 13px;
+      height: 61px;
+      padding: 0 5px 10px;
       border: 0;
     }
     .queue-action {
       margin: 0;
-      width: 49px;
-      height: 66px;
+      width: 39px;
+      height: 51px;
+    }
+    .queue-action .action-art {
+      width: 32px;
+      height: 32px;
     }
     .queue-action strong {
-      font-size: 7px;
+      font-size: 6px;
     }
     .queue-number {
       position: absolute;
       left: -5px;
-      bottom: 13px;
+      bottom: 10px;
       z-index: 1;
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       border: 1px solid #947041;
       border-radius: 50%;
-      font-size: 11px;
+      font-size: 9px;
       background: #f5e8cb;
       display: grid;
       place-items: center;
@@ -821,10 +844,10 @@
     .queue-marker {
       position: absolute;
       right: -3px;
-      bottom: 13px;
+      bottom: 10px;
       z-index: 1;
-      width: 17px;
-      height: 22px;
+      width: 14px;
+      height: 19px;
       filter: drop-shadow(1px 1px #efddba);
     }
     .queue-owner {
@@ -845,10 +868,10 @@
       display: none;
     }
     .turn-area {
-      padding: 13px 14px 12px;
+      padding: 11px 14px 10px;
       display: grid;
       grid-template-columns: minmax(0, 1fr) 137px;
-      gap: 13px 12px;
+      gap: 8px 12px;
     }
     .hand-layout {
       display: contents;
@@ -863,8 +886,8 @@
       text-align: left;
     }
     .your-bandit .portrait {
-      width: 63px;
-      height: 63px;
+      width: 58px;
+      height: 58px;
     }
     .your-bandit h2 {
       font-size: 13px;
@@ -910,11 +933,11 @@
       grid-column: 1/-1;
       margin: 0;
       min-height: 0;
-      padding-top: 9px;
+      padding-top: 6px;
       border-top: 1px solid #b7a07b88;
     }
     .turn-prompt h2 {
-      font-size: 19px;
+      font-size: 18px;
       gap: 10px;
       letter-spacing: -0.4px;
     }
@@ -931,18 +954,18 @@
       grid-column: 1/-1;
     }
     .hand-scroll {
-      min-height: 162px;
+      min-height: 151px;
       gap: 8px;
       padding: 4px 2px 8px;
       margin: 0 -1px;
     }
     .action-card {
-      width: 108px;
-      height: 155px;
+      width: 100px;
+      height: 144px;
       padding: 12px 10px 11px;
     }
     .action-card-title {
-      font-size: 12px;
+      font-size: 11px;
     }
     .action-card-foot {
       font-size: 8px;

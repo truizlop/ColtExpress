@@ -553,7 +553,7 @@ function CameraRig({ count, focus, viewKey }: { count: number; focus: number; vi
     const goal = {
       position: new THREE.Vector3(center - 5.8, 7.6, 18.5),
       target: new THREE.Vector3(center, 1.05, 0),
-      zoom: Math.min(size.width / width, size.height / 6.6),
+      zoom: Math.min(size.width / width, size.height / (mobile && focus >= 0 ? 5.3 : 6.6)),
     };
     const animate =
       initialized.current && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
