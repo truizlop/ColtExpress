@@ -47,6 +47,8 @@ The following recipe exposes all relevant choices and recreates the experiment f
 
 ## Evaluate
 
+For report plots and code formatting, install `training/requirements-dev.txt`. After the tournament, run `.venv/bin/python training/analyze.py` to rebuild the summary and figure.
+
 The evaluator cycles player counts and seats, randomizes characters through seeded setup, and gives every AI only legal observations. Winning share is 1 for a sole win and 1/k for a k-way tie. The equal-strength reference averages 1/player-count; it is 29% for an equally weighted 2–6-player mix. Reported Wilson intervals are approximate because ties are fractional. Release analysis additionally bootstraps within player-count strata.
 
 ```sh

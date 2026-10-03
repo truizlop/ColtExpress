@@ -1,54 +1,32 @@
-# Project plan and working record
+# Project record
 
-## User requirements
+## Delivered scope
 
-Repository: ~/Development/ColtExpress. Public GitHub repository on truizlop, but no push until everything works locally. Small commits. Accurate base game, 3D Three.js train, excellent responsive desktop/mobile UI, variable AI opponent count and difficulty, strongest feasible trained model with experiments. Goal active in Codex.
+Repository: `~/Development/ColtExpress`, public remote `truizlop/ColtExpress`. The user requested small commits and no push before complete local verification. The implementation covers the 2016 base game, two-player teams and 3–6 player free-for-all, standard/expert decks, all six bandits, a responsive Three.js board and four locally evaluated AI difficulty settings.
 
-## Completion gates
+## Technical decisions
 
-1. Accurate deterministic rules engine with source-backed round cards, loot, powers, events, standard/expert/two-player rules, visibility and tests.
-2. Observation-safe baselines, reproducible training and export, held-out multi-seat and multi-character experiments; claims limited to observed evidence.
-3. Full playable responsive UI, generated portraits/action art/background, detailed Three.js train; save/resume, help, all decisions and end game.
-4. Desktop/mobile/browser QA, model parity, production build and full-game checks.
-5. Small committed checkpoints, public repository and GitHub Pages deployment only after local gates.
+React/Vite/TypeScript and Three.js provide the static browser application. Python/PyTorch trains a small policy/value network against the exact TypeScript engine through a Node bridge. Exported weights execute in a browser worker; no inference backend or API keys are required. Observation boundaries keep hidden state out of policy inputs and search roots.
 
-## Decisions
+A conventional AlphaZero implementation is a poor direct fit for this multiplayer, partially observed game. The selected implementation combines imitation, population PPO and small information-set Monte Carlo planning. It is an experimentally supported practical choice for this project, not proof that this is the globally best architecture.
 
-React/Vite/TypeScript, Three.js. Exact TypeScript engine shared with Node rollout process; Python/PyTorch learning with small exported neural networks. No external inference service. Compare imitation initialization, PPO population self-play and information-set search at matched budgets. Preserve public/private state separation, no clairvoyance.
+## Research outcome
 
-The user's 'beat any human player' is a research target, not a verifiable completion claim without human evaluation. Establish strong measured baselines and retain reproducible experiments.
+Six training runs generated 199,680 games and 19,479,876 learner decisions. Two widths, 40 PPO checkpoints and alternative search strategies were compared. Express64 at PPO iteration 900 was selected before final holdout testing. Legend scored 50.11% winning share against tactical opponents across 900 standard games and 45.83% across 480 expert games. The [model card](../MODEL_CARD.md) includes uncertainty, player-count breakdowns, other opponents and calibration details.
 
-## Design
+The user's aspiration to beat every human remains unproven. There have been no human evaluation matches. Future research should test humans and broader opponent leagues rather than equating baseline wins with universal superiority.
 
-Western tabletop: warm parchment, charcoal ink, brass and oxblood. Large cutaway 3D train and original illustrated portraits/cards. Compact game chrome, portrait-mobile rail navigation, native accessible controls. Image concept generated before UI implementation. Intentional deviations from concept: hidden opponent purse totals remain hidden, actual legal hands rather than all action types, correct queue and rounds, real Three.js geometry instead of rendered bitmap train.
+## Design revision
 
-## Progress
+After the user asked for a more ambitious result closer to the concepts, the UI gained a standalone engraved wordmark, stronger comic portraits, transparent illustrated cards, decorative frames, material textures, richer procedural train details and a tighter mobile composition. Original concepts, final renders and a detailed comparison are retained in [design/FIDELITY.md](design/FIDELITY.md).
 
-- Repository initialized. Hardware: Apple M1 Max, 64 GB RAM, 10 CPU cores. GitHub account verified as truizlop with escalated CLI network access.
-- Skills read: Frontend App Builder, Anti-AI-Slop, Imagegen, frontend testing, React best practices. User explicitly chose GitHub Pages, so Sites hosting is not used.
-- Desktop concept: docs/design/desktop-concept.png.
+## Release gates
 
-## References
+- Deterministic rules and visibility tests, including 300 complete seeded standard/expert/team games.
+- 56 tests, strict TypeScript production build, source formatting and Python lint checks.
+- Selected-model PyTorch/JavaScript export parity on 100 probes.
+- Complete standard, team and production-path expert browser games; representative paths across all player counts.
+- Desktop 1536×1024, tablet 1024×768, phone 390×844 and 320×740 inspection.
+- GitHub Pages workflow verifies formatting, tests and build before deploying.
 
-- https://www.ludonaute.fr/en/colt-express-downloads/
-- https://cdn.1j1ju.com/medias/f6/e9/06-colt-express-rulebook.pdf
-- https://arxiv.org/abs/1707.06347
-- https://eprints.whiterose.ac.uk/id/eprint/75048/
-- https://arxiv.org/abs/1712.01815
-
-- Rules engine implemented against 2016 edition. 47 tests passing, including 300 complete seeded standard/expert/team games and hidden-information boundary checks. Exact schedules transcribed from official card PDF and all six carriage floor counts inspected. PyTorch 2.14.1 with MPS installed. Original portrait/action/background production art generated.
-
-## Working checkpoint (2026-10-02, ~23:15 Madrid)
-
-- Full responsive UI implemented and committed (923ab22, 1cbe14a). Mobile complete four-player game verified in IAB. Six-player expert/Ghost game in progress; keep/discard and saved-game recovery tested. Model missing-file failure and explicit Reload AI recovery verified. New errors since removing Drei Html labels: none. Original generated art compressed to 0.99 MB total with source masters retained.
-- 52 tests pass including sampled-world conservation/legal-action/hidden-seed checks. Root information-set Monte Carlo search implemented; Legend uses 12 samples × up to 6 candidates, complete tactical-policy rollouts. Uniform beliefs are approximate. Runtime around 1.1 s on a cold four-player decision. Full 200-game search evaluation still running.
-- Completed two imitation architectures (32/64), 3,840 games each. Completed two width-32 PPO runs (32,000 games each). 20 checkpoints × 600 validation games. Best observed PPO exploratory iteration 300: 40.42% wins against tactical baseline vs average 29% chance (mixed 2–6 players). This is model-selection evidence, not a final holdout or a human-strength claim.
-- Longer runs currently active: ppo-w64 (1,000 iterations ×64, lr .0003→.00005, seed24719, starts imitation-w64) and ppo-refined (1,000 ×64, lr .00008→.00002, entropy .03, seed34719, starts PPO exploratory300). Both seeded with strongest previous opponents, checkpoint every100.
-- No remote created or push performed. Remaining: finish model experiments/holdout, strength levels validation, production subpath/browser QA including duel, responsive fidelity comparison, documentation/model card/repro commands, CI+Pages, final local gates, public repo and deployment.
-
-## Visual revision checkpoint (2026-10-03)
-
-- Rebuilt the visual treatment to better match the original desktop/mobile concepts, including new standalone logo, comic portrait atlas, transparent action art, card backs and material atlas; real Three.js scenery and textured train.
-- Verified 320px, 390px, 1024px and 1536px layouts in IAB; no horizontal document overflow. Duplicate hand-card actions work; modal Escape restores focus. Existing rules tests and new neural-leaf search test pass (56 total). Production build passes.
-- Automatic approval review rejected resetting the original saved QA game, so it was preserved. Further visual QA uses a separate localhost origin, without altering that save.
-- Full-game search did not outperform policy-only on the initial 200-game comparison. New one-round neural-policy rollout/value-leaf search scored 44.5% vs policy-only 38.0% on the paired initial 200-game set; 600-game validation is running before any adoption. No human strength claim.
+[QA details](QA.md) distinguish automated coverage, observed browser paths and platform limitations. The original saved browser game was preserved when automatic approval review rejected a reset; separate origins were used for subsequent tests.

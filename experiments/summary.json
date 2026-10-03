@@ -1,0 +1,188 @@
+{
+  "difficulties": {
+    "Greenhorn": {
+      "games": 900,
+      "win_rate": 0.12944444444444445,
+      "stratified_bootstrap_95": [
+        0.10833333333333332,
+        0.15166666666666667
+      ],
+      "chance": 0.29,
+      "average_score": 1460.9444444444443
+    },
+    "Bandit": {
+      "games": 900,
+      "win_rate": 0.2411111111111111,
+      "stratified_bootstrap_95": [
+        0.215,
+        0.2688888888888889
+      ],
+      "chance": 0.29,
+      "average_score": 1827.611111111111
+    },
+    "Outlaw": {
+      "games": 900,
+      "win_rate": 0.375,
+      "stratified_bootstrap_95": [
+        0.34555555555555556,
+        0.4050138888888888
+      ],
+      "chance": 0.29,
+      "average_score": 2132.722222222222
+    },
+    "Legend": {
+      "games": 900,
+      "win_rate": 0.5011111111111111,
+      "stratified_bootstrap_95": [
+        0.47055555555555556,
+        0.5316666666666667
+      ],
+      "chance": 0.29,
+      "average_score": 2356.0555555555557
+    }
+  },
+  "legend_by_players": {
+    "2": {
+      "games": 180,
+      "win_rate": 0.8333333333333334,
+      "stratified_bootstrap_95": [
+        0.7777777777777778,
+        0.8833333333333333
+      ],
+      "chance": 0.5,
+      "average_score": 3143.8888888888887
+    },
+    "3": {
+      "games": 180,
+      "win_rate": 0.5055555555555555,
+      "stratified_bootstrap_95": [
+        0.43333333333333335,
+        0.5777777777777777
+      ],
+      "chance": 0.3333333333333333,
+      "average_score": 2365.277777777778
+    },
+    "4": {
+      "games": 180,
+      "win_rate": 0.41944444444444445,
+      "stratified_bootstrap_95": [
+        0.3472222222222222,
+        0.4888888888888889
+      ],
+      "chance": 0.25,
+      "average_score": 2210.277777777778
+    },
+    "5": {
+      "games": 180,
+      "win_rate": 0.3888888888888889,
+      "stratified_bootstrap_95": [
+        0.31666666666666665,
+        0.46111111111111114
+      ],
+      "chance": 0.19999999999999996,
+      "average_score": 2066.1111111111113
+    },
+    "6": {
+      "games": 180,
+      "win_rate": 0.35833333333333334,
+      "stratified_bootstrap_95": [
+        0.28888888888888886,
+        0.42777777777777776
+      ],
+      "chance": 0.16666666666666666,
+      "average_score": 1994.7222222222222
+    }
+  },
+  "other_opponents": {
+    "aggressive": {
+      "games": 300,
+      "win_rate": 0.4216666666666667,
+      "stratified_bootstrap_95": [
+        0.36833333333333335,
+        0.4733333333333334
+      ],
+      "chance": 0.29,
+      "average_score": 2165.8333333333335
+    },
+    "greedy": {
+      "games": 300,
+      "win_rate": 0.8,
+      "stratified_bootstrap_95": [
+        0.7566666666666667,
+        0.8433333333333333
+      ],
+      "chance": 0.29,
+      "average_score": 2814.5
+    },
+    "previous-model": {
+      "games": 300,
+      "win_rate": 0.44,
+      "stratified_bootstrap_95": [
+        0.3866666666666667,
+        0.49333333333333335
+      ],
+      "chance": 0.29,
+      "average_score": 2221.1666666666665
+    }
+  },
+  "expert": {
+    "games": 480,
+    "win_rate": 0.4583333333333333,
+    "stratified_bootstrap_95": [
+      0.4145833333333333,
+      0.5020833333333333
+    ],
+    "chance": 0.2375,
+    "average_score": 2181.3541666666665
+  },
+  "expert_by_players": {
+    "3": {
+      "games": 120,
+      "win_rate": 0.6416666666666667,
+      "stratified_bootstrap_95": [
+        0.5583333333333333,
+        0.725
+      ],
+      "chance": 0.33333333333333326,
+      "average_score": 2445.0
+    },
+    "4": {
+      "games": 120,
+      "win_rate": 0.49166666666666664,
+      "stratified_bootstrap_95": [
+        0.4,
+        0.5833333333333334
+      ],
+      "chance": 0.25,
+      "average_score": 2267.5
+    },
+    "5": {
+      "games": 120,
+      "win_rate": 0.375,
+      "stratified_bootstrap_95": [
+        0.2916666666666667,
+        0.4583333333333333
+      ],
+      "chance": 0.20000000000000004,
+      "average_score": 2011.6666666666667
+    },
+    "6": {
+      "games": 120,
+      "win_rate": 0.325,
+      "stratified_bootstrap_95": [
+        0.24166666666666667,
+        0.4083333333333333
+      ],
+      "chance": 0.16666666666666663,
+      "average_score": 2001.25
+    }
+  },
+  "paired_legend_minus_outlaw": {
+    "games": 900,
+    "mean_win_share_difference": 0.12611111111111112,
+    "stratified_bootstrap_95": [
+      0.08444444444444445,
+      0.16722222222222222
+    ]
+  }
+}

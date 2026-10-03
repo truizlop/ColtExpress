@@ -1,0 +1,2180 @@
+{
+  "candidate": "public/models/champion.json",
+  "opponent": "tactical",
+  "seed": 1960000001,
+  "expert": false,
+  "difficulty": "bandit",
+  "banditMistakes": 0.15,
+  "search": {
+    "samples": 0,
+    "maxCandidates": 6,
+    "rollout": "tactical",
+    "horizon": "game",
+    "averageMs": 0.10023531688889031
+  },
+  "seconds": 2.301859458,
+  "overall": {
+    "games": 300,
+    "winRate": 0.19,
+    "approx95": [
+      0.14963418279656143,
+      0.23820474380203466
+    ],
+    "chance": 0.2900000000000003,
+    "averageScore": 1747.1666666666667
+  },
+  "byPlayers": {
+    "2": {
+      "games": 60,
+      "winRate": 0.4,
+      "approx95": [
+        0.28569303003765506,
+        0.5263417560579315
+      ],
+      "chance": 0.5,
+      "averageScore": 2469.1666666666665
+    },
+    "3": {
+      "games": 60,
+      "winRate": 0.18333333333333332,
+      "approx95": [
+        0.1055768903713613,
+        0.29919993226466285
+      ],
+      "chance": 0.33333333333333326,
+      "averageScore": 1723.3333333333333
+    },
+    "4": {
+      "games": 60,
+      "winRate": 0.13333333333333333,
+      "approx95": [
+        0.06914026978309641,
+        0.24165394590072103
+      ],
+      "chance": 0.25,
+      "averageScore": 1530
+    },
+    "5": {
+      "games": 60,
+      "winRate": 0.1,
+      "approx95": [
+        0.04664219945723587,
+        0.20149694492511044
+      ],
+      "chance": 0.19999999999999982,
+      "averageScore": 1533.3333333333333
+    },
+    "6": {
+      "games": 60,
+      "winRate": 0.13333333333333333,
+      "approx95": [
+        0.06914026978309641,
+        0.24165394590072103
+      ],
+      "chance": 0.16666666666666663,
+      "averageScore": 1480
+    }
+  },
+  "records": [
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 1800,
+      "seed": 1960000001
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1000,
+      "seed": 1960031338
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 750,
+      "seed": 1960062675
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 1,
+      "score": 1950,
+      "seed": 1960094012
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 0,
+      "score": 1350,
+      "seed": 1960125349
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 3450,
+      "seed": 1960156686
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1050,
+      "seed": 1960188023
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 1000,
+      "seed": 1960219360
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 1,
+      "score": 2250,
+      "seed": 1960250697
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 0,
+      "score": 1000,
+      "seed": 1960282034
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2000,
+      "seed": 1960313371
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1750,
+      "seed": 1960344708
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 900,
+      "seed": 1960376045
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 1750,
+      "seed": 1960407382
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 1300,
+      "seed": 1960438719
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 3350,
+      "seed": 1960470056
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 2750,
+      "seed": 1960501393
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 1100,
+      "seed": 1960532730
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 1750,
+      "seed": 1960564067
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 1,
+      "score": 3350,
+      "seed": 1960595404
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 1550,
+      "seed": 1960626741
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1750,
+      "seed": 1960658078
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 1850,
+      "seed": 1960689415
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1700,
+      "seed": 1960720752
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 1050,
+      "seed": 1960752089
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 1250,
+      "seed": 1960783426
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1300,
+      "seed": 1960814763
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 2300,
+      "seed": 1960846100
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 1800,
+      "seed": 1960877437
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 1750,
+      "seed": 1960908774
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 1750,
+      "seed": 1960940111
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1500,
+      "seed": 1960971448
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 1250,
+      "seed": 1961002785
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 1900,
+      "seed": 1961034122
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 0,
+      "score": 650,
+      "seed": 1961065459
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2250,
+      "seed": 1961096796
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 2300,
+      "seed": 1961128133
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 1400,
+      "seed": 1961159470
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 1900,
+      "seed": 1961190807
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 0,
+      "score": 350,
+      "seed": 1961222144
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2000,
+      "seed": 1961253481
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1750,
+      "seed": 1961284818
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 1,
+      "score": 3250,
+      "seed": 1961316155
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 1,
+      "score": 2350,
+      "seed": 1961347492
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 1250,
+      "seed": 1961378829
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 2650,
+      "seed": 1961410166
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 2050,
+      "seed": 1961441503
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 450,
+      "seed": 1961472840
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1100,
+      "seed": 1961504177
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 1,
+      "score": 2800,
+      "seed": 1961535514
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 1500,
+      "seed": 1961566851
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 500,
+      "seed": 1961598188
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 1900,
+      "seed": 1961629525
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 1750,
+      "seed": 1961660862
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 2000,
+      "seed": 1961692199
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 3650,
+      "seed": 1961723536
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1950,
+      "seed": 1961754873
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 1,
+      "score": 2250,
+      "seed": 1961786210
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 1600,
+      "seed": 1961817547
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 1550,
+      "seed": 1961848884
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 4400,
+      "seed": 1961880221
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1250,
+      "seed": 1961911558
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 500,
+      "seed": 1961942895
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 750,
+      "seed": 1961974232
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 0,
+      "score": 1650,
+      "seed": 1962005569
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2750,
+      "seed": 1962036906
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1250,
+      "seed": 1962068243
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 800,
+      "seed": 1962099580
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 1900,
+      "seed": 1962130917
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 0,
+      "score": 1250,
+      "seed": 1962162254
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2250,
+      "seed": 1962193591
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 500,
+      "seed": 1962224928
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 750,
+      "seed": 1962256265
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 2600,
+      "seed": 1962287602
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 1,
+      "score": 2750,
+      "seed": 1962318939
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 5150,
+      "seed": 1962350276
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1750,
+      "seed": 1962381613
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 500,
+      "seed": 1962412950
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 1,
+      "score": 2300,
+      "seed": 1962444287
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 0,
+      "score": 750,
+      "seed": 1962475624
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 2500,
+      "seed": 1962506961
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 1,
+      "score": 2900,
+      "seed": 1962538298
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 1500,
+      "seed": 1962569635
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 2000,
+      "seed": 1962600972
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 1250,
+      "seed": 1962632309
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 1700,
+      "seed": 1962663646
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1250,
+      "seed": 1962694983
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 1450,
+      "seed": 1962726320
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 750,
+      "seed": 1962757657
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 1000,
+      "seed": 1962788994
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 2800,
+      "seed": 1962820331
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 2250,
+      "seed": 1962851668
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 1900,
+      "seed": 1962883005
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 750,
+      "seed": 1962914342
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 0,
+      "score": 500,
+      "seed": 1962945679
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 2750,
+      "seed": 1962977016
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1700,
+      "seed": 1963008353
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 2400,
+      "seed": 1963039690
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 2250,
+      "seed": 1963071027
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 0,
+      "score": 1000,
+      "seed": 1963102364
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 2750,
+      "seed": 1963133701
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 1,
+      "score": 1850,
+      "seed": 1963165038
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 2500,
+      "seed": 1963196375
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 1400,
+      "seed": 1963227712
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 1300,
+      "seed": 1963259049
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2250,
+      "seed": 1963290386
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1450,
+      "seed": 1963321723
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 1650,
+      "seed": 1963353060
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 2200,
+      "seed": 1963384397
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 0,
+      "score": 800,
+      "seed": 1963415734
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2850,
+      "seed": 1963447071
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 1,
+      "score": 1000,
+      "seed": 1963478408
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 1500,
+      "seed": 1963509745
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 1050,
+      "seed": 1963541082
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 650,
+      "seed": 1963572419
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 3000,
+      "seed": 1963603756
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 1,
+      "score": 2250,
+      "seed": 1963635093
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 1350,
+      "seed": 1963666430
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 1850,
+      "seed": 1963697767
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 500,
+      "seed": 1963729104
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 2600,
+      "seed": 1963760441
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1000,
+      "seed": 1963791778
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 1550,
+      "seed": 1963823115
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 2050,
+      "seed": 1963854452
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 0,
+      "score": 1250,
+      "seed": 1963885789
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 1450,
+      "seed": 1963917126
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 2400,
+      "seed": 1963948463
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 750,
+      "seed": 1963979800
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 2000,
+      "seed": 1964011137
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 1,
+      "score": 3100,
+      "seed": 1964042474
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2500,
+      "seed": 1964073811
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 1,
+      "score": 2500,
+      "seed": 1964105148
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 1,
+      "score": 2400,
+      "seed": 1964136485
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 850,
+      "seed": 1964167822
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 2250,
+      "seed": 1964199159
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 2750,
+      "seed": 1964230496
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 2000,
+      "seed": 1964261833
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 2500,
+      "seed": 1964293170
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 1,
+      "score": 3300,
+      "seed": 1964324507
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 0,
+      "score": 1500,
+      "seed": 1964355844
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 2250,
+      "seed": 1964387181
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 500,
+      "seed": 1964418518
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 1100,
+      "seed": 1964449855
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 1500,
+      "seed": 1964481192
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 1650,
+      "seed": 1964512529
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2250,
+      "seed": 1964543866
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 1,
+      "score": 2600,
+      "seed": 1964575203
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 1750,
+      "seed": 1964606540
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1250,
+      "seed": 1964637877
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 1,
+      "score": 3250,
+      "seed": 1964669214
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 1800,
+      "seed": 1964700551
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 3550,
+      "seed": 1964731888
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 2550,
+      "seed": 1964763225
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 800,
+      "seed": 1964794562
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 1,
+      "score": 2500,
+      "seed": 1964825899
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 3250,
+      "seed": 1964857236
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 0,
+      "seed": 1964888573
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 1,
+      "score": 3600,
+      "seed": 1964919910
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 900,
+      "seed": 1964951247
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 1,
+      "score": 1550,
+      "seed": 1964982584
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 250,
+      "seed": 1965013921
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1650,
+      "seed": 1965045258
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 750,
+      "seed": 1965076595
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 750,
+      "seed": 1965107932
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 1000,
+      "seed": 1965139269
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 3350,
+      "seed": 1965170606
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1000,
+      "seed": 1965201943
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 1250,
+      "seed": 1965233280
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 1500,
+      "seed": 1965264617
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 0,
+      "score": 2050,
+      "seed": 1965295954
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2500,
+      "seed": 1965327291
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1000,
+      "seed": 1965358628
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 1,
+      "score": 2650,
+      "seed": 1965389965
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1250,
+      "seed": 1965421302
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 1500,
+      "seed": 1965452639
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 1500,
+      "seed": 1965483976
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1500,
+      "seed": 1965515313
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 250,
+      "seed": 1965546650
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 1750,
+      "seed": 1965577987
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 850,
+      "seed": 1965609324
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 500,
+      "seed": 1965640661
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 1,
+      "score": 2500,
+      "seed": 1965671998
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 1950,
+      "seed": 1965703335
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 1250,
+      "seed": 1965734672
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 0,
+      "score": 1450,
+      "seed": 1965766009
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2350,
+      "seed": 1965797346
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1450,
+      "seed": 1965828683
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 250,
+      "seed": 1965860020
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 1000,
+      "seed": 1965891357
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 0,
+      "score": 250,
+      "seed": 1965922694
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 2750,
+      "seed": 1965954031
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 2900,
+      "seed": 1965985368
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 1600,
+      "seed": 1966016705
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 1550,
+      "seed": 1966048042
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 750,
+      "seed": 1966079379
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2000,
+      "seed": 1966110716
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 1,
+      "score": 3000,
+      "seed": 1966142053
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 900,
+      "seed": 1966173390
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1500,
+      "seed": 1966204727
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 0,
+      "score": 1950,
+      "seed": 1966236064
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 2550,
+      "seed": 1966267401
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1250,
+      "seed": 1966298738
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 1750,
+      "seed": 1966330075
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 1750,
+      "seed": 1966361412
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 2000,
+      "seed": 1966392749
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 3250,
+      "seed": 1966424086
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1200,
+      "seed": 1966455423
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 1600,
+      "seed": 1966486760
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 500,
+      "seed": 1966518097
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 1800,
+      "seed": 1966549434
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2750,
+      "seed": 1966580771
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1000,
+      "seed": 1966612108
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 1,
+      "score": 2250,
+      "seed": 1966643445
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 1,
+      "score": 2900,
+      "seed": 1966674782
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 0,
+      "score": 1750,
+      "seed": 1966706119
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2000,
+      "seed": 1966737456
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1850,
+      "seed": 1966768793
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 1550,
+      "seed": 1966800130
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 2300,
+      "seed": 1966831467
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 0,
+      "score": 2000,
+      "seed": 1966862804
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2850,
+      "seed": 1966894141
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1000,
+      "seed": 1966925478
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 1,
+      "score": 2000,
+      "seed": 1966956815
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1250,
+      "seed": 1966988152
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 2550,
+      "seed": 1967019489
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 3050,
+      "seed": 1967050826
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 1,
+      "score": 2750,
+      "seed": 1967082163
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 600,
+      "seed": 1967113500
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 1500,
+      "seed": 1967144837
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 0,
+      "score": 1600,
+      "seed": 1967176174
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2250,
+      "seed": 1967207511
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 950,
+      "seed": 1967238848
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 1000,
+      "seed": 1967270185
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 1250,
+      "seed": 1967301522
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 1150,
+      "seed": 1967332859
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 3050,
+      "seed": 1967364196
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1700,
+      "seed": 1967395533
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 750,
+      "seed": 1967426870
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 450,
+      "seed": 1967458207
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 750,
+      "seed": 1967489544
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 3450,
+      "seed": 1967520881
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 1,
+      "score": 3100,
+      "seed": 1967552218
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 1,
+      "score": 1650,
+      "seed": 1967583555
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 750,
+      "seed": 1967614892
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 1,
+      "score": 2500,
+      "seed": 1967646229
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2500,
+      "seed": 1967677566
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 1,
+      "score": 2750,
+      "seed": 1967708903
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 2700,
+      "seed": 1967740240
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1100,
+      "seed": 1967771577
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 0,
+      "score": 0,
+      "seed": 1967802914
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2100,
+      "seed": 1967834251
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 2250,
+      "seed": 1967865588
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 2250,
+      "seed": 1967896925
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 1550,
+      "seed": 1967928262
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 1600,
+      "seed": 1967959599
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 2750,
+      "seed": 1967990936
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 0,
+      "seed": 1968022273
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 1000,
+      "seed": 1968053610
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 750,
+      "seed": 1968084947
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 0,
+      "score": 1150,
+      "seed": 1968116284
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2000,
+      "seed": 1968147621
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 2800,
+      "seed": 1968178958
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 1000,
+      "seed": 1968210295
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 2250,
+      "seed": 1968241632
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 1400,
+      "seed": 1968272969
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 2500,
+      "seed": 1968304306
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1500,
+      "seed": 1968335643
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 3000,
+      "seed": 1968366980
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 1650,
+      "seed": 1968398317
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 2250,
+      "seed": 1968429654
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 1,
+      "score": 3850,
+      "seed": 1968460991
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 2000,
+      "seed": 1968492328
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 1250,
+      "seed": 1968523665
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1750,
+      "seed": 1968555002
+    },
+    {
+      "players": 6,
+      "seat": 0,
+      "win": 0,
+      "score": 1650,
+      "seed": 1968586339
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 1,
+      "score": 3900,
+      "seed": 1968617676
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 2250,
+      "seed": 1968649013
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 1250,
+      "seed": 1968680350
+    },
+    {
+      "players": 5,
+      "seat": 0,
+      "win": 0,
+      "score": 1250,
+      "seed": 1968711687
+    },
+    {
+      "players": 6,
+      "seat": 1,
+      "win": 0,
+      "score": 1500,
+      "seed": 1968743024
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 1950,
+      "seed": 1968774361
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 1000,
+      "seed": 1968805698
+    },
+    {
+      "players": 4,
+      "seat": 0,
+      "win": 0,
+      "score": 1450,
+      "seed": 1968837035
+    },
+    {
+      "players": 5,
+      "seat": 1,
+      "win": 0,
+      "score": 500,
+      "seed": 1968868372
+    },
+    {
+      "players": 6,
+      "seat": 2,
+      "win": 0,
+      "score": 500,
+      "seed": 1968899709
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 2500,
+      "seed": 1968931046
+    },
+    {
+      "players": 3,
+      "seat": 0,
+      "win": 0,
+      "score": 1200,
+      "seed": 1968962383
+    },
+    {
+      "players": 4,
+      "seat": 1,
+      "win": 0,
+      "score": 1000,
+      "seed": 1968993720
+    },
+    {
+      "players": 5,
+      "seat": 2,
+      "win": 0,
+      "score": 0,
+      "seed": 1969025057
+    },
+    {
+      "players": 6,
+      "seat": 3,
+      "win": 0,
+      "score": 2000,
+      "seed": 1969056394
+    },
+    {
+      "players": 2,
+      "seat": 0,
+      "win": 0,
+      "score": 2000,
+      "seed": 1969087731
+    },
+    {
+      "players": 3,
+      "seat": 1,
+      "win": 0,
+      "score": 1750,
+      "seed": 1969119068
+    },
+    {
+      "players": 4,
+      "seat": 2,
+      "win": 0,
+      "score": 1500,
+      "seed": 1969150405
+    },
+    {
+      "players": 5,
+      "seat": 3,
+      "win": 0,
+      "score": 2200,
+      "seed": 1969181742
+    },
+    {
+      "players": 6,
+      "seat": 4,
+      "win": 0,
+      "score": 1000,
+      "seed": 1969213079
+    },
+    {
+      "players": 2,
+      "seat": 1,
+      "win": 0,
+      "score": 500,
+      "seed": 1969244416
+    },
+    {
+      "players": 3,
+      "seat": 2,
+      "win": 0,
+      "score": 2500,
+      "seed": 1969275753
+    },
+    {
+      "players": 4,
+      "seat": 3,
+      "win": 0,
+      "score": 1250,
+      "seed": 1969307090
+    },
+    {
+      "players": 5,
+      "seat": 4,
+      "win": 0,
+      "score": 1550,
+      "seed": 1969338427
+    },
+    {
+      "players": 6,
+      "seat": 5,
+      "win": 0,
+      "score": 1000,
+      "seed": 1969369764
+    }
+  ]
+}
