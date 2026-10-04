@@ -73,6 +73,8 @@ node --import tsx training/arena.ts CONFIG.json
 .venv/bin/python training/analyze_v2.py CANDIDATE.json --reference REFERENCE.json --output DELTA.json
 ```
 
+For long release suites, `training/arena_parallel.py CONFIG.json --output-dir DIRECTORY --jobs 8 --chunks 16` partitions contiguous global game ranges. Unlike a single shard per table size, this keeps workers occupied when expert six-player games take much longer. Global game offsets preserve the original seeds, seats and opponent assignment. Exact equivalence was checked over 40 games, all table sizes, expert rules and a rotating opponent lineup, including the actual browser difficulty function.
+
 Arena results retain each game seed, table size, seat, scores, fractional winning credit and action diagnostics. Interrupted jobs resume only with identical source/model hashes and configuration. Parallel sharding was verified against 30 sequential games across every supported player count. Confidence intervals use 20,000 bootstrap resamples within player-count strata. The two-player variant is reported separately because its high win rate inflated the earlier aggregate against a tactical baseline.
 
 ## Limits

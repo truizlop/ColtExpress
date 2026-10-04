@@ -18,6 +18,7 @@ base = {
     ],
     "players": [2, 3, 4, 5, 6],
     "games": 20,
+    "gameOffset": 7,
     "seed": 93214,
     "lineup": "rotating",
 }
@@ -47,6 +48,7 @@ full, resumed = [
 report = {
     "games": 20,
     "stop_after": 7,
+    "game_offset": 7,
     "identical_records": full["records"] == resumed["records"],
     "identical_overall": full["overall"] == resumed["overall"],
     "latency_excluded": True,

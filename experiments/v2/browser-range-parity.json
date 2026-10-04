@@ -1,0 +1,17 @@
+{
+  "games": 40,
+  "players": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "expert": true,
+  "lineup": "rotating",
+  "difficulty": "bandit",
+  "chunks": 7,
+  "records_identical": true,
+  "summaries_identical": true,
+  "source_hashes_identical": true
+}

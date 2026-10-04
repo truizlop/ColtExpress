@@ -6,6 +6,7 @@ import { baseline, type Baseline } from '../src/ai/tactics';
 import { modelChoice, validateModel, type Model } from '../src/ai/network';
 import { search, type SearchOptions } from '../src/ai/search';
 import { plan, type PlannerOptions } from '../src/ai/planner';
+import { difficultyChoice, type Difficulty } from '../src/ai/difficulty';
 import { seeded } from '../src/game/random';
 import type { Observation } from '../src/game/types';
 export interface PolicySpec {
@@ -14,6 +15,7 @@ export interface PolicySpec {
   rolloutModel?: string;
   baseline?: Baseline;
   temperature?: number;
+  difficulty?: Difficulty;
   search?: SearchOptions;
   planner?: PlannerOptions;
 }
@@ -24,6 +26,7 @@ interface Config {
   games: number;
   seed: number;
   seedStride?: number;
+  gameOffset?: number;
   players: number[];
   expert?: boolean;
   lineup?: 'mixed' | 'homogeneous' | 'rotating';
@@ -42,6 +45,8 @@ for (const spec of [config.candidate, ...config.opponents])
     }
 if (!config.games || !config.opponents.length || config.players.some((n) => n < 2 || n > 6))
   throw new Error('Invalid arena configuration');
+if (!Number.isInteger(config.gameOffset ?? 0) || (config.gameOffset ?? 0) < 0)
+  throw new Error('Invalid global game offset');
 const files = [
   'training/arena.ts',
   ...['src/game', 'src/ai'].flatMap((dir) =>
@@ -68,6 +73,7 @@ const timing: number[] = [];
 function choice(spec: PolicySpec, o: Observation, rng: () => number) {
   if (spec.baseline) return baseline(o, spec.baseline, rng);
   const m = models.get(spec.model!)!;
+  if (spec.difficulty) return difficultyChoice(m, o, spec.difficulty, rng);
   if (spec.planner)
     return plan(
       m,
@@ -109,17 +115,18 @@ if (fs.existsSync(progressPath)) {
 }
 const start = performance.now();
 for (let game = records.length; game < config.games; game++) {
-  const players = config.players[game % config.players.length],
-    seat = Math.floor(game / config.players.length) % players;
-  const seed = (config.seed + game * (config.seedStride ?? 31337)) >>> 0;
+  const gameIndex = game + (config.gameOffset ?? 0),
+    players = config.players[gameIndex % config.players.length],
+    seat = Math.floor(gameIndex / config.players.length) % players;
+  const seed = (config.seed + gameIndex * (config.seedStride ?? 31337)) >>> 0;
   const state = createGame({ players, expert: !!config.expert, seed });
   const policies = state.players.map((p) =>
     p.id === seat
       ? config.candidate
       : config.opponents[
           (config.lineup === 'rotating'
-            ? Math.floor(Math.floor(game / config.players.length) / players) + p.id
-            : game + (config.lineup === 'homogeneous' ? 0 : p.id)) % config.opponents.length
+            ? Math.floor(Math.floor(gameIndex / config.players.length) / players) + p.id
+            : gameIndex + (config.lineup === 'homogeneous' ? 0 : p.id)) % config.opponents.length
         ],
   );
   const rngs = state.players.map((p) => seeded((seed + 123 + p.id * 7919) >>> 0));
@@ -161,7 +168,7 @@ for (let game = records.length; game < config.games; game++) {
   }
   if (state.phase !== 'finished') throw new Error('Nonterminating game');
   records.push({
-    game,
+    game: gameIndex,
     seed,
     players,
     seat,
