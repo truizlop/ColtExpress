@@ -108,7 +108,9 @@ export function useGame() {
       setError('The AI worker stopped. Reload it to continue this game.');
       setThinking(false);
     };
-    w.postMessage({ type: 'init', url: new URL('models/champion.json', document.baseURI).href });
+    const modelUrl = new URL('models/champion.json', document.baseURI);
+    modelUrl.searchParams.set('v', import.meta.env.VITE_MODEL_VERSION);
+    w.postMessage({ type: 'init', url: modelUrl.href });
   }, []);
   useEffect(() => {
     initWorker();
