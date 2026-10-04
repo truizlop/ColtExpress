@@ -1,0 +1,92 @@
+{
+  "frozenCommit": "fa87041",
+  "checks": {
+    "source": true,
+    "public/models/champion.json": true,
+    "experiments/v2/models/express64-release.json": true,
+    "training/arena_parallel.py": true,
+    "training/benchmark_v2.py": true,
+    "training/analyze_v2.py": true
+  },
+  "games": 840,
+  "allSeedsUnique": true,
+  "suites": [
+    {
+      "suite": "legend-standard",
+      "games": 480,
+      "reportSha256": "d4e8433fd151a29ddc04c61ba55b6c43320bad4b3886cca4e824cdcd2820a632",
+      "seatCounts": {
+        "3": {
+          "0": 40,
+          "1": 40,
+          "2": 40
+        },
+        "4": {
+          "0": 30,
+          "1": 30,
+          "2": 30,
+          "3": 30
+        },
+        "5": {
+          "0": 24,
+          "1": 24,
+          "2": 24,
+          "3": 24,
+          "4": 24
+        },
+        "6": {
+          "0": 20,
+          "1": 20,
+          "2": 20,
+          "3": 20,
+          "4": 20,
+          "5": 20
+        }
+      }
+    },
+    {
+      "suite": "legend-expert",
+      "games": 240,
+      "reportSha256": "df2870f1f777160202cb2540442fb6f766f3f04074bc2d675cd0f3e34dc19615",
+      "seatCounts": {
+        "3": {
+          "0": 20,
+          "1": 20,
+          "2": 20
+        },
+        "4": {
+          "0": 15,
+          "1": 15,
+          "2": 15,
+          "3": 15
+        },
+        "5": {
+          "0": 12,
+          "1": 12,
+          "2": 12,
+          "3": 12,
+          "4": 12
+        },
+        "6": {
+          "0": 10,
+          "1": 10,
+          "2": 10,
+          "3": 10,
+          "4": 10,
+          "5": 10
+        }
+      }
+    },
+    {
+      "suite": "legend-team",
+      "games": 120,
+      "reportSha256": "23fdf92222f41bda033384d8d064409d816386f25e53894ae98f94b62745c98c",
+      "seatCounts": {
+        "2": {
+          "0": 60,
+          "1": 60
+        }
+      }
+    }
+  ]
+}
