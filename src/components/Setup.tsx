@@ -10,11 +10,11 @@ export const DIFFICULTIES: { id: Difficulty; name: string; description: string }
     description: 'A forgiving opponent with room to make mistakes.',
   },
   { id: 'bandit', name: 'Bandit', description: 'A trained opponent for a lively robbery.' },
-  { id: 'outlaw', name: 'Outlaw', description: 'The trained policy at full concentration.' },
+  { id: 'outlaw', name: 'Outlaw', description: 'A sharp opponent that plans ahead.' },
   {
     id: 'legend',
     name: 'Legend',
-    description: 'Samples hidden cards and plans through the next round.',
+    description: 'Our toughest bandits, with more time to weigh the odds.',
   },
 ];
 export function Setup({
