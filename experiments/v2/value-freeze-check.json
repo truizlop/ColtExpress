@@ -1,0 +1,10 @@
+{
+  "policy_weights_identical": true,
+  "changed_tensors": [
+    "valueHidden.weight",
+    "valueHidden.bias",
+    "value.weight",
+    "value.bias"
+  ],
+  "value_head_changed": true
+}

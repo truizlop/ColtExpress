@@ -137,7 +137,7 @@ def collect(bridge, net, args, iteration, device):
             behavior = (
                 t / (0.45 if iteration % 5 else 1.2)
                 if args.mode == "distill"
-                else logits
+                else logits / args.behavior_temperature
             )
             dist = Categorical(logits=behavior)
             choices = dist.sample()
@@ -199,7 +199,14 @@ def train(args):
     torch.manual_seed(args.seed)
     rng = np.random.default_rng(args.seed)
     device = torch.device(args.device)
+    if args.behavior_temperature <= 0 or not math.isfinite(args.behavior_temperature):
+        raise ValueError("Behavior temperature must be positive and finite")
+    if args.value_only and args.mode != "ppo":
+        raise ValueError("Value recalibration requires PPO-mode trajectories")
     net = PolicyV2(args.width).to(device)
+    if args.value_only:
+        for name, parameter in net.named_parameters():
+            parameter.requires_grad_(name.startswith(("valueHidden.", "value.")))
     opt = torch.optim.Adam(net.parameters(), lr=args.lr, eps=1e-5)
     steps = games = first_iteration = 0
     history = []
@@ -232,7 +239,12 @@ def train(args):
         ]:
             if saved["config"][key] != getattr(args, key):
                 raise ValueError(f"Resume config mismatch: {key}")
-        for key, default in [("planner_fraction", 0.0), ("planner_model", None)]:
+        for key, default in [
+            ("planner_fraction", 0.0),
+            ("planner_model", None),
+            ("behavior_temperature", 1.0),
+            ("value_only", False),
+        ]:
             if saved["config"].get(key, default) != getattr(args, key):
                 raise ValueError(f"Resume config mismatch: {key}")
         opt.load_state_dict(saved["optimizer"])
@@ -316,7 +328,7 @@ def train(args):
                         device=device,
                         dtype=torch.float32,
                     )
-                    dist = Categorical(logits=logits)
+                    dist = Categorical(logits=logits / args.behavior_temperature)
                     entropy = dist.entropy().mean()
                     oldlog = torch.tensor([x["logp"] for x in batch], device=device)
                     logratio = dist.log_prob(choices) - oldlog
@@ -331,6 +343,9 @@ def train(args):
                             .mean()
                         )
                         target = terminal
+                    elif args.value_only:
+                        target = terminal
+                        actor = torch.zeros((), device=device)
                     else:
                         if epoch > 0 and float(kl.detach()) > args.target_kl * 1.5:
                             stop = True
@@ -351,6 +366,8 @@ def train(args):
                         + 0.25 * mc_loss
                         - (args.entropy * entropy if args.mode == "ppo" else 0)
                     )
+                    if args.value_only:
+                        loss = mc_loss
                     opt.zero_grad(set_to_none=True)
                     loss.backward()
                     grad = nn.utils.clip_grad_norm_(net.parameters(), 0.5)
@@ -429,6 +446,8 @@ def train(args):
                     "games": games,
                     "scoreMix": args.score_mix,
                     "featureVersion": 2,
+                    "valueOnly": args.value_only,
+                    "behaviorTemperature": args.behavior_temperature,
                     "human_evaluation": False,
                 }
                 net.export(ck.with_suffix(".json"), steps, ck.name, meta)
@@ -515,6 +534,8 @@ def parser():
     p.add_argument("--strategist-fraction", type=float, default=0.15)
     p.add_argument("--planner-fraction", type=float, default=0.0)
     p.add_argument("--planner-model")
+    p.add_argument("--behavior-temperature", type=float, default=1.0)
+    p.add_argument("--value-only", action="store_true")
     p.add_argument("--pool-size", type=int, default=16)
     p.add_argument("--pool", nargs="+")
     p.add_argument("--anchor", nargs="+")

@@ -74,3 +74,11 @@ A separate planning-league branch starts from v2 iteration 128 with a lower lear
 At iteration 256 the main run was continued with the optimized simulator, retaining optimizer and random state. Before this change, 256 full league games and 19,544 learner decisions were compared between the frozen and optimized bridges; observations, opponent decisions and terminal results matched exactly. The continuation records both simulator hashes and its parent checkpoint. Its cumulative counters include the first 256 iterations and must not be double-counted.
 
 Independent selection uses 240 standard and 120 expert games against the actual previous Legend. The final, untouched protocol reserves 480 standard, 240 expert and 120 team games, reported separately. Main table sizes receive balanced seat counts. Confidence intervals and complete per-game records accompany release evaluation.
+
+## Value calibration and rejected alternatives
+
+Full-game rollouts with 12 sampled worlds fell to 20.83% on the mixed development league and were slower than round-boundary evaluation; this configuration is rejected. The action-value-trace checkpoint with 12-world planning scored 45.00%, while the main iteration-128 checkpoint scored 49.17%. Twenty-four-world hybrid planning scored 45.83%, offering no clear gain over the 12-world hybrid's 45.00%.
+
+Parameter averaging and a temperature sweep did not produce a clear improvement over the best existing candidates. The fast-policy sweep also confirmed that the learned actor's native training temperature is weaker in these matches than near-greedy selection. This motivates a controlled value-head recalibration experiment: all policy and shared-encoder weights remain exactly frozen, while the separate value head learns Monte Carlo outcomes from near-greedy games. The smoke test verifies that only `valueHidden` and `value` tensors change. The resulting checkpoints are evaluated through planning, because their direct policy is identical by construction.
+
+`training/plot_v2.py` renders the current development learning curves and uncertainty intervals. These are diagnostic plots, not final benchmark evidence.

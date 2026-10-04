@@ -1,10 +1,12 @@
 {
-  "unique_planned_training_seeds": 1151692,
+  "unique_planned_training_seeds": 1217236,
   "training_runs": [
     "training/runs/v2-planning-league",
     "training/runs/v2-mps-benchmark2",
     "training/runs/v2-distill",
     "training/runs/v2-mps-benchmark",
+    "training/runs/v2-value-smoke",
+    "training/runs/v2-value-calibration",
     "training/runs/v2-main",
     "training/runs/v2-planner-smoke",
     "training/runs/v2-control",
