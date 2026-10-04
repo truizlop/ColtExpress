@@ -1,0 +1,7 @@
+{
+  "identical_trajectories": true,
+  "games": 256,
+  "learner_decisions": 19544,
+  "bridge_steps": 960,
+  "scope": "Frozen main-run simulator versus optimized inference, with a mixed past-model league and identical externally supplied learner choices"
+}

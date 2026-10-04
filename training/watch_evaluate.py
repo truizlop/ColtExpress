@@ -10,6 +10,9 @@ root = Path(__file__).resolve().parents[1]
 p = argparse.ArgumentParser()
 p.add_argument("--hours", type=float, default=12)
 p.add_argument("--node", default="node")
+p.add_argument(
+    "--runs", nargs="+", default=["v2-control", "v2-main", "v2-qtrace", "v2-main-fast"]
+)
 args = p.parse_args()
 base = json.loads(
     (root / "training/runs/v2-arena/release-policy-config.json").read_text()
@@ -19,7 +22,7 @@ out.mkdir(exist_ok=True)
 start = time.time()
 while time.time() - start < args.hours * 3600:
     found = False
-    for run in ["v2-control", "v2-main", "v2-qtrace"]:
+    for run in args.runs:
         for model in sorted((root / "training/runs" / run).glob("ppo-*.json")):
             step = int(model.stem.split("-")[1])
             if run == "v2-control" and step % 256:

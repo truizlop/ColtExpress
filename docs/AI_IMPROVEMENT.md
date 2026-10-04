@@ -62,3 +62,15 @@ The planner changes decisions in roughly 28% of collected training positions. A 
 ## Research references and scope
 
 [PPO](https://arxiv.org/abs/1707.06347) supplies the clipped on-policy objective. [AlphaStar's league research](https://deepmind.google/blog/alphastar-grandmaster-level-in-starcraft-ii-using-multi-agent-reinforcement-learning/) motivates maintaining diverse opponents rather than relying on self-play alone. [Recent work on advantage variance](https://arxiv.org/abs/2605.19235) motivates a separate optional action-value-trace experiment. This implementation uses observation-only critics and does **not** claim to reproduce centralized VRPO, solve an equilibrium or establish human superiority.
+
+## Subsequent experiments
+
+The v2 iteration-128 model with 12-world planning achieved 49.17% on the initial development league; using the compact release model for rollouts achieved 45.00% at lower latency. The iteration-256 fast policy regressed to 25.00%, so the newest checkpoint is not automatically selected.
+
+The first search-distillation dataset contains 10,000 positions from 196 games. Both soft targets and a hard-choice/value-preservation variant failed to improve the parent on the development league. Those branches are rejected at this stage. This small pilot also sampled expert rules only for one table size; it is not a balanced expert-training dataset.
+
+A separate planning-league branch starts from v2 iteration 128 with a lower learning rate, lower entropy coefficient, fewer current learners and a small fraction of genuine four-world planning opponents. The smoke run completed eight legal games containing planning opponents and passed export parity. The branch is evaluated every 64 iterations.
+
+At iteration 256 the main run was continued with the optimized simulator, retaining optimizer and random state. Before this change, 256 full league games and 19,544 learner decisions were compared between the frozen and optimized bridges; observations, opponent decisions and terminal results matched exactly. The continuation records both simulator hashes and its parent checkpoint. Its cumulative counters include the first 256 iterations and must not be double-counted.
+
+Independent selection uses 240 standard and 120 expert games against the actual previous Legend. The final, untouched protocol reserves 480 standard, 240 expert and 120 team games, reported separately. Main table sizes receive balanced seat counts. Confidence intervals and complete per-game records accompany release evaluation.

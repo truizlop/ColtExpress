@@ -122,6 +122,7 @@ def collect(bridge, net, args, iteration, device):
             "league": "stable",
             "learnerFraction": args.learner_fraction,
             "strategistFraction": args.strategist_fraction,
+            "plannerFraction": args.planner_fraction,
             "featureVersion": 2,
         }
     )
@@ -231,6 +232,9 @@ def train(args):
         ]:
             if saved["config"][key] != getattr(args, key):
                 raise ValueError(f"Resume config mismatch: {key}")
+        for key, default in [("planner_fraction", 0.0), ("planner_model", None)]:
+            if saved["config"].get(key, default) != getattr(args, key):
+                raise ValueError(f"Resume config mismatch: {key}")
         opt.load_state_dict(saved["optimizer"])
         torch.set_rng_state(saved["torch_rng"].cpu())
         if args.device == "mps":
@@ -267,6 +271,10 @@ def train(args):
     anchors = list(args.anchor or [])
     if anchors or pool:
         bridge.send({"cmd": "pool", "paths": anchors + pool})
+    if args.planner_fraction:
+        if not args.planner_model:
+            raise ValueError("--planner-fraction requires --planner-model")
+        bridge.send({"cmd": "planner", "path": args.planner_model})
     if args.mode == "distill" and args.teacher:
         bridge.send({"cmd": "teacher", "path": args.teacher})
     elapsed_before = history[-1]["seconds"] if history else 0
@@ -385,6 +393,9 @@ def train(args):
                 "value_explained_variance": float(
                     1 - np.var(targets - vals) / max(1e-8, np.var(targets))
                 ),
+                "games_with_planning_opponent": sum(
+                    "planner" in t["policies"] for t in finished
+                ),
                 "learner_winning_share": float(
                     np.mean(
                         [
@@ -502,6 +513,8 @@ def parser():
     p.add_argument("--players", type=int)
     p.add_argument("--learner-fraction", type=float, default=0.5)
     p.add_argument("--strategist-fraction", type=float, default=0.15)
+    p.add_argument("--planner-fraction", type=float, default=0.0)
+    p.add_argument("--planner-model")
     p.add_argument("--pool-size", type=int, default=16)
     p.add_argument("--pool", nargs="+")
     p.add_argument("--anchor", nargs="+")

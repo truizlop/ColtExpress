@@ -6,6 +6,7 @@ import { encodeV2 } from '../src/ai/features-v2';
 import { baseline, teacherScores, type Baseline } from '../src/ai/tactics';
 import { infer, modelChoice, type Model } from '../src/ai/network';
 import { seeded } from '../src/game/random';
+import { plan } from '../src/ai/planner';
 import type { GameState } from '../src/game/types';
 interface Env {
   id: number;
@@ -22,6 +23,7 @@ let envs: Env[] = [],
   runningSeed = 1,
   featureVersion = 1,
   teacherModel: Model | null = null,
+  plannerModel: Model | null = null,
   trainingMode = 'imitation';
 function settle(e: Env) {
   while (e.state.phase !== 'finished') {
@@ -35,11 +37,18 @@ function settle(e: Env) {
     if (policy === 'learner') return;
     const o = observe(e.state, e.state.actor, false),
       i =
-        policy.startsWith('past:') && pool.length
-          ? modelChoice(pool[Number(policy.split(':')[1])], o, rng, Number(policy.split(':')[2]))
-          : policy === 'past' && pool.length
-            ? modelChoice(pool[Math.floor(rng() * pool.length)], o, rng, 0.5)
-            : baseline(o, policy as Baseline, rng);
+        policy === 'planner' && plannerModel
+          ? plan(plannerModel, o, Math.floor(rng() * 2 ** 32), {
+              worlds: 4,
+              warmup: 2,
+              finalists: 2,
+              opponents: 'mixed',
+            }).index
+          : policy.startsWith('past:') && pool.length
+            ? modelChoice(pool[Number(policy.split(':')[1])], o, rng, Number(policy.split(':')[2]))
+            : policy === 'past' && pool.length
+              ? modelChoice(pool[Math.floor(rng() * pool.length)], o, rng, 0.5)
+              : baseline(o, policy as Baseline, rng);
     applyAction(e.state, actions[i], false);
   }
   completed.push({
@@ -99,6 +108,10 @@ for await (const line of rl) {
           const r = rng();
           if (msg.league === 'stable' && msg.mode !== 'imitation') {
             if (r < (msg.learnerFraction ?? 0.5)) return 'learner';
+            if ((msg.plannerFraction ?? 0) > 0 && rng() < msg.plannerFraction) {
+              if (!plannerModel) throw new Error('Planning league requires a planner model');
+              return 'planner';
+            }
             if (rng() < (msg.strategistFraction ?? 0)) return 'strategist';
             if (pool.length && rng() < 0.8)
               return `past:${Math.floor(rng() * pool.length)}:${rng() < 0.75 ? 0.08 : 0.7}`;
@@ -122,6 +135,9 @@ for await (const line of rl) {
         envs.push(e);
       }
       console.log(JSON.stringify(response()));
+    } else if (msg.cmd === 'planner') {
+      plannerModel = JSON.parse(fs.readFileSync(msg.path, 'utf8')) as Model;
+      console.log(JSON.stringify({ ok: true }));
     } else if (msg.cmd === 'step') {
       const actions = new Map<number, number>(msg.choices);
       for (const e of envs) {

@@ -21,6 +21,8 @@ p.add_argument("--batch", type=int, default=256)
 p.add_argument("--lr", type=float, default=0.0001)
 p.add_argument("--seed", type=int, default=1204791)
 p.add_argument("--threads", type=int, default=2)
+p.add_argument("--hard-weight", type=float, default=0.0)
+p.add_argument("--value-target", choices=["terminal", "parent"], default="terminal")
 a = p.parse_args()
 torch.set_num_threads(a.threads)
 torch.manual_seed(a.seed)
@@ -28,6 +30,11 @@ rng = np.random.default_rng(a.seed)
 saved = torch.load(a.resume, map_location="cpu", weights_only=True)
 net = PolicyV2(saved["width"])
 net.load_state_dict(saved["state_dict"])
+anchor = PolicyV2(saved["width"])
+anchor.load_state_dict(saved["state_dict"])
+anchor.eval()
+for parameter in anchor.parameters():
+    parameter.requires_grad_(False)
 opt = torch.optim.Adam(net.parameters(), lr=a.lr, eps=1e-5)
 rows = [json.loads(line) for line in Path(a.dataset).read_text().splitlines()]
 for row in rows:
@@ -72,12 +79,21 @@ for epoch in range(a.epochs):
             target[i, : len(row["target"])] = torch.tensor(row["target"])
         terminal = torch.tensor([row["value"] for row in batch], dtype=torch.float32)
         choices = torch.tensor([row["choice"] for row in batch])
+        target *= 1 - a.hard_weight
+        target.scatter_add_(
+            1, choices[:, None], torch.full((len(batch), 1), a.hard_weight)
+        )
         chosen_q = q.gather(1, choices[:, None]).squeeze(1)
+        q_target = terminal
+        if a.value_target == "parent":
+            with torch.no_grad():
+                _, terminal, anchor_q = anchor(s, actions, mask)
+                q_target = anchor_q.gather(1, choices[:, None]).squeeze(1)
         policy_loss = -(target * torch.log_softmax(logits, dim=-1)).sum(-1).mean()
         loss = (
             policy_loss
             + 0.3 * (value - terminal).square().mean()
-            + 0.15 * (chosen_q - terminal).square().mean()
+            + 0.15 * (chosen_q - q_target).square().mean()
         )
         opt.zero_grad(set_to_none=True)
         loss.backward()

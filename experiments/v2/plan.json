@@ -30,5 +30,67 @@
     "Broader candidate search and opponent mixtures",
     "Search-guided policy improvement if pure self-play saturates"
   ],
-  "seed_revision": "Moved selection and final holdouts above every planned training seed before either suite was used; exact collisions are checked by training/seed_audit.py."
+  "seed_revision": "Moved selection and final holdouts above every planned training seed before either suite was used; exact collisions are checked by training/seed_audit.py.",
+  "selection_suites": [
+    {
+      "seed": 3300000001,
+      "games": 240,
+      "players": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "expert": false,
+      "opponents": "Released Legend in every other seat"
+    },
+    {
+      "seed": 3400000001,
+      "games": 120,
+      "players": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "expert": true,
+      "opponents": "Released Legend in every other seat"
+    }
+  ],
+  "final_holdout_suites": [
+    {
+      "seed": 3600000001,
+      "games": 480,
+      "players": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "expert": false,
+      "opponents": "Released Legend in every other seat"
+    },
+    {
+      "seed": 3700000001,
+      "games": 240,
+      "players": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "expert": true,
+      "opponents": "Released Legend in every other seat"
+    },
+    {
+      "seed": 3800000001,
+      "games": 120,
+      "players": [
+        2
+      ],
+      "expert": false,
+      "opponents": "Released Legend team opponent"
+    }
+  ],
+  "selection_rule": "Use development evidence to shortlist model/planner combinations, then independent selection suites to choose the release. Freeze hashes and settings before running all three final holdouts once; do not tune to those final results."
 }

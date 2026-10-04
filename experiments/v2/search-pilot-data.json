@@ -1,0 +1,22 @@
+{
+  "model": "experiments/v2/models/express64-release.json",
+  "modelSha256": "bb904d8c3171e9281c42a291abd33952c7885c30f10f7a834bca770427456c6d",
+  "featureVersion": 2,
+  "seed": 1100000001,
+  "options": {
+    "worlds": 12,
+    "warmup": 4,
+    "finalists": 4,
+    "opponents": "mixed"
+  },
+  "targetPositions": 10000,
+  "positions": 10000,
+  "games": 196,
+  "changed": 2761,
+  "seconds": 944.1311235410001,
+  "phases": {
+    "scheme": 8262,
+    "cover": 80,
+    "execute": 1658
+  }
+}
