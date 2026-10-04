@@ -1,9 +1,10 @@
 import readline from 'node:readline';
 import fs from 'node:fs';
 import { createGame, observe, applyAction, legalActions } from '../src/game/engine';
-import { encode, stateFeatures } from '../src/ai/features';
+import { encode } from '../src/ai/features';
+import { encodeV2 } from '../src/ai/features-v2';
 import { baseline, teacherScores, type Baseline } from '../src/ai/tactics';
-import { modelChoice, type Model } from '../src/ai/network';
+import { infer, modelChoice, type Model } from '../src/ai/network';
 import { seeded } from '../src/game/random';
 import type { GameState } from '../src/game/types';
 interface Env {
@@ -18,7 +19,10 @@ let envs: Env[] = [],
   rng = seeded(1),
   pool: Model[] = [],
   completed: unknown[] = [],
-  runningSeed = 1;
+  runningSeed = 1,
+  featureVersion = 1,
+  teacherModel: Model | null = null,
+  trainingMode = 'imitation';
 function settle(e: Env) {
   while (e.state.phase !== 'finished') {
     const actions = legalActions(e.state);
@@ -31,9 +35,11 @@ function settle(e: Env) {
     if (policy === 'learner') return;
     const o = observe(e.state, e.state.actor, false),
       i =
-        policy === 'past' && pool.length
-          ? modelChoice(pool[Math.floor(rng() * pool.length)], o, rng, 0.5)
-          : baseline(o, policy as Baseline, rng);
+        policy.startsWith('past:') && pool.length
+          ? modelChoice(pool[Number(policy.split(':')[1])], o, rng, Number(policy.split(':')[2]))
+          : policy === 'past' && pool.length
+            ? modelChoice(pool[Math.floor(rng() * pool.length)], o, rng, 0.5)
+            : baseline(o, policy as Baseline, rng);
     applyAction(e.state, actions[i], false);
   }
   completed.push({
@@ -49,7 +55,7 @@ function response() {
   envs = envs.filter((e) => e.state.phase !== 'finished');
   const rows = envs.map((e) => {
     const o = observe(e.state, e.state.actor, false),
-      f = encode(o);
+      f = featureVersion === 2 ? encodeV2(o) : encode(o);
     return {
       env: e.id,
       episode: e.episode,
@@ -57,7 +63,14 @@ function response() {
       players: e.state.players.length,
       state: f.state,
       actions: f.actions,
-      teacher: teacherScores(o),
+      teacher:
+        featureVersion === 2 && trainingMode === 'ppo'
+          ? o.legal.map(() => 0)
+          : teacherModel
+            ? infer(teacherModel, o).logits
+            : teacherScores(o),
+      phase: o.phase,
+      round: o.round,
     };
   });
   const out = { rows, completed };
@@ -71,6 +84,8 @@ for await (const line of rl) {
     if (msg.cmd === 'start') {
       envs = [];
       completed = [];
+      featureVersion = msg.featureVersion ?? 1;
+      trainingMode = msg.mode ?? 'imitation';
       rng = seeded(msg.seed ?? 1);
       runningSeed = msg.seed ?? 1;
       for (let id = 0; id < (msg.batch ?? 64); id++) {
@@ -82,6 +97,13 @@ for await (const line of rl) {
         });
         const policies = state.players.map(() => {
           const r = rng();
+          if (msg.league === 'stable' && msg.mode !== 'imitation') {
+            if (r < (msg.learnerFraction ?? 0.5)) return 'learner';
+            if (rng() < (msg.strategistFraction ?? 0)) return 'strategist';
+            if (pool.length && rng() < 0.8)
+              return `past:${Math.floor(rng() * pool.length)}:${rng() < 0.75 ? 0.08 : 0.7}`;
+            return ['tactical', 'aggressive', 'greedy'][Math.floor(rng() * 3)];
+          }
           return msg.mode === 'imitation' || r < 0.65
             ? 'learner'
             : r < 0.76
@@ -111,6 +133,9 @@ for await (const line of rl) {
         settle(e);
       }
       console.log(JSON.stringify(response()));
+    } else if (msg.cmd === 'teacher') {
+      teacherModel = msg.path ? JSON.parse(fs.readFileSync(msg.path, 'utf8')) : null;
+      console.log(JSON.stringify({ ok: true }));
     } else if (msg.cmd === 'pool') {
       pool = msg.paths.map((p: string) => JSON.parse(fs.readFileSync(p, 'utf8')));
       console.log(JSON.stringify({ ok: true, pool: pool.length }));

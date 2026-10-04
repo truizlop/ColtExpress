@@ -64,9 +64,9 @@ class Policy(nn.Module):
 
 
 class Bridge:
-    def __init__(self, node):
+    def __init__(self, node, script=None):
         self.proc = subprocess.Popen(
-            [node, str(ROOT / "training/bridge.mjs")],
+            [node, str(script or ROOT / "training/bridge.mjs")],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             text=True,
@@ -117,6 +117,8 @@ def collect(bridge, net, args, iteration, device):
             "seed": args.seed + iteration * 1000003,
             "mode": args.mode,
             "players": args.players,
+            "league": args.league,
+            "learnerFraction": args.learner_fraction,
         }
     )
     data = []
@@ -162,7 +164,7 @@ def collect(bridge, net, args, iteration, device):
         for j, i in enumerate(reversed(idxs)):
             r = rewards[key] if j == 0 else 0.0
             delta = r + args.gamma * next_value - data[i]["value"]
-            gae = delta + args.gamma * 0.95 * gae
+            gae = delta + args.gamma * args.gae_lambda * gae
             data[i]["adv"] = gae
             data[i]["return"] = gae + data[i]["value"]
             next_value = data[i]["value"]
@@ -187,9 +189,10 @@ def train(args):
     steps = 0
     start = time.time()
     history = []
+    anchors = list(args.anchor or [])
     pool = list(args.pool or [])
-    if pool:
-        bridge.send({"cmd": "pool", "paths": pool})
+    if anchors or pool:
+        bridge.send({"cmd": "pool", "paths": anchors + pool})
     try:
         for iteration in range(args.iterations):
             if args.lr_final is not None:
@@ -275,6 +278,10 @@ def train(args):
                         "state_dict": net.state_dict(),
                         "width": args.width,
                         "steps": steps,
+                        "optimizer": opt.state_dict(),
+                        "iteration": iteration + 1,
+                        "torch_rng": torch.get_rng_state(),
+                        "config": vars(args),
                     },
                     checkpoint.with_suffix(".pt"),
                 )
@@ -290,8 +297,8 @@ def train(args):
                 (out / "metrics.json").write_text(json.dumps(history, indent=2))
                 if args.mode == "ppo":
                     pool.append(str(checkpoint.with_suffix(".json")))
-                    pool = pool[-4:]
-                    bridge.send({"cmd": "pool", "paths": pool})
+                    pool = pool[-args.pool_size :]
+                    bridge.send({"cmd": "pool", "paths": anchors + pool})
         # Cross-runtime inference parity is a release gate, not an assumption.
         probe = {
             "state": np.random.default_rng(7).normal(0, 0.2, STATE_DIM).tolist(),
@@ -334,6 +341,11 @@ if __name__ == "__main__":
     ap.add_argument("--lr", type=float, default=3e-4)
     ap.add_argument("--lr-final", type=float)
     ap.add_argument("--pool", nargs="+")
+    ap.add_argument("--anchor", nargs="+")
+    ap.add_argument("--pool-size", type=int, default=4)
+    ap.add_argument("--league", choices=["legacy", "stable"], default="legacy")
+    ap.add_argument("--learner-fraction", type=float, default=0.5)
+    ap.add_argument("--gae-lambda", type=float, default=0.95)
     ap.add_argument("--entropy", type=float, default=0.015)
     ap.add_argument("--gamma", type=float, default=0.995)
     ap.add_argument("--seed", type=int, default=1701)
