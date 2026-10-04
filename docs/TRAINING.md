@@ -17,7 +17,7 @@ python3 -m venv .venv
 
 The committed browser model is sufficient to play. Python is only needed for training, verification and statistical analysis. Large checkpoints and raw run directories stay in ignored `training/runs/`; selected weights, experiment configurations, completed metrics and per-game evidence are retained in `experiments/`.
 
-## Current experiments
+## Current model and experiments
 
 [TRAINING_V2.md](TRAINING_V2.md) documents the richer policy/value network, stable opponent league, broader sampled-world planner, value calibration, exact continuation checks, seed isolation and independent selection protocol. The [model card](../MODEL_CARD.md) describes the shipped model and measured limits.
 
@@ -35,7 +35,7 @@ pnpm build
 node --import tsx training/benchmark_difficulty.ts
 ```
 
-Checkpoint development curves are generated with `training/plot_v2.py`. `training/archive_v2.py` preserves completed evidence and counts continuation games only once. Arena configurations can be replayed with `training/arena.ts`, or partitioned by player count using `training/arena_sharded.py`; the latter preserves every original seed and seat.
+The frozen release tournament is reproduced with `training/benchmark_v2.py`; it verifies model and source hashes before running. Checkpoint development curves are generated with `training/plot_v2.py`. `training/archive_v2.py` preserves completed evidence and counts continuation games only once. Arena configurations can be replayed with `training/arena.ts`, or partitioned by player count using `training/arena_sharded.py`; the latter preserves every original seed and seat.
 
 ## Architecture rationale
 

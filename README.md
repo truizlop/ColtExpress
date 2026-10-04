@@ -10,7 +10,7 @@ A playable tabletop train heist, built with React and Three.js. Choose a bandit,
 
 - One human and **1–5 AI opponents**. The official two-player variant gives each side two bandits.
 - All six base-game characters, five rounds, special powers, round events, hidden cards, shooting, punching, loot and the marshal.
-- Standard and expert deck rules, four difficulty levels, automatic local save/resume, game history and built-in help.
+- Standard and expert deck rules, four difficulty levels, automatic local save/resume, game history, replayable match downloads and built-in help.
 - A detailed cutaway 3D train, original illustrated cards and portraits, mobile carriage navigation, keyboard controls and reduced-motion support.
 - Runs entirely in your browser. No account, inference service or API key. Your saved game stays on that browser and origin.
 
@@ -32,24 +32,27 @@ pnpm build
 pnpm preview
 ```
 
-Python is only needed for training and experiments. The selected model is included in `public/models/champion.json`. [Training instructions](docs/TRAINING.md) cover installation, all six experiment families, export parity and the frozen benchmark protocol.
+Python is only needed for training and experiments. The selected model is included in `public/models/champion.json`. [Training instructions](docs/TRAINING.md) cover installation, the improvement experiments, export parity and the frozen benchmark protocol.
 
 ## AI and evidence
 
-Express64 combines imitation learning, population PPO and, at Legend difficulty, information-set Monte Carlo planning. It only receives information its player can see. The browser and training process share the same TypeScript rules engine.
+The improved **Express128 planning-league** model combines richer observations, a larger policy/value network, population PPO and information-set Monte Carlo planning. It receives only information its player can see and shares the browser’s TypeScript rules engine with training.
 
-Six training runs generated **199,680 games and 19.48 million learner decisions**. Model selection compared two widths, PPO schedules, checkpoints and search variants. In 900 fresh standard-rule games per level against a tactical baseline, winning shares were:
+The improvement campaign generated **320,512 additional training games and 26.08 million learner decisions** across six main branches. We compared longer training, larger representations, planning opponents, value calibration and search variants, then selected a checkpoint on separate standard/expert suites. The selected network’s direct new lineage is 46,080 games; campaign volume includes alternatives that were rejected.
 
-| Difficulty | Winning share | Approximate 95% bootstrap interval |
-| --- | ---: | ---: |
-| Greenhorn | 12.9% | 10.8–15.2% |
-| Bandit | 24.1% | 21.5–26.9% |
-| Outlaw | 37.5% | 34.6–40.5% |
-| Legend | **50.1%** | **47.1–53.2%** |
+In **840 fresh final games**, the new Legend faced the previous release’s strongest Legend in every other seat. Weights and search settings were frozen beforehand.
 
-Games are equally divided among 2–6 players; the equal-strength reference is 29%. Ties split winning credit. Bandit was calibrated after its original setting was too close to Outlaw, then tested on fresh seeds. Network weights and Legend search were frozen before holdout testing.
+| Suite vs old Legend   | Games | New Legend winning share | 95% interval | Equal-strength reference |
+| --------------------- | ----: | -----------------------: | -----------: | -----------------------: |
+| Standard, 3–6 players |   480 |               **37.29%** | 33.12–41.46% |                   23.75% |
+| Expert, 3–6 players   |   240 |               **37.92%** | 32.08–44.17% |                   23.75% |
+| Two-player teams      |   120 |               **69.17%** | 60.83–77.50% |                   50.00% |
 
-These are **engine-opponent results, not human trials**. Beating every human has not been established. See the [model card](MODEL_CARD.md) for per-player-count results, other opponents, expert decks, limitations and retained evidence.
+The equal-strength reference is mathematical, not a measured opponent. Results split ties and report the two-player variant separately; the confidence intervals are stratified bootstrap estimates.
+
+Bandit no longer has injected random mistakes. Outlaw now plans across four sampled worlds, and Legend uses twelve worlds with broader candidate evaluation. All computation runs locally in a browser worker. A completed game’s **Save match** button downloads a replayable record with the exact model version for investigating weaknesses; nothing is uploaded.
+
+These are **engine-opponent results, not human trials**. Beating every human has not been established. The [model card](MODEL_CARD.md) records the architecture, per-player-count results, uncertainty, runtime measurements and limitations. The [reproduction guide](docs/TRAINING_V2.md) explains how to rerun the tournament from committed weights.
 
 ## Project structure
 
@@ -60,4 +63,4 @@ These are **engine-opponent results, not human trials**. Beating every human has
 - `experiments`: frozen protocol, training curves, per-game results and analysis.
 - `docs`: rule sources, design concepts, [visual comparison](docs/design/FIDELITY.md) and [QA record](docs/QA.md).
 
-GitHub Actions verifies formatting, tests and the production build, then deploys `main` to GitHub Pages. Relative assets support the `/ColtExpress/` path. Local release verification includes 56 tests, 300 complete engine simulations, full browser games and production-path model loading.
+GitHub Actions verifies formatting, tests and the production build, then deploys `main` to GitHub Pages. Relative assets support the `/ColtExpress/` path. Local release verification includes 64 tests, 300 complete engine simulations, 200 PyTorch/JavaScript parity probes, desktop/mobile browser games and exact match replay.

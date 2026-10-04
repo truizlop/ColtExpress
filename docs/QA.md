@@ -8,6 +8,7 @@ The production build with model SHA `06cda0d0fd8fa86a3b856e1ee8166368f2031b8738f
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | Six-player Legend, expert decks | Five AI opponents completed planning and resolution; retention and round two worked; reload restored the same game                      |
 | Two-player Outlaw, 390×844      | Opening-card choice, Shoot cover, partner actions, all five rounds and final team ranking completed                                     |
+| Three-player Bandit, Ghost      | Full standard-rule game, hidden first actions, final human-seat victory and exact downloaded replay completed                           |
 | Match download                  | 110 moves replayed exactly from the beginning; model hash matched the new release; final scores `[1000, 4800]` and winning team matched |
 | Old-save compatibility          | Earlier four-player saved game completed; its 164-move downloaded remainder replayed exactly and was marked `fromStart: false`          |
 | Mobile layout                   | No document overflow (`scrollWidth = innerWidth = 390`); action rails, results and download controls remained usable                    |

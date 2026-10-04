@@ -1,5 +1,9 @@
 # Second-generation AI research
 
+This is the development notebook, including initial plans and provisional measurements. Scheduled iteration budgets below are not completed training totals. The completed campaign contains **320,512 additional games and 26,075,617 learner decisions**; see the [training archive](../experiments/v2/training-summary.json). The [model card](../MODEL_CARD.md) is the authoritative release summary and separates selection from final independent results.
+
+The selected model is the planning-league checkpoint at iteration 256 with 12-world Legend planning. Model, source and final evaluation settings were frozen at `fa87041` before the final tournament.
+
 The user reported on 2026-10-04 that the released AI was easy to beat. This work treats that report as evidence that the original scripted-opponent benchmark was insufficient. No human-strength claim is made.
 
 ## Audit findings
@@ -11,7 +15,7 @@ The user reported on 2026-10-04 that the released AI was easy to beat. This work
 - Original terminal-reward PPO used discount 0.995 and trace 0.95. The control tests longer credit assignment (discount 1, trace 0.98). V2 adds Monte Carlo value supervision, an auxiliary action-value head, per-table-size advantage normalization, KL monitoring/stopping and a small terminal score-share component.
 - Original Legend considered only three policy-ranked actions. The new planner samples every candidate (up to 16) before pruning, uses paired hidden worlds, and keeps coherent opponent styles within a rollout. Search options are compared before selecting a release.
 
-## Experiments underway
+## Initial experiment plans
 
 1. **Longer-training control:** 262,144 additional games, existing width-64 model, stable league, longer credit assignment, 16 checkpoint opponents and permanent prior-model anchors.
 2. **Larger initialization:** 5,120 games distilling the previous model into feature v2; this is initialization, not evidence of strength improvement.
@@ -43,17 +47,17 @@ Long tournaments save atomic progress snapshots and reject resumption if source,
 
 All entries below use the same 120-game 3–6-player mixed league. Winning shares include fractional credit for ties. They are provisional, without independent confirmation.
 
-| Candidate | Winning share | Mean decision latency |
-| --- | ---: | ---: |
-| Released policy | 24.17% | 0.12 ms |
-| Released Legend (8 worlds, top 3) | 35.00% | 40 ms |
-| Wider legacy search (12 worlds, top 7) | 37.50% | 93 ms |
-| New planner (12 worlds, mixed opponents) | 46.25% | 69 ms |
-| New planner (24 worlds, 20% material heuristic) | 44.17% | See raw result |
-| Larger initialization | 27.50% | 0.55 ms |
-| Main v2 PPO, iteration 128 | 30.83% | 0.59 ms |
-| Action-value trace, iteration 128 | 26.67% | 0.57 ms |
-| Longer-training control, iteration 512 | 29.17% | 0.14 ms |
+| Candidate                                       | Winning share | Mean decision latency |
+| ----------------------------------------------- | ------------: | --------------------: |
+| Released policy                                 |        24.17% |               0.12 ms |
+| Released Legend (8 worlds, top 3)               |        35.00% |                 40 ms |
+| Wider legacy search (12 worlds, top 7)          |        37.50% |                 93 ms |
+| New planner (12 worlds, mixed opponents)        |        46.25% |                 69 ms |
+| New planner (24 worlds, 20% material heuristic) |        44.17% |        See raw result |
+| Larger initialization                           |        27.50% |               0.55 ms |
+| Main v2 PPO, iteration 128                      |        30.83% |               0.59 ms |
+| Action-value trace, iteration 128               |        26.67% |               0.57 ms |
+| Longer-training control, iteration 512          |        29.17% |               0.14 ms |
 
 The paired 95% bootstrap interval for the 12-world planner's 11.25-percentage-point development advantage over old Legend is approximately −0.8 to +23.3 points. It remains provisional. Independent selection and holdout results must establish the release claim.
 
