@@ -1,0 +1,32 @@
+{
+  "unique_planned_training_seeds": 1053265,
+  "training_runs": [
+    "training/runs/v2-mps-benchmark2",
+    "training/runs/v2-distill",
+    "training/runs/v2-mps-benchmark",
+    "training/runs/v2-main",
+    "training/runs/v2-control",
+    "training/runs/v2-qtrace"
+  ],
+  "search_datasets": [
+    {
+      "path": "training/runs/v2-search-data",
+      "games": 81
+    }
+  ],
+  "checks": {
+    "development": {
+      "reserved_evaluation_seeds": 4000,
+      "training_collisions": []
+    },
+    "selection": {
+      "reserved_evaluation_seeds": 4000,
+      "training_collisions": []
+    },
+    "final_holdout": {
+      "reserved_evaluation_seeds": 6000,
+      "training_collisions": []
+    }
+  },
+  "passed": true
+}

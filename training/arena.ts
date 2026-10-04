@@ -1,5 +1,6 @@
 /** Stronger evaluation: coherent per-game opponents, fixed seats and behavioral diagnostics. */
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import { createGame, observe, legalActions, applyAction } from '../src/game/engine';
 import { baseline, type Baseline } from '../src/ai/tactics';
 import { modelChoice, validateModel, type Model } from '../src/ai/network';
@@ -36,6 +37,28 @@ for (const spec of [config.candidate, ...config.opponents])
   }
 if (!config.games || !config.opponents.length || config.players.some((n) => n < 2 || n > 6))
   throw new Error('Invalid arena configuration');
+const files = [
+  'training/arena.ts',
+  ...['src/game', 'src/ai'].flatMap((dir) =>
+    fs
+      .readdirSync(dir)
+      .filter((name) => name.endsWith('.ts'))
+      .sort()
+      .map((name) => `${dir}/${name}`),
+  ),
+];
+const sourceHash = createHash('sha256');
+for (const path of files) sourceHash.update(path).update(fs.readFileSync(path));
+const provenance = {
+  sourceSha256: sourceHash.digest('hex'),
+  node: process.version,
+  models: Object.fromEntries(
+    [...models.keys()].map((path) => [
+      path,
+      createHash('sha256').update(fs.readFileSync(path)).digest('hex'),
+    ]),
+  ),
+};
 const timing: number[] = [];
 function choice(spec: PolicySpec, o: Observation, rng: () => number) {
   if (spec.baseline) return baseline(o, spec.baseline, rng);
@@ -139,6 +162,7 @@ const summarize = (rs: typeof records) => ({
 });
 timing.sort((a, b) => a - b);
 const report = {
+  provenance,
   config,
   seconds: (performance.now() - start) / 1000,
   overall: summarize(records),

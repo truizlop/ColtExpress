@@ -6,13 +6,13 @@
     2200000001
   ],
   "selection_seeds": [
-    3300000001,
-    3400000001
+    2400000001,
+    2500000001
   ],
   "final_holdout_seeds": [
-    3600000001,
-    3700000001,
-    3800000001
+    3100000001,
+    3200000001,
+    3300000001
   ],
   "gates": [
     "No hidden-state input to policy or search",
@@ -29,6 +29,5 @@
     "Larger feature-v2 network with explicit forecasts, destinations and hand synergies",
     "Broader candidate search and opponent mixtures",
     "Search-guided policy improvement if pure self-play saturates"
-  ],
-  "seed_revision": "Moved selection and final holdouts above every planned training seed before either suite was used; exact collisions are checked by training/seed_audit.py."
+  ]
 }

@@ -1,0 +1,9 @@
+{
+  "maximum_weight_difference": 0.0,
+  "exact_match": true,
+  "decisions_match": true,
+  "games_match": true,
+  "iterations": 3,
+  "batch": 4,
+  "device": "cpu"
+}

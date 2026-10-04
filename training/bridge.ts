@@ -139,6 +139,34 @@ for await (const line of rl) {
     } else if (msg.cmd === 'pool') {
       pool = msg.paths.map((p: string) => JSON.parse(fs.readFileSync(p, 'utf8')));
       console.log(JSON.stringify({ ok: true, pool: pool.length }));
+    } else if (msg.cmd === 'probes') {
+      const observations = [];
+      const rr = seeded(msg.seed ?? 88127);
+      for (let players = 2; players <= 6; players++) {
+        let count = 0,
+          game = 0;
+        while (count < (msg.perPlayerCount ?? 20)) {
+          const state = createGame({
+            players,
+            expert: game % 2 === 0,
+            seed: (msg.seed ?? 88127) + players * 719 + game++,
+          });
+          let decision = 0;
+          while (state.phase !== 'finished') {
+            const o = observe(state, state.actor, false);
+            if (o.legal.length > 1 && decision++ % 3 === 0 && count < (msg.perPlayerCount ?? 20)) {
+              observations.push({
+                ...(msg.featureVersion === 2 ? encodeV2(o) : encode(o)),
+                phase: o.phase,
+                players,
+              });
+              count++;
+            }
+            applyAction(state, o.legal[baseline(o, 'tactical', rr)], false);
+          }
+        }
+      }
+      console.log(JSON.stringify({ observations }));
     } else if (msg.cmd === 'parity') {
       const m = JSON.parse(fs.readFileSync(msg.path, 'utf8')) as Model;
       const { inferEncoded } = await import('../src/ai/network');

@@ -29,6 +29,30 @@ The first 120-game mixed-league development check gave the released policy 24.17
 
 `experiments/v2/plan.json` separates development, selection and final-holdout seed ranges. The previous release is frozen in `experiments/v2/models/express64-release.json`. Source and numeric export parity, information-boundary regressions, complete-game tests and browser latency are release gates. Final model and difficulty changes will be selected from measured results, not training loss alone.
 
+## Reproducibility gates completed
+
+The CPU restoration test compares a three-iteration uninterrupted run with one iteration followed by checkpoint restoration. Final weights are identical (maximum difference zero), as are game and decision counts. `experiments/v2/resume-parity.json` records the result. The larger initialization passes 200 PyTorch/JavaScript comparisons, including 100 legal observations from all player counts and multiple game phases; maximum error is below 0.000006.
+
+An exact seed audit includes all configured future training iterations and completed search-data games. The selection and final holdout seed ranges were moved above the planned main run before either was used. These planned-seed counts describe leakage checks, not completed training work.
+
+## Early development results
+
+All entries below use the same 120-game 3–6-player mixed league. Winning shares include fractional credit for ties. They are provisional, without independent confirmation.
+
+| Candidate | Winning share | Mean decision latency |
+| --- | ---: | ---: |
+| Released policy | 24.17% | 0.12 ms |
+| Released Legend (8 worlds, top 3) | 35.00% | 40 ms |
+| Wider legacy search (12 worlds, top 7) | 37.50% | 93 ms |
+| New planner (12 worlds, mixed opponents) | 46.25% | 69 ms |
+| New planner (24 worlds, 20% material heuristic) | 44.17% | See raw result |
+| Larger initialization | 27.50% | 0.55 ms |
+| Main v2 PPO, iteration 128 | 30.83% | 0.59 ms |
+| Action-value trace, iteration 128 | 26.67% | 0.57 ms |
+| Longer-training control, iteration 512 | 29.17% | 0.14 ms |
+
+The planner changes decisions in roughly 28% of collected training positions. A separate search-distillation experiment will test whether its stronger choices can improve the fast network. The action-value-trace experiment stops at iteration 128 for evaluation; it is not assumed better than ordinary GAE.
+
 ## Research references and scope
 
 [PPO](https://arxiv.org/abs/1707.06347) supplies the clipped on-policy objective. [AlphaStar's league research](https://deepmind.google/blog/alphastar-grandmaster-level-in-starcraft-ii-using-multi-agent-reinforcement-learning/) motivates maintaining diverse opponents rather than relying on self-play alone. [Recent work on advantage variance](https://arxiv.org/abs/2605.19235) motivates a separate optional action-value-trace experiment. This implementation uses observation-only critics and does **not** claim to reproduce centralized VRPO, solve an equilibrium or establish human superiority.

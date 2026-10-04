@@ -402,8 +402,10 @@ def train(args):
             history.append(metrics)
             print(json.dumps(metrics), flush=True)
             if (
-                iteration + 1
-            ) % args.save_every == 0 or iteration + 1 == args.iterations:
+                (iteration + 1) % args.save_every == 0
+                or iteration + 1 == args.iterations
+                or iteration + 1 == args.stop_after
+            ):
                 ck = out / f"{args.mode}-{iteration + 1:05d}"
                 if args.mode == "ppo":
                     pool.append(str(ck.with_suffix(".json").resolve()))
@@ -442,6 +444,8 @@ def train(args):
                 (out / "metrics.json").write_text(json.dumps(history, indent=2))
                 if args.mode == "ppo":
                     bridge.send({"cmd": "pool", "paths": anchors + pool})
+            if args.stop_after is not None and iteration + 1 >= args.stop_after:
+                break
         # A small automatic parity gate; the release verifier adds 100 probes.
         probe = np.random.default_rng(912)
         state = probe.normal(0, 0.2, STATE_DIM).astype(np.float32)
@@ -506,6 +510,11 @@ def parser():
     p.add_argument("--save-every", type=int, default=128)
     p.add_argument("--resume")
     p.add_argument("--restore", action="store_true")
+    p.add_argument(
+        "--stop-after",
+        type=int,
+        help="Stop at this iteration after saving a resumable checkpoint",
+    )
     p.add_argument("--output", default="training/runs/v2-main")
     p.add_argument("--node", default="node")
     return p
