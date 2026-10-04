@@ -31,7 +31,16 @@ pnpm ai:build
   --anchor experiments/v2/models/express64-release.json experiments/models/express32.json \
   --resume training/runs/v2-distill/distill-00080.pt --output training/runs/v2-main
 
-# Calibrate the value head while preserving the earlier policy exactly.
+# Selected branch: learn against historical, tactical and planning opponents.
+.venv/bin/python training/train_v2.py --mode ppo --width 128 \
+  --iterations 1024 --stop-after 256 --batch 96 --threads 2 --seed 1465791 \
+  --lr .00008 --lr-final .000015 --entropy .015 --gae-lambda .98 --score-mix .1 \
+  --learner-fraction .35 --strategist-fraction .2 --planner-fraction .04 \
+  --planner-model experiments/v2/models/express64-release.json --save-every 64 \
+  --anchor experiments/v2/models/express64-release.json experiments/models/express32.json \
+  --resume training/runs/v2-main/ppo-00128.pt --output training/runs/v2-planning-league
+
+# Alternative experiment: calibrate value while preserving the earlier policy.
 .venv/bin/python training/train_v2.py --mode ppo --width 128 \
   --iterations 512 --stop-after 128 --batch 128 --threads 1 --seed 1665791 \
   --lr .0004 --lr-final .00005 --value-only --behavior-temperature .08 \
@@ -92,3 +101,20 @@ pnpm exec tsx training/replay_match.ts /path/to/colt-express-match-SEED.json
 The command replays recorded moves without consulting a policy and rejects illegal actions, actor mismatches or an incorrect final result. Games resumed from saves made before recording was introduced are marked `fromStart: false`; they reproduce only the captured remainder. Keep such records separate from complete-game datasets.
 
 Use human records to investigate specific decisions and reproduce reported exploits. They do not automatically retrain the model. Any future training dataset should split by entire match and reserve new human matches for evaluation rather than reusing the same feedback as a strength test.
+
+## Reproduce the frozen release tournament
+
+The model, difficulty policies, evaluator and protocol were frozen in commit `fa87041`, before any final holdout game. The final tournament invokes the browser's `difficultyChoice` function directly. It fills every other seat with the previous release's strongest Legend setting, not a simplified policy-only approximation.
+
+```sh
+# Run from fa87041 or a later checkout with the same frozen source/model hashes.
+pnpm ai:build
+.venv/bin/python training/benchmark_v2.py --jobs 8 --chunks 16
+.venv/bin/python training/analyze_v2.py \
+  training/runs/v2-reproduction/results/legend-standard.json \
+  training/runs/v2-reproduction/results/legend-expert.json \
+  training/runs/v2-reproduction/results/legend-team.json \
+  --output training/runs/v2-reproduction/analysis.json
+```
+
+The runner verifies the model, evaluator and analysis-tool hashes against [protocol.json](../experiments/v2/protocol.json). Its default output stays in the ignored run directory and does not overwrite the committed release evidence. Re-run the same command to resume an interrupted tournament. The archived [training summary](../experiments/v2/training-summary.json) records 320,512 additional games and 26,075,617 learner decisions; the selected checkpoint's direct new lineage contains 46,080 games and 3,657,654 decisions. These are different quantities.

@@ -1,6 +1,25 @@
 # Local release verification
 
-Browser testing used the Codex in-app browser (IAB), with real UI interactions. No hidden application-state manipulation was used to progress games. A separate localhost origin preserved the original saved game after automatic approval review declined to reset it.
+## Express128 improvement release, 5 October 2026
+
+The production build with model SHA `06cda0d0fd8fa86a3b856e1ee8166368f2031b8738fd050a1005662aa5d3fb00` was tested at `http://127.0.0.1:4327/` using the Codex in-app browser. The flow was new game → human choices → worker-backed AI responses → round progression → results and local match download. Browser automation used visible controls; it did not alter hidden application state.
+
+| Check                           | Outcome                                                                                                                                 |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Six-player Legend, expert decks | Five AI opponents completed planning and resolution; retention and round two worked; reload restored the same game                      |
+| Two-player Outlaw, 390×844      | Opening-card choice, Shoot cover, partner actions, all five rounds and final team ranking completed                                     |
+| Match download                  | 110 moves replayed exactly from the beginning; model hash matched the new release; final scores `[1000, 4800]` and winning team matched |
+| Old-save compatibility          | Earlier four-player saved game completed; its 164-move downloaded remainder replayed exactly and was marked `fromStart: false`          |
+| Mobile layout                   | No document overflow (`scrollWidth = innerWidth = 390`); action rails, results and download controls remained usable                    |
+| Page and console                | Correct title and URL, meaningful content, rendered train, no framework overlay or console errors/warnings                              |
+| Build and tests                 | Formatting, TypeScript production build, 64 tests in seven files, training target tests and Python lint/format passed                   |
+| Model export                    | 200 probes passed; maximum numerical error 0.00000743 below 0.0001                                                                      |
+
+These mechanically played browser games verify integration and replay, not human strength. Screenshots were inspected at desktop 1280×720 and mobile 390×844. Physical mobile hardware and Safari were not tested. The game records stay in the ignored local run directory.
+
+## Original Express64 release checks (historical)
+
+Browser testing used the Codex in-app browser (IAB), with real UI interactions. No hidden application-state manipulation was used to progress games. A separate localhost origin preserved the original saved game.
 
 ## Functional paths
 
