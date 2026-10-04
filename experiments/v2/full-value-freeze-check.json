@@ -1,0 +1,24 @@
+[
+  {
+    "checkpoint": "training/runs/v2-value-calibration/ppo-00064.pt",
+    "changed_tensors": [
+      "valueHidden.weight",
+      "valueHidden.bias",
+      "value.weight",
+      "value.bias"
+    ],
+    "policy_unchanged": true,
+    "only_value_head_changed": true
+  },
+  {
+    "checkpoint": "training/runs/v2-value-calibration/ppo-00128.pt",
+    "changed_tensors": [
+      "valueHidden.weight",
+      "valueHidden.bias",
+      "value.weight",
+      "value.bias"
+    ],
+    "policy_unchanged": true,
+    "only_value_head_changed": true
+  }
+]

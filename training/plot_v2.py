@@ -18,7 +18,7 @@ plt.rcParams.update(
     {"font.size": 10, "axes.spines.top": False, "axes.spines.right": False}
 )
 fig, axes = plt.subplots(
-    1, 2, figsize=(13, 5.6), gridspec_kw={"width_ratios": [1.12, 1]}
+    1, 2, figsize=(13, 6.3), gridspec_kw={"width_ratios": [1.12, 1]}
 )
 fig.patch.set_facecolor("#faf8f3")
 for ax in axes:
@@ -28,7 +28,7 @@ for ax in axes:
 points = {}
 for path in sorted((root / "training/runs/v2-checkpoints").glob("*.json")):
     report = json.loads(path.read_text())
-    if "records" not in report:
+    if "records" not in report or "overall" not in report:
         continue
     model = Path(report["config"]["candidate"]["model"])
     run = model.parent.name
@@ -84,11 +84,15 @@ variants = [
     ("release-plan12", "V1 model · new planner"),
     ("main128-hybrid12", "V2 model · V1 rollouts"),
     ("main128-plan12", "V2 model · V2 rollouts"),
+    ("main512-plan12", "V2 model · longer training"),
+    ("v2-value-calibration-ppo-00064-plan12", "V2 model · calibrated value"),
     ("release-full12", "Full-game horizon"),
 ]
 bars = []
 for name, label in variants:
     path = root / f"training/runs/v2-arena/{name}.json"
+    if not path.exists():
+        path = root / f"training/runs/v2-checkpoints/{name}.json"
     if path.exists():
         report = json.loads(path.read_text())
         bars.append((label, bootstrap(report["records"], "win", rng)))
