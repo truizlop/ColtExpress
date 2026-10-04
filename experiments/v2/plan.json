@@ -1,0 +1,33 @@
+{
+  "purpose": "Substantially stronger AI after user feedback that release is easy to beat",
+  "frozen_previous_model": "models/express64-release.json",
+  "development_seeds": [
+    2100000001,
+    2200000001
+  ],
+  "selection_seeds": [
+    2400000001,
+    2500000001
+  ],
+  "final_holdout_seeds": [
+    3100000001,
+    3200000001,
+    3300000001
+  ],
+  "gates": [
+    "No hidden-state input to policy or search",
+    "Regressions for decision-relevant action distinctions",
+    "Stable per-game league opponents",
+    "Separate development, selection and final holdout seeds",
+    "Compare versus previous policy AND previous Legend search",
+    "Report results by player count and expert rules",
+    "Browser decision latency and model export parity",
+    "No claim of human superiority without human trials"
+  ],
+  "experiments": [
+    "Longer stable-league continuation as control",
+    "Larger feature-v2 network with explicit forecasts, destinations and hand synergies",
+    "Broader candidate search and opponent mixtures",
+    "Search-guided policy improvement if pure self-play saturates"
+  ]
+}

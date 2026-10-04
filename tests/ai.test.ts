@@ -36,7 +36,7 @@ describe('AI input and baselines', () => {
     expect(encode(observe(s, s.actor, false))).toEqual(encode(observe(s, s.actor)));
   });
   it('every baseline terminates legal complete games', () => {
-    for (const policy of ['random', 'greedy', 'tactical', 'aggressive'] as const) {
+    for (const policy of ['random', 'greedy', 'tactical', 'aggressive', 'strategist'] as const) {
       const s = createGame({ players: 4, seed: 2 }),
         r = seeded(2);
       let steps = 0;

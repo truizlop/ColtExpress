@@ -1,5 +1,11 @@
-import type { Action, ActionKind, Observation, VisibleLoot, Character } from '../game/types';
-import { ACTION_KINDS } from '../game/types';
+import {
+  ACTION_KINDS,
+  type Action,
+  type ActionKind,
+  type Observation,
+  type VisibleLoot,
+  type Character,
+} from '../game/types';
 export interface Pawn {
   id: number;
   controller: number;
@@ -7,6 +13,7 @@ export interface Pawn {
   car: number;
   floor: 0 | 1;
   shots: number;
+  creditedShots?: number;
   wounds: number;
   loot: VisibleLoot[];
 }
@@ -116,6 +123,7 @@ export function resolvePublic(b: Board, bid: number, a: Action) {
   if (a.kind === 'shoot') {
     const t = b.bandits[a.target];
     me.shots++;
+    if (t.controller !== me.controller) me.creditedShots = (me.creditedShots ?? me.shots - 1) + 1;
     t.wounds++;
     if (me.character === 'django')
       t.car = Math.max(0, Math.min(b.cars.length - 1, t.car + Math.sign(t.car - me.car)));
@@ -301,7 +309,7 @@ export function analyze(o: Observation, a: Action, b: Board): Candidate {
     shots: after.bandits[bid].shots - b.bandits[bid].shots,
   };
 }
-export type Baseline = 'random' | 'greedy' | 'tactical' | 'aggressive';
+export type Baseline = 'random' | 'greedy' | 'tactical' | 'aggressive' | 'strategist';
 export function baseline(
   o: Observation,
   policy: Baseline = 'tactical',
@@ -309,6 +317,10 @@ export function baseline(
 ): number {
   if (o.legal.length < 2) return 0;
   if (policy === 'random') return Math.floor(rng() * o.legal.length);
+  if (policy === 'strategist') {
+    const scores = strategicScores(o);
+    return scores.indexOf(Math.max(...scores));
+  }
   const b = policy === 'greedy' ? publicBoard(o) : forecast(o);
   let best = -Infinity,
     chosen = 0;
@@ -328,4 +340,138 @@ export function baseline(
 export function teacherScores(o: Observation): number[] {
   const b = forecast(o);
   return o.legal.map((a) => analyze(o, a, b).score);
+}
+
+/** Independent short-plan opponent. It sees public forecasts and its own cards only.
+ * This deliberately differs from the policy teacher, exposing combination failures.
+ */
+export function strategicScores(o: Observation): number[] {
+  const root = forecast(o),
+    own = o.viewer;
+  const utility = (board: Board) => {
+    const cash = o.players.map((p) =>
+      board.bandits.filter((b) => b.controller === p.id).reduce((t, b) => t + wealth(b), 0),
+    );
+    const shots = o.players.map((p) =>
+      board.bandits
+        .filter((b) => b.controller === p.id)
+        .reduce((t, b) => t + (board.team ? (b.creditedShots ?? b.shots) : b.shots), 0),
+    );
+    const maxShots = Math.max(...shots),
+      warmth = Math.max(0.45, (4 - o.round) * 0.5);
+    const gun = shots.map((x) => Math.exp((x - maxShots) / warmth)),
+      sum = gun.reduce((a, b) => a + b, 0);
+    const score = cash.map((v, i) => v / 1000 + gun[i] / sum);
+    const ours = board.bandits.filter((b) => b.controller === own);
+    return (
+      score[own] -
+      Math.max(...score.filter((_, i) => i !== own)) * 0.8 +
+      (ours.reduce((v, b) => v + potential(board, b.id), 0) * 0.025 * (4 - o.round)) / 4 -
+      (ours.reduce((v, b) => v + b.wounds, 0) * 0.015 * (4 - o.round)) / 4
+    );
+  };
+  const prune = <T extends { board: Board }>(xs: T[], size: number) =>
+    xs.sort((a, b) => utility(b.board) - utility(a.board)).slice(0, size);
+  const remaining = o.schedule
+    .slice(o.scheduleIndex + 1)
+    .filter((s) => s.controller === own).length;
+  return o.legal.map((a) => {
+    const c = analyze(o, a, root);
+    if (['choose', 'keep', 'discard', 'continue'].includes(a.kind)) return c.score / 10;
+    let hand = (o.players[own].hand ?? []).filter((x) => !('card' in a) || x.id !== a.card);
+    let initial: Board[];
+    if (a.kind === 'play' && ACTION_KINDS.includes(c.kind as ActionKind)) {
+      initial = resolutions(root, c.bandit, c.kind as ActionKind).map((choice) => {
+        const b = copy(root);
+        resolvePublic(b, c.bandit, choice);
+        return b;
+      });
+    } else if (a.kind === 'draw') {
+      if (!remaining) return utility(root) - 0.1;
+      const p = o.players[own];
+      const known = [...(p.hand ?? []), ...p.discard];
+      const unknown = p.inventory.flatMap((x) =>
+        Array.from(
+          {
+            length: Math.max(
+              0,
+              x.count -
+                known.filter((k) => k.kind === x.kind && k.bandit === x.bandit).length -
+                o.queue
+                  .slice(o.executionIndex)
+                  .filter((q) => q.controller === own && q.kind === x.kind && q.bandit === x.bandit)
+                  .length,
+            ),
+          },
+          () => ({ id: -100 - x.bandit, kind: x.kind, bandit: x.bandit }),
+        ),
+      );
+      // Representative draw has the three most frequent remaining kinds; never reads the deck.
+      const counts = unknown.map((x) => ({
+        ...x,
+        count: unknown.filter((y) => y.kind === x.kind && y.bandit === x.bandit).length,
+      }));
+      counts.sort((a, b) => b.count - a.count);
+      const drawn = counts
+        .filter(
+          (x, i, all) => all.findIndex((y) => y.kind === x.kind && y.bandit === x.bandit) === i,
+        )
+        .slice(0, 3);
+      hand = [...hand, ...drawn];
+      initial = [copy(root)];
+    } else {
+      const b = copy(root);
+      resolvePublic(b, c.bandit, a);
+      initial = [b];
+    }
+    if (o.phase === 'execute') {
+      let nodes = initial.map((board) => ({ board }));
+      for (let i = o.executionIndex + 1; i < o.queue.length; i++) {
+        const q = o.queue[i];
+        if (q.kind === null || q.bandit === null) continue;
+        const next: typeof nodes = [];
+        for (const node of nodes) {
+          const choices =
+            q.controller === own
+              ? resolutions(node.board, q.bandit, q.kind)
+              : [bestResolution(node.board, q.bandit, q.kind).action];
+          for (const action of choices) {
+            const board = copy(node.board);
+            resolvePublic(board, q.bandit, action);
+            next.push({ board });
+          }
+        }
+        nodes = prune(next, 6);
+      }
+      return Math.max(...nodes.map((n) => utility(n.board)));
+    }
+    let nodes = initial.map((board) => ({ board, hand }));
+    for (let depth = 0; depth < Math.min(remaining, 3); depth++) {
+      const next: typeof nodes = [];
+      for (const node of nodes) {
+        const cards = node.hand.filter(
+          (x, i, all) =>
+            x.kind !== 'bullet' &&
+            all.findIndex((y) => y.kind === x.kind && y.bandit === x.bandit) === i,
+        );
+        if (!cards.length) {
+          next.push(node);
+          continue;
+        }
+        for (const card of cards)
+          for (const action of resolutions(node.board, card.bandit, card.kind as ActionKind)) {
+            const board = copy(node.board);
+            resolvePublic(board, card.bandit, action);
+            const ix = node.hand.indexOf(card);
+            next.push({ board, hand: node.hand.filter((_, i) => i !== ix) });
+          }
+      }
+      nodes = prune(next, 8);
+    }
+    return (
+      Math.max(...nodes.map((n) => utility(n.board))) +
+      (a.kind === 'play' && a.hidden ? 0.01 : 0) +
+      c.score * 0.002
+    );
+  });
 }

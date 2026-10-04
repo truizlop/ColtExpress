@@ -1,17 +1,28 @@
 import { encode, FEATURE_VERSION, STATE_DIM, ACTION_DIM } from './features';
+import { encodeV2, STATE_DIM_V2, ACTION_DIM_V2 } from './features-v2';
 import type { Observation } from '../game/types';
 export interface Dense {
   weight: number[][];
   bias: number[];
 }
 export interface Model {
-  format: 'colt-policy-v1';
+  format: 'colt-policy-v1' | 'colt-policy-v2';
   featureVersion: number;
   stateDim: number;
   actionDim: number;
   name: string;
   steps: number;
-  layers: { state: Dense; action: Dense; joint: Dense; policy: Dense; value: Dense };
+  layers: {
+    state: Dense;
+    action: Dense;
+    joint: Dense;
+    policy: Dense;
+    value: Dense;
+    state2?: Dense;
+    joint2?: Dense;
+    valueHidden?: Dense;
+    q?: Dense;
+  };
   metadata?: Record<string, unknown>;
 }
 function dense(layer: Dense, x: number[], activate = true) {
@@ -24,10 +35,10 @@ function dense(layer: Dense, x: number[], activate = true) {
 export function validateModel(m: Model) {
   if (
     !m ||
-    m.format !== 'colt-policy-v1' ||
-    m.featureVersion !== FEATURE_VERSION ||
-    m.stateDim !== STATE_DIM ||
-    m.actionDim !== ACTION_DIM ||
+    !['colt-policy-v1', 'colt-policy-v2'].includes(m.format) ||
+    m.featureVersion !== (m.format === 'colt-policy-v2' ? 2 : FEATURE_VERSION) ||
+    m.stateDim !== (m.featureVersion === 2 ? STATE_DIM_V2 : STATE_DIM) ||
+    m.actionDim !== (m.featureVersion === 2 ? ACTION_DIM_V2 : ACTION_DIM) ||
     !m.layers
   )
     throw new Error('Unsupported AI model.');
@@ -48,28 +59,36 @@ export function validateModel(m: Model) {
       throw new Error('Invalid model weights.');
     return l.weight.length;
   };
-  const state = check(m.layers.state, STATE_DIM),
-    action = check(m.layers.action, ACTION_DIM),
-    joint = check(m.layers.joint, state + action);
-  check(m.layers.policy, joint, 1);
-  check(m.layers.value, state, 1);
+  const state = check(m.layers.state, m.stateDim),
+    state2 = m.featureVersion === 2 ? check(m.layers.state2!, state) : state,
+    action = check(m.layers.action, m.actionDim),
+    joint = check(m.layers.joint, state2 + action),
+    joint2 = m.featureVersion === 2 ? check(m.layers.joint2!, joint) : joint,
+    valueHidden = m.featureVersion === 2 ? check(m.layers.valueHidden!, state2) : state2;
+  check(m.layers.policy, joint2, 1);
+  check(m.layers.value, valueHidden, 1);
+  if (m.featureVersion === 2) check(m.layers.q!, joint2, 1);
 }
 export function inferEncoded(m: Model, state: number[], actions: number[][]) {
-  const h = dense(m.layers.state, state);
+  let h = dense(m.layers.state, state);
+  if (m.layers.state2) h = dense(m.layers.state2, h);
+  const joint = actions.map((a) => {
+    let j = dense(m.layers.joint, [...h, ...dense(m.layers.action, a)]);
+    if (m.layers.joint2) j = dense(m.layers.joint2, j);
+    return j;
+  });
   return {
-    logits: actions.map(
-      (a) =>
-        dense(
-          m.layers.policy,
-          dense(m.layers.joint, [...h, ...dense(m.layers.action, a)]),
-          false,
-        )[0],
-    ),
-    value: dense(m.layers.value, h, false)[0],
+    logits: joint.map((j) => dense(m.layers.policy, j, false)[0]),
+    value: dense(
+      m.layers.value,
+      m.layers.valueHidden ? dense(m.layers.valueHidden, h) : h,
+      false,
+    )[0],
+    ...(m.layers.q ? { qs: joint.map((j) => dense(m.layers.q!, j, false)[0]) } : {}),
   };
 }
 export function infer(m: Model, o: Observation) {
-  const f = encode(o);
+  const f = m.featureVersion === 2 ? encodeV2(o) : encode(o);
   return inferEncoded(m, f.state, f.actions);
 }
 export function softmax(logits: number[], temperature = 1) {

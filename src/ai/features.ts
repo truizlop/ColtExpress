@@ -1,6 +1,6 @@
 import { ACTION_KINDS, type Action, type Observation } from '../game/types';
 import { CHARACTERS } from '../game/data';
-import { analyze, forecast, wealth, worth, potential } from './tactics';
+import { analyze, forecast, wealth, worth, potential, type Candidate } from './tactics';
 export const STATE_DIM = 576,
   ACTION_DIM = 64,
   FEATURE_VERSION = 1;
@@ -94,8 +94,13 @@ export function stateFeatures(o: Observation): number[] {
   for (let i = 0; i < 5; i++) f.push(...turns.map((t) => +(o.roundCard.turns[i] === t)));
   return pad(f, STATE_DIM);
 }
-export function actionFeatures(o: Observation, a: Action, b = forecast(o)): number[] {
-  const c = analyze(o, a, b),
+export function actionFeatures(
+  o: Observation,
+  a: Action,
+  b = forecast(o),
+  analysis?: Candidate,
+): number[] {
+  const c = analysis ?? analyze(o, a, b),
     me = b.bandits[c.bandit],
     next = c.board.bandits[c.bandit],
     f: number[] = [];
