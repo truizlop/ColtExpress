@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { assertInvariants, createGame, legalActions, observe, step } from '../game/engine';
 import type { Action, GameConfig, GameState } from '../game/types';
 import type { Difficulty } from '../ai/difficulty';
+import { completedMatch, newMatchTrace, type MatchTrace } from '../matchRecord';
 export type { Difficulty } from '../ai/difficulty';
 export interface Settings {
   difficulty: Difficulty;
@@ -23,7 +24,14 @@ function load() {
     )
       throw new Error();
     assertInvariants(saved.game);
-    return saved as { version: 1; game: GameState; settings: Settings };
+    if (
+      !saved.trace ||
+      !Array.isArray(saved.trace.moves) ||
+      saved.trace.moves.length > 1500 ||
+      saved.trace.initial?.version !== 1
+    )
+      saved.trace = newMatchTrace(saved.game, false);
+    return saved as { version: 1; game: GameState; settings: Settings; trace: MatchTrace };
   } catch {
     return null;
   }
@@ -42,7 +50,8 @@ export function useGame() {
   const worker = useRef<Worker | null>(null),
     request = useRef(0),
     latest = useRef(game),
-    audio = useRef<AudioContext | null>(null);
+    audio = useRef<AudioContext | null>(null),
+    trace = useRef<MatchTrace | null>(initial?.trace ?? null);
   latest.current = game;
   const sound = useCallback(() => {
     if (!settings.sound) return;
@@ -68,6 +77,13 @@ export function useGame() {
       if (!current) return;
       try {
         const next = step(current, action);
+        trace.current ??= newMatchTrace(current, false);
+        trace.current.moves.push({
+          actor: current.actor,
+          action: structuredClone(action),
+          difficulty: settings.difficulty,
+          modelVersion: import.meta.env.VITE_MODEL_VERSION,
+        });
         request.current++;
         latest.current = next;
         setGame(next);
@@ -77,7 +93,7 @@ export function useGame() {
         setError(e instanceof Error ? e.message : 'That action is no longer available.');
       }
     },
-    [sound],
+    [sound, settings.difficulty],
   );
   const actRef = useRef(act);
   actRef.current = act;
@@ -122,7 +138,10 @@ export function useGame() {
   useEffect(() => {
     if (!game) return;
     try {
-      localStorage.setItem(SAVE_KEY, JSON.stringify({ version: 1, game, settings }));
+      localStorage.setItem(
+        SAVE_KEY,
+        JSON.stringify({ version: 1, game, settings, trace: trace.current }),
+      );
       setSaveError('');
     } catch {
       setSaveError('Your browser could not save this game. Keep this tab open to continue.');
@@ -156,12 +175,30 @@ export function useGame() {
   const start = useCallback((config: GameConfig, difficulty: Difficulty) => {
     request.current++;
     const next = createGame(config);
+    trace.current = newMatchTrace(next, true);
     latest.current = next;
     setGame(next);
     setThinking(false);
     setSettings((s) => ({ ...s, difficulty }));
     setError('');
   }, []);
+  const saveMatch = () => {
+    const current = latest.current;
+    if (!current || !trace.current) return;
+    try {
+      const record = completedMatch(trace.current, current);
+      const url = URL.createObjectURL(
+        new Blob([JSON.stringify(record, null, 2)], { type: 'application/json' }),
+      );
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `colt-express-match-${current.seed}.json`;
+      link.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'This match could not be saved.');
+    }
+  };
   return {
     game,
     settings,
@@ -174,6 +211,7 @@ export function useGame() {
     modelName,
     act,
     start,
+    saveMatch,
     retry: initWorker,
   };
 }

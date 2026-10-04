@@ -2111,3 +2111,15 @@
     width: 35%;
   }
 }
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.results > .match-record-note {
+  font-size: 0.85rem;
+  margin: 14px auto 0;
+  max-width: 32rem;
+}

@@ -246,7 +246,7 @@ export default function App() {
           </button>
         </section>
       ) : o.phase === 'finished' ? (
-        <Results o={o} onNew={() => setShowSetup(true)} />
+        <Results o={o} onNew={() => setShowSetup(true)} onSave={g.saveMatch} />
       ) : (
         <TurnControls o={o} onAction={g.act} thinking={g.thinking} status={g.status} />
       )}
@@ -383,7 +383,7 @@ export default function App() {
     </main>
   );
 }
-function Results({ o, onNew }: { o: Observation; onNew: () => void }) {
+function Results({ o, onNew, onSave }: { o: Observation; onNew: () => void; onSave: () => void }) {
   const order = o.players.map((p) => p.id).sort((a, b) => o.scores[b] - o.scores[a]),
     winnerNames = o.winners.map((p) =>
       o.bandits
@@ -419,9 +419,15 @@ function Results({ o, onNew }: { o: Observation; onNew: () => void }) {
           );
         })}
       </ol>
-      <button className="primary" onClick={onNew}>
-        Another heist
-      </button>
+      <div className="result-actions">
+        <button className="primary" onClick={onNew}>
+          Another heist
+        </button>
+        <button onClick={onSave}>Save match</button>
+      </div>
+      <p className="match-record-note">
+        Save a match record to share with feedback. Nothing is uploaded.
+      </p>
     </section>
   );
 }

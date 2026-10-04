@@ -78,3 +78,15 @@ Arena results retain each game seed, table size, seat, scores, fractional winnin
 ## Limits
 
 Hidden-world sampling remains approximate and does not infer opponents' private intentions from a learned recurrent belief. Value estimates can fail against unfamiliar human strategies. The search budget is deliberately bounded for a browser worker. Engine tournaments depend on rules correctness and a finite opponent population. No human trial, exploitability bound or claim of beating every human is supplied by this campaign.
+
+## Human feedback records
+
+The result screen offers **Save match**. The JSON download contains an initial engine snapshot, every subsequent legal action, acting player, selected difficulty, build-time model hash, and final scores. No record is uploaded automatically, and downloads are available only after the match ends. The current trace is saved locally alongside the game, so ordinary reloads preserve it.
+
+```sh
+pnpm exec tsx training/replay_match.ts /path/to/colt-express-match-SEED.json
+```
+
+The command replays recorded moves without consulting a policy and rejects illegal actions, actor mismatches or an incorrect final result. Games resumed from saves made before recording was introduced are marked `fromStart: false`; they reproduce only the captured remainder. Keep such records separate from complete-game datasets.
+
+Use human records to investigate specific decisions and reproduce reported exploits. They do not automatically retrain the model. Any future training dataset should split by entire match and reserve new human matches for evaluation rather than reusing the same feedback as a strength test.
