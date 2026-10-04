@@ -1,0 +1,24 @@
+{
+  "checkpoint": "training/runs/v2-main/ppo-00128.pt",
+  "model": "training/runs/v2-main/ppo-00128.json",
+  "probes": 200,
+  "random_probes": 100,
+  "legal_game_probes": 100,
+  "phases": [
+    "choose",
+    "cover",
+    "execute",
+    "retain",
+    "scheme"
+  ],
+  "player_counts": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "maximum_absolute_error": 7.207720735813439e-06,
+  "tolerance": 0.0001,
+  "passed": true
+}

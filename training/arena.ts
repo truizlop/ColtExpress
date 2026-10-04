@@ -11,6 +11,7 @@ import type { Observation } from '../src/game/types';
 export interface PolicySpec {
   name: string;
   model?: string;
+  rolloutModel?: string;
   baseline?: Baseline;
   temperature?: number;
   search?: SearchOptions;
@@ -24,17 +25,20 @@ interface Config {
   seed: number;
   players: number[];
   expert?: boolean;
-  lineup?: 'mixed' | 'homogeneous';
+  lineup?: 'mixed' | 'homogeneous' | 'rotating';
   output: string;
 }
 const config = JSON.parse(fs.readFileSync(process.argv[2], 'utf8')) as Config;
+const stopArg = process.argv.indexOf('--stop-after');
+const stopAfter = stopArg < 0 ? Infinity : Number(process.argv[stopArg + 1]);
 const models = new Map<string, Model>();
 for (const spec of [config.candidate, ...config.opponents])
-  if (spec.model && !models.has(spec.model)) {
-    const model = JSON.parse(fs.readFileSync(spec.model, 'utf8')) as Model;
-    validateModel(model);
-    models.set(spec.model, model);
-  }
+  for (const path of [spec.model, spec.rolloutModel])
+    if (path && !models.has(path)) {
+      const model = JSON.parse(fs.readFileSync(path, 'utf8')) as Model;
+      validateModel(model);
+      models.set(path, model);
+    }
 if (!config.games || !config.opponents.length || config.players.some((n) => n < 2 || n > 6))
   throw new Error('Invalid arena configuration');
 const files = [
@@ -63,7 +67,14 @@ const timing: number[] = [];
 function choice(spec: PolicySpec, o: Observation, rng: () => number) {
   if (spec.baseline) return baseline(o, spec.baseline, rng);
   const m = models.get(spec.model!)!;
-  if (spec.planner) return plan(m, o, Math.floor(rng() * 2 ** 32), spec.planner).index;
+  if (spec.planner)
+    return plan(
+      m,
+      o,
+      Math.floor(rng() * 2 ** 32),
+      spec.planner,
+      spec.rolloutModel ? models.get(spec.rolloutModel)! : m,
+    ).index;
   if (spec.search) return search(m, o, Math.floor(rng() * 2 ** 32), spec.search).index;
   return modelChoice(m, o, rng, spec.temperature ?? 0.08);
 }
@@ -82,8 +93,21 @@ const records: {
   draws: number;
   played: Record<string, number>;
 }[] = [];
+const progressPath = config.output + '.partial.json';
+let elapsedBefore = 0;
+if (fs.existsSync(progressPath)) {
+  const saved = JSON.parse(fs.readFileSync(progressPath, 'utf8'));
+  if (
+    JSON.stringify(saved.config) !== JSON.stringify(config) ||
+    JSON.stringify(saved.provenance) !== JSON.stringify(provenance)
+  )
+    throw new Error('Arena resume configuration/source/model mismatch');
+  records.push(...saved.records);
+  timing.push(...saved.timing);
+  elapsedBefore = saved.seconds;
+}
 const start = performance.now();
-for (let game = 0; game < config.games; game++) {
+for (let game = records.length; game < config.games; game++) {
   const players = config.players[game % config.players.length],
     seat = Math.floor(game / config.players.length) % players;
   const seed = (config.seed + game * 31337) >>> 0;
@@ -92,7 +116,9 @@ for (let game = 0; game < config.games; game++) {
     p.id === seat
       ? config.candidate
       : config.opponents[
-          (game + (config.lineup === 'homogeneous' ? 0 : p.id)) % config.opponents.length
+          (config.lineup === 'rotating'
+            ? Math.floor(Math.floor(game / config.players.length) / players) + p.id
+            : game + (config.lineup === 'homogeneous' ? 0 : p.id)) % config.opponents.length
         ],
   );
   const rngs = state.players.map((p) => seeded((seed + 123 + p.id * 7919) >>> 0));
@@ -148,7 +174,19 @@ for (let game = 0; game < config.games; game++) {
     draws,
     played,
   });
-  if ((game + 1) % 10 === 0) process.stderr.write(`${config.name}: ${game + 1}/${config.games}\n`);
+  if ((game + 1) % 10 === 0 || game + 1 >= stopAfter) {
+    const snapshot = {
+      config,
+      provenance,
+      records,
+      timing,
+      seconds: elapsedBefore + (performance.now() - start) / 1000,
+    };
+    fs.writeFileSync(progressPath + '.tmp', JSON.stringify(snapshot));
+    fs.renameSync(progressPath + '.tmp', progressPath);
+    process.stderr.write(`${config.name}: ${game + 1}/${config.games}\n`);
+  }
+  if (game + 1 >= stopAfter && game + 1 < config.games) process.exit(0);
 }
 const mean = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
 const summarize = (rs: typeof records) => ({
@@ -164,7 +202,7 @@ timing.sort((a, b) => a - b);
 const report = {
   provenance,
   config,
-  seconds: (performance.now() - start) / 1000,
+  seconds: elapsedBefore + (performance.now() - start) / 1000,
   overall: summarize(records),
   byPlayers: Object.fromEntries(
     config.players.map((n) => [n, summarize(records.filter((r) => r.players === n))]),
@@ -179,4 +217,5 @@ const report = {
   records,
 };
 fs.writeFileSync(config.output, JSON.stringify(report, null, 2));
+if (fs.existsSync(progressPath)) fs.unlinkSync(progressPath);
 console.log(JSON.stringify({ ...report, records: undefined }, null, 2));

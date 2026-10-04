@@ -1,0 +1,7 @@
+{
+  "games": 20,
+  "stop_after": 7,
+  "identical_records": true,
+  "identical_overall": true,
+  "latency_excluded": true
+}

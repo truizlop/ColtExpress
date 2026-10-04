@@ -35,6 +35,10 @@ The CPU restoration test compares a three-iteration uninterrupted run with one i
 
 An exact seed audit includes all configured future training iterations and completed search-data games. The selection and final holdout seed ranges were moved above the planned main run before either was used. These planned-seed counts describe leakage checks, not completed training work.
 
+Sparse feature multiplication and a shared state projection accelerate inference without changing the order of nonzero additions. Across 202 real game positions, optimized outputs are exactly identical to the original arithmetic. Median encoded-inference speedups on this host are 2.16× for v2 and 2.66× for v1. A separate PyTorch comparison passes 200 probes with maximum absolute error below 0.000008. This is inference timing, not an end-to-end search speedup.
+
+Long tournaments save atomic progress snapshots and reject resumption if source, model hashes or configuration differ. A 20-game interrupted/resumed tournament produces identical game records and summary statistics to an uninterrupted run. The new rotating lineup balances opponent types across seats and table sizes; the initial development suite retains its original fixed lineup for fair checkpoint comparisons.
+
 ## Early development results
 
 All entries below use the same 120-game 3–6-player mixed league. Winning shares include fractional credit for ties. They are provisional, without independent confirmation.
@@ -50,6 +54,8 @@ All entries below use the same 120-game 3–6-player mixed league. Winning share
 | Main v2 PPO, iteration 128 | 30.83% | 0.59 ms |
 | Action-value trace, iteration 128 | 26.67% | 0.57 ms |
 | Longer-training control, iteration 512 | 29.17% | 0.14 ms |
+
+The paired 95% bootstrap interval for the 12-world planner's 11.25-percentage-point development advantage over old Legend is approximately −0.8 to +23.3 points. It remains provisional. Independent selection and holdout results must establish the release claim.
 
 The planner changes decisions in roughly 28% of collected training positions. A separate search-distillation experiment will test whether its stronger choices can improve the fast network. The action-value-trace experiment stops at iteration 128 for evaluation; it is not assumed better than ordinary GAE.
 

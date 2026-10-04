@@ -20,7 +20,13 @@ export interface PlannerOptions {
  * Rollout opponents keep a coherent style within each sampled world.
  * Inputs are strictly observations; sampling never reads the real hidden state.
  */
-export function plan(model: Model, o: Observation, seed: number, options: PlannerOptions = {}) {
+export function plan(
+  model: Model,
+  o: Observation,
+  seed: number,
+  options: PlannerOptions = {},
+  rolloutModel: Model = model,
+) {
   const start = performance.now(),
     rng = seeded(seed),
     prediction = infer(model, o),
@@ -97,7 +103,7 @@ export function plan(model: Model, o: Observation, seed: number, options: Planne
           const ob = observe(s, s.actor, false),
             style = styles[s.actor];
           if (style === 'policy') {
-            const logits = infer(model, ob).logits;
+            const logits = infer(rolloutModel, ob).logits;
             pick =
               s.actor === o.viewer ? logits.indexOf(Math.max(...logits)) : sample(logits, rr, 0.3);
           } else pick = baseline(ob, style as 'tactical' | 'aggressive', rr);

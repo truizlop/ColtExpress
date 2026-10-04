@@ -32,6 +32,20 @@ function dense(layer: Dense, x: number[], activate = true) {
     return activate ? Math.tanh(t) : t;
   });
 }
+/** Feature vectors are mostly zero. Preserve nonzero accumulation order exactly. */
+function featureDense(layer: Dense, x: number[]) {
+  const indices: number[] = [];
+  for (let j = 0; j < x.length; j++) if (x[j] !== 0) indices.push(j);
+  if (indices.length > x.length * 0.6) return dense(layer, x);
+  return layer.weight.map((row, i) => {
+    let t = layer.bias[i];
+    for (let k = 0; k < indices.length; k++) {
+      const j = indices[k];
+      t += row[j] * x[j];
+    }
+    return Math.tanh(t);
+  });
+}
 export function validateModel(m: Model) {
   if (
     !m ||
@@ -70,21 +84,34 @@ export function validateModel(m: Model) {
   if (m.featureVersion === 2) check(m.layers.q!, joint2, 1);
 }
 export function inferEncoded(m: Model, state: number[], actions: number[][]) {
-  let h = dense(m.layers.state, state);
-  if (m.layers.state2) h = dense(m.layers.state2, h);
+  let h = featureDense(m.layers.state, state);
+  if (m.featureVersion === 2) h = dense(m.layers.state2!, h);
+  // The state contribution is identical for every legal action. Sum it once,
+  // then continue with the action contribution in the original arithmetic order.
+  const layer = m.layers.joint;
+  const shared = layer.weight.map((row, i) => {
+    let t = layer.bias[i];
+    for (let j = 0; j < h.length; j++) t += row[j] * h[j];
+    return t;
+  });
   const joint = actions.map((a) => {
-    let j = dense(m.layers.joint, [...h, ...dense(m.layers.action, a)]);
-    if (m.layers.joint2) j = dense(m.layers.joint2, j);
+    const encoded = featureDense(m.layers.action, a);
+    let j = layer.weight.map((row, i) => {
+      let t = shared[i];
+      for (let k = 0; k < encoded.length; k++) t += row[h.length + k] * encoded[k];
+      return Math.tanh(t);
+    });
+    if (m.featureVersion === 2) j = dense(m.layers.joint2!, j);
     return j;
   });
   return {
     logits: joint.map((j) => dense(m.layers.policy, j, false)[0]),
     value: dense(
       m.layers.value,
-      m.layers.valueHidden ? dense(m.layers.valueHidden, h) : h,
+      m.featureVersion === 2 ? dense(m.layers.valueHidden!, h) : h,
       false,
     )[0],
-    ...(m.layers.q ? { qs: joint.map((j) => dense(m.layers.q!, j, false)[0]) } : {}),
+    ...(m.featureVersion === 2 ? { qs: joint.map((j) => dense(m.layers.q!, j, false)[0]) } : {}),
   };
 }
 export function infer(m: Model, o: Observation) {
