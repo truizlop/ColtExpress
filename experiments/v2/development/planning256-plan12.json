@@ -1,0 +1,3882 @@
+{
+  "provenance": {
+    "sourceSha256": "32489a88ef0fc1003f74e3f952be213146cc4c85ee1dad9dc3d96ef640122b02",
+    "node": "v24.19.0",
+    "models": {
+      "training/runs/v2-planning-league/ppo-00256.json": "e3ac1300a61e33e5fc26a4d960bd5a22f5dadbbbf3667b59a0d736bed8ad3c0a",
+      "experiments/v2/models/express64-release.json": "bb904d8c3171e9281c42a291abd33952c7885c30f10f7a834bca770427456c6d",
+      "experiments/models/express32.json": "be7034c354413e755e53d5897923b3ed87846cea5628ebe2112637d18366372d"
+    }
+  },
+  "config": {
+    "name": "planning256-plan12",
+    "candidate": {
+      "name": "planning256-plan12",
+      "model": "training/runs/v2-planning-league/ppo-00256.json",
+      "planner": {
+        "worlds": 12,
+        "warmup": 4,
+        "finalists": 4,
+        "opponents": "mixed"
+      }
+    },
+    "opponents": [
+      {
+        "name": "old-policy",
+        "model": "experiments/v2/models/express64-release.json"
+      },
+      {
+        "name": "aggressive",
+        "baseline": "aggressive"
+      },
+      {
+        "name": "tactical",
+        "baseline": "tactical"
+      },
+      {
+        "name": "express32",
+        "model": "experiments/models/express32.json"
+      }
+    ],
+    "games": 120,
+    "seed": 2100000001,
+    "players": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "lineup": "mixed",
+    "output": "training/runs/v2-arena/planning256-plan12.json"
+  },
+  "seconds": 584.784794917,
+  "overall": {
+    "games": 120,
+    "winRate": 0.525,
+    "chance": 0.23749999999999988,
+    "score": 2375.4166666666665,
+    "wastedPerGame": 1.725,
+    "programmedPerGame": 17.216666666666665,
+    "drawsPerGame": 2.7916666666666665
+  },
+  "byPlayers": {
+    "3": {
+      "games": 30,
+      "winRate": 0.6333333333333333,
+      "chance": 0.3333333333333333,
+      "score": 2658.3333333333335,
+      "wastedPerGame": 2.066666666666667,
+      "programmedPerGame": 18.133333333333333,
+      "drawsPerGame": 3.6666666666666665
+    },
+    "4": {
+      "games": 30,
+      "winRate": 0.4,
+      "chance": 0.25,
+      "score": 2286.6666666666665,
+      "wastedPerGame": 2.1,
+      "programmedPerGame": 18.033333333333335,
+      "drawsPerGame": 3.8
+    },
+    "5": {
+      "games": 30,
+      "winRate": 0.43333333333333335,
+      "chance": 0.2000000000000001,
+      "score": 2071.6666666666665,
+      "wastedPerGame": 1.3666666666666667,
+      "programmedPerGame": 16.4,
+      "drawsPerGame": 1.7666666666666666
+    },
+    "6": {
+      "games": 30,
+      "winRate": 0.6333333333333333,
+      "chance": 0.16666666666666666,
+      "score": 2485,
+      "wastedPerGame": 1.3666666666666667,
+      "programmedPerGame": 16.3,
+      "drawsPerGame": 1.9333333333333333
+    }
+  },
+  "latency": {
+    "decisions": 3279,
+    "mean": 178.0166725751742,
+    "p50": 147.48983299999963,
+    "p95": 440.6994999999988,
+    "max": 929.0322910000104
+  },
+  "records": [
+    {
+      "game": 0,
+      "seed": 2100000001,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1500,
+      "scores": [
+        1500,
+        3000,
+        1850
+      ],
+      "decisions": 26,
+      "wasted": 5,
+      "programmed": 18,
+      "draws": 5,
+      "played": {
+        "punch": 3,
+        "shoot": 7,
+        "loot": 4,
+        "climb": 2,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 1,
+      "seed": 2100031338,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2700,
+      "scores": [
+        2700,
+        1850,
+        1000,
+        1550
+      ],
+      "decisions": 26,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "loot": 3,
+        "climb": 2,
+        "shoot": 7,
+        "move": 4,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 2,
+      "seed": 2100062675,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2550,
+      "scores": [
+        2550,
+        500,
+        750,
+        1800,
+        1000
+      ],
+      "decisions": 25,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "move": 3,
+        "shoot": 6,
+        "loot": 3,
+        "punch": 1,
+        "climb": 2
+      }
+    },
+    {
+      "game": 3,
+      "seed": 2100094012,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2900,
+      "scores": [
+        2900,
+        750,
+        2500,
+        2300,
+        1800,
+        1100
+      ],
+      "decisions": 30,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "punch": 1,
+        "move": 3,
+        "marshal": 2,
+        "climb": 1
+      }
+    },
+    {
+      "game": 4,
+      "seed": 2100125349,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 3550,
+      "scores": [
+        350,
+        3550,
+        1300
+      ],
+      "decisions": 37,
+      "wasted": 1,
+      "programmed": 21,
+      "draws": 0,
+      "played": {
+        "shoot": 5,
+        "move": 7,
+        "loot": 5,
+        "marshal": 1,
+        "punch": 2,
+        "climb": 1
+      }
+    },
+    {
+      "game": 5,
+      "seed": 2100156686,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3200,
+      "scores": [
+        1500,
+        3200,
+        3150,
+        1700
+      ],
+      "decisions": 29,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 6,
+      "played": {
+        "shoot": 6,
+        "loot": 6,
+        "punch": 2,
+        "move": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 6,
+      "seed": 2100188023,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "tactical",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1200,
+      "scores": [
+        1750,
+        1200,
+        1000,
+        750,
+        2850
+      ],
+      "decisions": 24,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "loot": 3,
+        "climb": 3,
+        "move": 4,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 7,
+      "seed": 2100219360,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "express32",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1500,
+      "scores": [
+        750,
+        1500,
+        2050,
+        1500,
+        2000,
+        1750
+      ],
+      "decisions": 28,
+      "wasted": 3,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "loot": 1,
+        "shoot": 7,
+        "climb": 1,
+        "move": 4,
+        "punch": 2
+      }
+    },
+    {
+      "game": 8,
+      "seed": 2100250697,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 4200,
+      "scores": [
+        1400,
+        2500,
+        4200
+      ],
+      "decisions": 29,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 6,
+        "punch": 4,
+        "loot": 4,
+        "move": 2,
+        "marshal": 2,
+        "climb": 1
+      }
+    },
+    {
+      "game": 9,
+      "seed": 2100282034,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 3300,
+      "scores": [
+        3850,
+        0,
+        3300,
+        900
+      ],
+      "decisions": 29,
+      "wasted": 1,
+      "programmed": 21,
+      "draws": 1,
+      "played": {
+        "shoot": 7,
+        "loot": 5,
+        "climb": 3,
+        "move": 3,
+        "marshal": 3
+      }
+    },
+    {
+      "game": 10,
+      "seed": 2100313371,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "tactical",
+        "express32",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1900,
+      "scores": [
+        1250,
+        0,
+        1900,
+        1500,
+        2150
+      ],
+      "decisions": 26,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 0,
+      "played": {
+        "shoot": 6,
+        "loot": 6,
+        "punch": 2,
+        "move": 2,
+        "climb": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 11,
+      "seed": 2100344708,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3650,
+      "scores": [
+        1400,
+        2750,
+        3650,
+        1250,
+        2050,
+        1000
+      ],
+      "decisions": 33,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "punch": 3,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 12,
+      "seed": 2100376045,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        1750,
+        2150,
+        2650
+      ],
+      "decisions": 22,
+      "wasted": 4,
+      "programmed": 15,
+      "draws": 7,
+      "played": {
+        "loot": 3,
+        "shoot": 7,
+        "marshal": 2,
+        "climb": 3
+      }
+    },
+    {
+      "game": 13,
+      "seed": 2100407382,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 1,
+      "score": 3850,
+      "scores": [
+        500,
+        1950,
+        2250,
+        3850
+      ],
+      "decisions": 32,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "loot": 5,
+        "move": 3,
+        "marshal": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 14,
+      "seed": 2100438719,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        1250,
+        1700,
+        1200,
+        2750,
+        1650
+      ],
+      "decisions": 23,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "loot": 2,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 15,
+      "seed": 2100470056,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2300,
+      "scores": [
+        1200,
+        650,
+        2250,
+        2300,
+        1050,
+        1000
+      ],
+      "decisions": 29,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "climb": 2,
+        "move": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 16,
+      "seed": 2100501393,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1200,
+      "scores": [
+        750,
+        1200,
+        2650
+      ],
+      "decisions": 27,
+      "wasted": 7,
+      "programmed": 21,
+      "draws": 0,
+      "played": {
+        "marshal": 3,
+        "shoot": 6,
+        "punch": 3,
+        "loot": 4,
+        "move": 3,
+        "climb": 2
+      }
+    },
+    {
+      "game": 17,
+      "seed": 2100532730,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 4350,
+      "scores": [
+        4350,
+        1750,
+        1750,
+        2150
+      ],
+      "decisions": 27,
+      "wasted": 3,
+      "programmed": 21,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "climb": 4,
+        "punch": 3,
+        "marshal": 1,
+        "move": 2
+      }
+    },
+    {
+      "game": 18,
+      "seed": 2100564067,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 3200,
+      "scores": [
+        1500,
+        2050,
+        1500,
+        1700,
+        3200
+      ],
+      "decisions": 27,
+      "wasted": 0,
+      "programmed": 19,
+      "draws": 0,
+      "played": {
+        "loot": 5,
+        "climb": 3,
+        "move": 4,
+        "shoot": 5,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 19,
+      "seed": 2100595404,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3000,
+      "scores": [
+        1250,
+        1800,
+        1750,
+        1000,
+        3000,
+        1950
+      ],
+      "decisions": 24,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 0,
+      "played": {
+        "loot": 7,
+        "shoot": 4,
+        "move": 2,
+        "punch": 2,
+        "climb": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 20,
+      "seed": 2100626741,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 5600,
+      "scores": [
+        650,
+        2200,
+        5600
+      ],
+      "decisions": 33,
+      "wasted": 0,
+      "programmed": 22,
+      "draws": 1,
+      "played": {
+        "shoot": 6,
+        "punch": 3,
+        "loot": 7,
+        "marshal": 2,
+        "move": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 21,
+      "seed": 2100658078,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1900,
+      "scores": [
+        1950,
+        1900,
+        2200,
+        2000
+      ],
+      "decisions": 28,
+      "wasted": 2,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "climb": 5,
+        "punch": 2,
+        "marshal": 2,
+        "move": 1
+      }
+    },
+    {
+      "game": 22,
+      "seed": 2100689415,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        1750,
+        2850,
+        3450,
+        500,
+        1750
+      ],
+      "decisions": 25,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 3,
+        "punch": 1,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 23,
+      "seed": 2100720752,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        1550,
+        1500,
+        2550,
+        3350,
+        1550,
+        2000
+      ],
+      "decisions": 24,
+      "wasted": 2,
+      "programmed": 14,
+      "draws": 4,
+      "played": {
+        "shoot": 7,
+        "move": 2,
+        "punch": 1,
+        "loot": 2,
+        "marshal": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 24,
+      "seed": 2100752089,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1350,
+      "scores": [
+        1350,
+        1300,
+        1650
+      ],
+      "decisions": 26,
+      "wasted": 3,
+      "programmed": 14,
+      "draws": 8,
+      "played": {
+        "punch": 2,
+        "shoot": 6,
+        "loot": 5,
+        "move": 1
+      }
+    },
+    {
+      "game": 25,
+      "seed": 2100783426,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        2000,
+        2250,
+        1250,
+        2000
+      ],
+      "decisions": 31,
+      "wasted": 4,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 6,
+        "move": 3,
+        "climb": 3,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 26,
+      "seed": 2100814763,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "tactical",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 2050,
+      "scores": [
+        2800,
+        2050,
+        1650,
+        250,
+        2000
+      ],
+      "decisions": 28,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 4,
+        "move": 3,
+        "loot": 4,
+        "punch": 3,
+        "climb": 2
+      }
+    },
+    {
+      "game": 27,
+      "seed": 2100846100,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2250,
+      "scores": [
+        2250,
+        1000,
+        700,
+        1000,
+        2000,
+        1000
+      ],
+      "decisions": 26,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "loot": 3,
+        "move": 3,
+        "shoot": 6,
+        "climb": 2,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 28,
+      "seed": 2100877437,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2600,
+      "scores": [
+        750,
+        2600,
+        1150
+      ],
+      "decisions": 24,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "climb": 3,
+        "shoot": 7,
+        "move": 3,
+        "marshal": 1,
+        "loot": 2,
+        "punch": 2
+      }
+    },
+    {
+      "game": 29,
+      "seed": 2100908774,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 0,
+      "score": 2500,
+      "scores": [
+        3250,
+        500,
+        2900,
+        2500
+      ],
+      "decisions": 29,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "punch": 2,
+        "move": 2,
+        "climb": 4
+      }
+    },
+    {
+      "game": 30,
+      "seed": 2100940111,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "tactical",
+        "express32",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1500,
+      "scores": [
+        500,
+        1350,
+        1500,
+        2200,
+        1900
+      ],
+      "decisions": 26,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 1,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "climb": 2,
+        "move": 2,
+        "marshal": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 31,
+      "seed": 2100971448,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "express32",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2250,
+      "scores": [
+        1750,
+        2250,
+        1000,
+        2050,
+        1200,
+        1500
+      ],
+      "decisions": 23,
+      "wasted": 3,
+      "programmed": 14,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "loot": 3,
+        "climb": 3,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 32,
+      "seed": 2101002785,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 4150,
+      "scores": [
+        500,
+        1250,
+        4150
+      ],
+      "decisions": 34,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "punch": 4,
+        "move": 3,
+        "climb": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 33,
+      "seed": 2101034122,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3100,
+      "scores": [
+        3100,
+        2550,
+        1700,
+        300
+      ],
+      "decisions": 31,
+      "wasted": 2,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "punch": 4,
+        "loot": 6,
+        "climb": 3,
+        "move": 2
+      }
+    },
+    {
+      "game": 34,
+      "seed": 2101065459,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 2200,
+      "scores": [
+        0,
+        3350,
+        2500,
+        2200,
+        2050
+      ],
+      "decisions": 26,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 0,
+      "played": {
+        "move": 4,
+        "loot": 5,
+        "shoot": 6,
+        "climb": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 35,
+      "seed": 2101096796,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3250,
+      "scores": [
+        2100,
+        1250,
+        3250,
+        1000,
+        950,
+        1000
+      ],
+      "decisions": 25,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 6,
+        "loot": 3,
+        "climb": 2,
+        "move": 2,
+        "punch": 1,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 36,
+      "seed": 2101128133,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2950,
+      "scores": [
+        2950,
+        1350,
+        2600
+      ],
+      "decisions": 33,
+      "wasted": 3,
+      "programmed": 21,
+      "draws": 2,
+      "played": {
+        "move": 3,
+        "shoot": 6,
+        "loot": 7,
+        "punch": 2,
+        "marshal": 2,
+        "climb": 1
+      }
+    },
+    {
+      "game": 37,
+      "seed": 2101159470,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2250,
+      "scores": [
+        1050,
+        2250,
+        1750,
+        1750
+      ],
+      "decisions": 27,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 5,
+      "played": {
+        "move": 4,
+        "shoot": 6,
+        "loot": 4,
+        "climb": 2
+      }
+    },
+    {
+      "game": 38,
+      "seed": 2101190807,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 1950,
+      "scores": [
+        1000,
+        1300,
+        1000,
+        750,
+        1950
+      ],
+      "decisions": 23,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "climb": 2,
+        "move": 2,
+        "marshal": 1,
+        "punch": 2,
+        "loot": 3
+      }
+    },
+    {
+      "game": 39,
+      "seed": 2101222144,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        0,
+        1000,
+        1850,
+        1750,
+        2750,
+        1250
+      ],
+      "decisions": 26,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "loot": 3,
+        "punch": 3,
+        "climb": 2,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 40,
+      "seed": 2101253481,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        2200,
+        2750,
+        1200
+      ],
+      "decisions": 29,
+      "wasted": 0,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "loot": 4,
+        "shoot": 4,
+        "climb": 4,
+        "move": 3,
+        "marshal": 1,
+        "punch": 2
+      }
+    },
+    {
+      "game": 41,
+      "seed": 2101284818,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        850,
+        2150,
+        2000,
+        1000
+      ],
+      "decisions": 31,
+      "wasted": 1,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "shoot": 4,
+        "loot": 6,
+        "move": 4,
+        "climb": 3,
+        "punch": 1
+      }
+    },
+    {
+      "game": 42,
+      "seed": 2101316155,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1650,
+      "scores": [
+        1650,
+        950,
+        1200,
+        2000,
+        1250
+      ],
+      "decisions": 26,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "shoot": 4,
+        "move": 4,
+        "loot": 5,
+        "punch": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 43,
+      "seed": 2101347492,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3250,
+      "scores": [
+        1000,
+        1000,
+        2750,
+        1000,
+        3250,
+        2000
+      ],
+      "decisions": 27,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 2,
+        "loot": 4,
+        "climb": 5,
+        "move": 3,
+        "punch": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 44,
+      "seed": 2101378829,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 3150,
+      "scores": [
+        1550,
+        1200,
+        3150
+      ],
+      "decisions": 31,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 4,
+      "played": {
+        "shoot": 4,
+        "move": 5,
+        "loot": 5,
+        "punch": 3,
+        "marshal": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 45,
+      "seed": 2101410166,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 0,
+      "score": 2500,
+      "scores": [
+        1450,
+        500,
+        3250,
+        2500
+      ],
+      "decisions": 30,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 6,
+        "move": 3,
+        "climb": 1,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 46,
+      "seed": 2101441503,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "tactical",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 2250,
+      "scores": [
+        1650,
+        2250,
+        1500,
+        2550,
+        1500
+      ],
+      "decisions": 25,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "climb": 3,
+        "move": 2,
+        "punch": 2
+      }
+    },
+    {
+      "game": 47,
+      "seed": 2101472840,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        500,
+        1500,
+        1050,
+        750,
+        1500,
+        2750
+      ],
+      "decisions": 27,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "move": 2,
+        "marshal": 1,
+        "punch": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 48,
+      "seed": 2101504177,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        2000,
+        2750,
+        1000
+      ],
+      "decisions": 25,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 4,
+      "played": {
+        "punch": 2,
+        "loot": 5,
+        "move": 3,
+        "climb": 3,
+        "shoot": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 49,
+      "seed": 2101535514,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2500,
+      "scores": [
+        2500,
+        550,
+        1900,
+        2350
+      ],
+      "decisions": 29,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 6,
+      "played": {
+        "move": 3,
+        "shoot": 6,
+        "loot": 4,
+        "punch": 3
+      }
+    },
+    {
+      "game": 50,
+      "seed": 2101566851,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "tactical",
+        "express32",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 500,
+      "scores": [
+        1500,
+        2900,
+        500,
+        1500,
+        1050
+      ],
+      "decisions": 27,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "move": 4,
+        "punch": 3,
+        "climb": 1
+      }
+    },
+    {
+      "game": 51,
+      "seed": 2101598188,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3000,
+      "scores": [
+        3000,
+        1000,
+        2450,
+        700,
+        2400,
+        950
+      ],
+      "decisions": 24,
+      "wasted": 0,
+      "programmed": 14,
+      "draws": 4,
+      "played": {
+        "loot": 2,
+        "climb": 2,
+        "move": 2,
+        "shoot": 6,
+        "punch": 2
+      }
+    },
+    {
+      "game": 52,
+      "seed": 2101629525,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 3750,
+      "scores": [
+        950,
+        3750,
+        1000
+      ],
+      "decisions": 31,
+      "wasted": 1,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 7,
+        "loot": 5,
+        "move": 3,
+        "marshal": 3,
+        "punch": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 53,
+      "seed": 2101660862,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3650,
+      "scores": [
+        1300,
+        3650,
+        2900,
+        2100
+      ],
+      "decisions": 30,
+      "wasted": 1,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 7,
+        "loot": 5,
+        "move": 4,
+        "climb": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 54,
+      "seed": 2101692199,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1850,
+      "scores": [
+        0,
+        2300,
+        1250,
+        1850,
+        1800
+      ],
+      "decisions": 23,
+      "wasted": 1,
+      "programmed": 14,
+      "draws": 3,
+      "played": {
+        "loot": 4,
+        "shoot": 4,
+        "punch": 1,
+        "climb": 3,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 55,
+      "seed": 2101723536,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "express32",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3350,
+      "scores": [
+        3000,
+        3350,
+        900,
+        1750,
+        1250,
+        1750
+      ],
+      "decisions": 28,
+      "wasted": 2,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "move": 2,
+        "shoot": 5,
+        "loot": 6,
+        "climb": 1,
+        "punch": 3
+      }
+    },
+    {
+      "game": 56,
+      "seed": 2101754873,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 2650,
+      "scores": [
+        1650,
+        1950,
+        2650
+      ],
+      "decisions": 26,
+      "wasted": 0,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "loot": 3,
+        "climb": 3,
+        "move": 3,
+        "marshal": 3
+      }
+    },
+    {
+      "game": 57,
+      "seed": 2101786210,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 750,
+      "scores": [
+        1700,
+        1900,
+        750,
+        3000
+      ],
+      "decisions": 27,
+      "wasted": 3,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "move": 2,
+        "shoot": 5,
+        "punch": 2,
+        "marshal": 2,
+        "loot": 5,
+        "climb": 3
+      }
+    },
+    {
+      "game": 58,
+      "seed": 2101817547,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 3550,
+      "scores": [
+        2200,
+        1250,
+        250,
+        600,
+        3550
+      ],
+      "decisions": 29,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 2,
+        "loot": 7,
+        "move": 3,
+        "climb": 2,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 59,
+      "seed": 2101848884,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2800,
+      "scores": [
+        2000,
+        1650,
+        2800,
+        2650,
+        2400,
+        500
+      ],
+      "decisions": 28,
+      "wasted": 1,
+      "programmed": 18,
+      "draws": 1,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "climb": 2,
+        "move": 5,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 60,
+      "seed": 2101880221,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1250,
+        1450,
+        1500
+      ],
+      "decisions": 28,
+      "wasted": 5,
+      "programmed": 20,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "punch": 2,
+        "loot": 5,
+        "climb": 3,
+        "move": 3
+      }
+    },
+    {
+      "game": 61,
+      "seed": 2101911558,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1650,
+        1250,
+        2300,
+        1250
+      ],
+      "decisions": 29,
+      "wasted": 3,
+      "programmed": 16,
+      "draws": 6,
+      "played": {
+        "shoot": 7,
+        "punch": 1,
+        "loot": 4,
+        "move": 2,
+        "climb": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 62,
+      "seed": 2101942895,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 2250,
+      "scores": [
+        2250,
+        2800,
+        2000,
+        250,
+        1400
+      ],
+      "decisions": 23,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 0,
+      "played": {
+        "shoot": 4,
+        "loot": 4,
+        "climb": 3,
+        "move": 3,
+        "marshal": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 63,
+      "seed": 2101974232,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        2000,
+        1800,
+        650,
+        1000,
+        3000,
+        1100
+      ],
+      "decisions": 24,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "climb": 2,
+        "move": 4,
+        "marshal": 1,
+        "shoot": 5,
+        "loot": 4
+      }
+    },
+    {
+      "game": 64,
+      "seed": 2102005569,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 3300,
+      "scores": [
+        1250,
+        3300,
+        2200
+      ],
+      "decisions": 26,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "climb": 2,
+        "move": 2,
+        "punch": 2
+      }
+    },
+    {
+      "game": 65,
+      "seed": 2102036906,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        1750,
+        2000,
+        1250,
+        1250
+      ],
+      "decisions": 29,
+      "wasted": 2,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "move": 3,
+        "punch": 2,
+        "loot": 3,
+        "climb": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 66,
+      "seed": 2102068243,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "tactical",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 450,
+      "scores": [
+        750,
+        450,
+        1000,
+        2250,
+        900
+      ],
+      "decisions": 29,
+      "wasted": 4,
+      "programmed": 18,
+      "draws": 0,
+      "played": {
+        "shoot": 4,
+        "loot": 6,
+        "move": 3,
+        "punch": 1,
+        "marshal": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 67,
+      "seed": 2102099580,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        3000,
+        1500,
+        2350,
+        250,
+        1250,
+        500
+      ],
+      "decisions": 27,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 3,
+        "loot": 3,
+        "climb": 3,
+        "move": 5,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 68,
+      "seed": 2102130917,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        1300,
+        2550,
+        2000
+      ],
+      "decisions": 26,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "loot": 6,
+        "shoot": 6,
+        "climb": 1,
+        "punch": 2,
+        "move": 2
+      }
+    },
+    {
+      "game": 69,
+      "seed": 2102162254,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 2600,
+      "scores": [
+        2650,
+        2600,
+        2200,
+        2500
+      ],
+      "decisions": 29,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 4,
+        "punch": 3,
+        "loot": 6,
+        "move": 3,
+        "marshal": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 70,
+      "seed": 2102193591,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "tactical",
+        "express32",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2800,
+      "scores": [
+        0,
+        350,
+        2800,
+        2400,
+        2250
+      ],
+      "decisions": 27,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "move": 3,
+        "marshal": 2,
+        "punch": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 71,
+      "seed": 2102224928,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 0,
+      "score": 2800,
+      "scores": [
+        650,
+        2950,
+        1500,
+        750,
+        3050,
+        2800
+      ],
+      "decisions": 33,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "move": 4,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 72,
+      "seed": 2102256265,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2000,
+      "scores": [
+        2000,
+        1700,
+        1500
+      ],
+      "decisions": 27,
+      "wasted": 2,
+      "programmed": 14,
+      "draws": 7,
+      "played": {
+        "punch": 4,
+        "shoot": 4,
+        "loot": 2,
+        "move": 1,
+        "climb": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 73,
+      "seed": 2102287602,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1750,
+        2300,
+        1250,
+        2700
+      ],
+      "decisions": 28,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "shoot": 7,
+        "loot": 4,
+        "move": 2,
+        "climb": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 74,
+      "seed": 2102318939,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 2300,
+      "scores": [
+        2750,
+        250,
+        750,
+        2300,
+        1250
+      ],
+      "decisions": 28,
+      "wasted": 0,
+      "programmed": 18,
+      "draws": 1,
+      "played": {
+        "shoot": 4,
+        "loot": 5,
+        "climb": 2,
+        "move": 4,
+        "marshal": 1,
+        "punch": 2
+      }
+    },
+    {
+      "game": 75,
+      "seed": 2102350276,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2850,
+      "scores": [
+        2850,
+        1750,
+        1250,
+        1250,
+        1250,
+        1050
+      ],
+      "decisions": 29,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 6,
+        "punch": 1,
+        "loot": 2,
+        "climb": 3,
+        "move": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 76,
+      "seed": 2102381613,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1950,
+      "scores": [
+        2700,
+        1950,
+        3500
+      ],
+      "decisions": 30,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "loot": 5,
+        "move": 4,
+        "climb": 2,
+        "punch": 2
+      }
+    },
+    {
+      "game": 77,
+      "seed": 2102412950,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 1,
+      "score": 2850,
+      "scores": [
+        1650,
+        2200,
+        2800,
+        2850
+      ],
+      "decisions": 30,
+      "wasted": 0,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "loot": 4,
+        "move": 4,
+        "climb": 1,
+        "marshal": 1,
+        "shoot": 6,
+        "punch": 2
+      }
+    },
+    {
+      "game": 78,
+      "seed": 2102444287,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 2450,
+      "scores": [
+        2350,
+        300,
+        2400,
+        1500,
+        2450
+      ],
+      "decisions": 25,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "move": 5,
+        "loot": 5,
+        "climb": 1,
+        "shoot": 4,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 79,
+      "seed": 2102475624,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "express32",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 2050,
+      "scores": [
+        3500,
+        2050,
+        250,
+        1750,
+        2000,
+        2200
+      ],
+      "decisions": 25,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "shoot": 3,
+        "move": 4,
+        "loot": 5,
+        "climb": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 80,
+      "seed": 2102506961,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 3300,
+      "scores": [
+        2000,
+        2350,
+        3300
+      ],
+      "decisions": 30,
+      "wasted": 0,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "move": 2,
+        "shoot": 6,
+        "loot": 3,
+        "punch": 3,
+        "climb": 3,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 81,
+      "seed": 2102538298,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3100,
+      "scores": [
+        3100,
+        250,
+        1000,
+        2650
+      ],
+      "decisions": 31,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "move": 2,
+        "shoot": 4,
+        "loot": 6,
+        "punch": 4,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 82,
+      "seed": 2102569635,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 3150,
+      "scores": [
+        3150,
+        2850,
+        1350,
+        950,
+        500
+      ],
+      "decisions": 28,
+      "wasted": 0,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "loot": 5,
+        "move": 3,
+        "climb": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 83,
+      "seed": 2102600972,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3000,
+      "scores": [
+        2200,
+        750,
+        3000,
+        2000,
+        1650,
+        1550
+      ],
+      "decisions": 21,
+      "wasted": 0,
+      "programmed": 15,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "move": 2,
+        "climb": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 84,
+      "seed": 2102632309,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        2000,
+        3700,
+        250
+      ],
+      "decisions": 29,
+      "wasted": 3,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "shoot": 6,
+        "loot": 6,
+        "move": 3,
+        "climb": 1,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 85,
+      "seed": 2102663646,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        3300,
+        1000,
+        2250,
+        1200
+      ],
+      "decisions": 27,
+      "wasted": 4,
+      "programmed": 19,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "move": 3,
+        "loot": 6,
+        "climb": 2,
+        "punch": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 86,
+      "seed": 2102694983,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "tactical",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2000,
+      "scores": [
+        1500,
+        2000,
+        1000,
+        700,
+        600
+      ],
+      "decisions": 24,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 8,
+        "punch": 3,
+        "loot": 2,
+        "move": 3,
+        "climb": 1
+      }
+    },
+    {
+      "game": 87,
+      "seed": 2102726320,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 2500,
+      "scores": [
+        3100,
+        1850,
+        1150,
+        2500,
+        2050,
+        800
+      ],
+      "decisions": 26,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "punch": 2,
+        "shoot": 6,
+        "loot": 3,
+        "climb": 3,
+        "move": 3
+      }
+    },
+    {
+      "game": 88,
+      "seed": 2102757657,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1900,
+      "scores": [
+        2750,
+        1900,
+        1500
+      ],
+      "decisions": 27,
+      "wasted": 3,
+      "programmed": 19,
+      "draws": 2,
+      "played": {
+        "shoot": 7,
+        "loot": 6,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 89,
+      "seed": 2102788994,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 500,
+      "scores": [
+        3850,
+        2500,
+        500,
+        1000
+      ],
+      "decisions": 28,
+      "wasted": 4,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 7,
+        "punch": 3,
+        "loot": 3,
+        "move": 2,
+        "marshal": 2,
+        "climb": 3
+      }
+    },
+    {
+      "game": 90,
+      "seed": 2102820331,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "tactical",
+        "express32",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1250,
+        3000,
+        1250,
+        1750,
+        2700
+      ],
+      "decisions": 21,
+      "wasted": 3,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "climb": 3,
+        "move": 2,
+        "loot": 3,
+        "marshal": 1,
+        "punch": 2
+      }
+    },
+    {
+      "game": 91,
+      "seed": 2102851668,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3500,
+      "scores": [
+        1950,
+        2400,
+        1350,
+        1500,
+        3500,
+        1500
+      ],
+      "decisions": 25,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "move": 3,
+        "shoot": 7,
+        "loot": 4,
+        "climb": 2
+      }
+    },
+    {
+      "game": 92,
+      "seed": 2102883005,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 3250,
+      "scores": [
+        250,
+        1350,
+        3250
+      ],
+      "decisions": 31,
+      "wasted": 1,
+      "programmed": 21,
+      "draws": 1,
+      "played": {
+        "move": 5,
+        "shoot": 6,
+        "loot": 4,
+        "climb": 2,
+        "punch": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 93,
+      "seed": 2102914342,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 1,
+      "score": 3500,
+      "scores": [
+        2200,
+        750,
+        2000,
+        3500
+      ],
+      "decisions": 30,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 6,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "move": 1,
+        "climb": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 94,
+      "seed": 2102945679,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        2150,
+        900,
+        2350,
+        2750,
+        600
+      ],
+      "decisions": 24,
+      "wasted": 1,
+      "programmed": 18,
+      "draws": 0,
+      "played": {
+        "shoot": 6,
+        "move": 5,
+        "loot": 4,
+        "climb": 3
+      }
+    },
+    {
+      "game": 95,
+      "seed": 2102977016,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 1,
+      "score": 2800,
+      "scores": [
+        1250,
+        1250,
+        2500,
+        1800,
+        500,
+        2800
+      ],
+      "decisions": 29,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 0,
+      "played": {
+        "move": 5,
+        "shoot": 6,
+        "loot": 4,
+        "marshal": 1,
+        "punch": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 96,
+      "seed": 2103008353,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 4300,
+      "scores": [
+        4300,
+        2700,
+        1000
+      ],
+      "decisions": 28,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 5,
+      "played": {
+        "shoot": 5,
+        "loot": 6,
+        "punch": 2,
+        "move": 1,
+        "climb": 2
+      }
+    },
+    {
+      "game": 97,
+      "seed": 2103039690,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 500,
+      "scores": [
+        500,
+        1650,
+        3250,
+        1000
+      ],
+      "decisions": 29,
+      "wasted": 5,
+      "programmed": 21,
+      "draws": 2,
+      "played": {
+        "punch": 4,
+        "loot": 6,
+        "move": 3,
+        "climb": 2,
+        "shoot": 5,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 98,
+      "seed": 2103071027,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        3300,
+        1250,
+        2250,
+        2000,
+        1750
+      ],
+      "decisions": 24,
+      "wasted": 0,
+      "programmed": 13,
+      "draws": 5,
+      "played": {
+        "shoot": 6,
+        "loot": 3,
+        "move": 3,
+        "climb": 1
+      }
+    },
+    {
+      "game": 99,
+      "seed": 2103102364,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1250,
+        2500,
+        1500,
+        1350,
+        2650,
+        1350
+      ],
+      "decisions": 28,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 1,
+      "played": {
+        "move": 4,
+        "shoot": 4,
+        "loot": 6,
+        "marshal": 1,
+        "punch": 2,
+        "climb": 1
+      }
+    },
+    {
+      "game": 100,
+      "seed": 2103133701,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1300,
+      "scores": [
+        1950,
+        1300,
+        1900
+      ],
+      "decisions": 30,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 6,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "move": 4,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 101,
+      "seed": 2103165038,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3250,
+      "scores": [
+        750,
+        3250,
+        2000,
+        1300
+      ],
+      "decisions": 29,
+      "wasted": 0,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "move": 3,
+        "loot": 4,
+        "climb": 3,
+        "punch": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 102,
+      "seed": 2103196375,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        1000,
+        2250,
+        3300,
+        2300,
+        1250
+      ],
+      "decisions": 24,
+      "wasted": 3,
+      "programmed": 16,
+      "draws": 1,
+      "played": {
+        "loot": 5,
+        "punch": 2,
+        "shoot": 5,
+        "climb": 2,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 103,
+      "seed": 2103227712,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "express32",
+        "aggressive",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1500,
+      "scores": [
+        1700,
+        1500,
+        1500,
+        2600,
+        1900,
+        4300
+      ],
+      "decisions": 24,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "loot": 4,
+        "move": 3,
+        "punch": 2,
+        "climb": 4,
+        "shoot": 3
+      }
+    },
+    {
+      "game": 104,
+      "seed": 2103259049,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 2900,
+      "scores": [
+        2500,
+        1600,
+        2900
+      ],
+      "decisions": 29,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "loot": 6,
+        "punch": 1,
+        "shoot": 3,
+        "climb": 2,
+        "marshal": 3,
+        "move": 2
+      }
+    },
+    {
+      "game": 105,
+      "seed": 2103290386,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        3000,
+        3000,
+        1250,
+        1550
+      ],
+      "decisions": 23,
+      "wasted": 4,
+      "programmed": 13,
+      "draws": 9,
+      "played": {
+        "shoot": 8,
+        "loot": 2,
+        "climb": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 106,
+      "seed": 2103321723,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "tactical",
+        "old-policy",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 3500,
+      "scores": [
+        1200,
+        3500,
+        2650,
+        1200,
+        3350
+      ],
+      "decisions": 26,
+      "wasted": 0,
+      "programmed": 15,
+      "draws": 4,
+      "played": {
+        "move": 2,
+        "loot": 4,
+        "shoot": 4,
+        "climb": 3,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 107,
+      "seed": 2103353060,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 3000,
+      "scores": [
+        1750,
+        1600,
+        3000,
+        1250,
+        2350,
+        2650
+      ],
+      "decisions": 23,
+      "wasted": 3,
+      "programmed": 18,
+      "draws": 0,
+      "played": {
+        "climb": 4,
+        "move": 3,
+        "shoot": 6,
+        "loot": 4,
+        "punch": 1
+      }
+    },
+    {
+      "game": 108,
+      "seed": 2103384397,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "aggressive",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 1500,
+      "scores": [
+        1500,
+        1000,
+        1250
+      ],
+      "decisions": 26,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "punch": 3,
+        "loot": 3,
+        "move": 3,
+        "climb": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 109,
+      "seed": 2103415734,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 0,
+      "score": 2150,
+      "scores": [
+        2250,
+        2550,
+        1000,
+        2150
+      ],
+      "decisions": 28,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "shoot": 7,
+        "loot": 4,
+        "punch": 2,
+        "move": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 110,
+      "seed": 2103447071,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "tactical",
+        "express32",
+        "aggressive",
+        "tactical"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        750,
+        2700,
+        1750,
+        800,
+        1250
+      ],
+      "decisions": 25,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 5,
+        "move": 3,
+        "loot": 3,
+        "punch": 3,
+        "climb": 3
+      }
+    },
+    {
+      "game": 111,
+      "seed": 2103478408,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        2700,
+        1850,
+        3800,
+        1250,
+        1650,
+        1700
+      ],
+      "decisions": 27,
+      "wasted": 4,
+      "programmed": 18,
+      "draws": 1,
+      "played": {
+        "shoot": 7,
+        "loot": 2,
+        "climb": 2,
+        "move": 4,
+        "marshal": 1,
+        "punch": 2
+      }
+    },
+    {
+      "game": 112,
+      "seed": 2103509745,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 3150,
+      "scores": [
+        1450,
+        3150,
+        1500
+      ],
+      "decisions": 29,
+      "wasted": 2,
+      "programmed": 19,
+      "draws": 2,
+      "played": {
+        "loot": 6,
+        "shoot": 6,
+        "punch": 1,
+        "move": 5,
+        "climb": 1
+      }
+    },
+    {
+      "game": 113,
+      "seed": 2103541082,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 2200,
+      "scores": [
+        2200,
+        1650,
+        1500,
+        2750
+      ],
+      "decisions": 30,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 7,
+      "played": {
+        "shoot": 6,
+        "punch": 3,
+        "loot": 4,
+        "move": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 114,
+      "seed": 2103572419,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "tactical"
+      ],
+      "win": 1,
+      "score": 1650,
+      "scores": [
+        1100,
+        750,
+        1250,
+        1650,
+        250
+      ],
+      "decisions": 25,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 1,
+      "played": {
+        "shoot": 6,
+        "loot": 3,
+        "climb": 2,
+        "move": 3,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 115,
+      "seed": 2103603756,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "old-policy"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        1250,
+        2100,
+        1700,
+        1450,
+        2750,
+        1750
+      ],
+      "decisions": 24,
+      "wasted": 4,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "climb": 3,
+        "move": 3,
+        "shoot": 5,
+        "loot": 4,
+        "punch": 1
+      }
+    },
+    {
+      "game": 116,
+      "seed": 2103635093,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 2500,
+      "scores": [
+        950,
+        1000,
+        2500
+      ],
+      "decisions": 25,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 6,
+      "played": {
+        "loot": 5,
+        "shoot": 7,
+        "punch": 2,
+        "climb": 1
+      }
+    },
+    {
+      "game": 117,
+      "seed": 2103666430,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "aggressive",
+        "express32",
+        "old-policy"
+      ],
+      "win": 0,
+      "score": 1650,
+      "scores": [
+        3250,
+        1650,
+        500,
+        1500
+      ],
+      "decisions": 31,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 5,
+      "played": {
+        "shoot": 4,
+        "move": 4,
+        "loot": 6,
+        "marshal": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 118,
+      "seed": 2103697767,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "tactical",
+        "express32",
+        "old-policy",
+        "aggressive"
+      ],
+      "win": 1,
+      "score": 2250,
+      "scores": [
+        2050,
+        1000,
+        800,
+        1200,
+        2250
+      ],
+      "decisions": 27,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "move": 3,
+        "climb": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 119,
+      "seed": 2103729104,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "express32",
+        "old-policy",
+        "aggressive",
+        "tactical",
+        "express32"
+      ],
+      "win": 1,
+      "score": 3050,
+      "scores": [
+        1500,
+        250,
+        1750,
+        0,
+        2000,
+        3050
+      ],
+      "decisions": 28,
+      "wasted": 1,
+      "programmed": 18,
+      "draws": 0,
+      "played": {
+        "shoot": 5,
+        "loot": 5,
+        "move": 1,
+        "punch": 3,
+        "marshal": 2,
+        "climb": 2
+      }
+    }
+  ]
+}

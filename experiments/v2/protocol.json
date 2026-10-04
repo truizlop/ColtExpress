@@ -1,0 +1,130 @@
+{
+  "createdAt": "2026-10-04T22:29:21.164555+00:00",
+  "status": "Frozen before any final holdout game",
+  "modelName": "Express128 \u00b7 planning league",
+  "selectedCheckpoint": "training/runs/v2-planning-league/ppo-00256.json",
+  "parameterSha256": "60d5368064a1bd2a8f9dd83c33bbe6ad9a320d2f41977e3ef0ddefa9d67a4c94",
+  "models": {
+    "public/models/champion.json": "06cda0d0fd8fa86a3b856e1ee8166368f2031b8738fd050a1005662aa5d3fb00",
+    "experiments/v2/models/express64-release.json": "bb904d8c3171e9281c42a291abd33952c7885c30f10f7a834bca770427456c6d"
+  },
+  "sourceSha256": "e90a72c8f0e09e349ee2572603195585f93e437b9458e2a615b2d26c6ed36b49",
+  "tooling": {
+    "training/arena_parallel.py": "658223c60f01ca6691bb26ac3e620680384cb5e531ef9dca2c0a680dfc0fe2e2",
+    "training/benchmark_v2.py": "8caf0d9c74dd9234fd51e7e9a93253cc7bdd8571a707f37d23c712a84da19871",
+    "training/analyze_v2.py": "b52a924d75b1143315358c77c4d280566ed4842a8ee4ed7ddd39e8873db80f53"
+  },
+  "difficultyProfiles": {
+    "greenhorn": {
+      "temperature": 1.5,
+      "randomMistakes": 0.3
+    },
+    "bandit": {
+      "temperature": 0.25,
+      "randomMistakes": 0
+    },
+    "outlaw": {
+      "worlds": 4,
+      "warmup": 2,
+      "finalists": 3,
+      "opponents": "mixed"
+    },
+    "legend": {
+      "worlds": 12,
+      "warmup": 4,
+      "finalists": 4,
+      "opponents": "mixed"
+    }
+  },
+  "jobs": [
+    {
+      "name": "legend-standard",
+      "candidate": {
+        "name": "express128-planning-legend",
+        "model": "public/models/champion.json",
+        "difficulty": "legend"
+      },
+      "opponents": [
+        {
+          "name": "released-legend",
+          "model": "experiments/v2/models/express64-release.json",
+          "search": {
+            "samples": 8,
+            "maxCandidates": 3,
+            "rollout": "policy",
+            "horizon": "round"
+          }
+        }
+      ],
+      "games": 480,
+      "seed": 3600000001,
+      "players": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "expert": false
+    },
+    {
+      "name": "legend-expert",
+      "candidate": {
+        "name": "express128-planning-legend",
+        "model": "public/models/champion.json",
+        "difficulty": "legend"
+      },
+      "opponents": [
+        {
+          "name": "released-legend",
+          "model": "experiments/v2/models/express64-release.json",
+          "search": {
+            "samples": 8,
+            "maxCandidates": 3,
+            "rollout": "policy",
+            "horizon": "round"
+          }
+        }
+      ],
+      "games": 240,
+      "seed": 3700000001,
+      "players": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "expert": true
+    },
+    {
+      "name": "legend-team",
+      "candidate": {
+        "name": "express128-planning-legend",
+        "model": "public/models/champion.json",
+        "difficulty": "legend"
+      },
+      "opponents": [
+        {
+          "name": "released-legend",
+          "model": "experiments/v2/models/express64-release.json",
+          "search": {
+            "samples": 8,
+            "maxCandidates": 3,
+            "rollout": "policy",
+            "horizon": "round"
+          }
+        }
+      ],
+      "games": 120,
+      "seed": 3800000001,
+      "players": [
+        2
+      ],
+      "expert": false
+    }
+  ],
+  "restrictions": [
+    "No tuning to final outcomes",
+    "Report standard, expert and team variants separately",
+    "No human-strength claim"
+  ]
+}

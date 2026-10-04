@@ -1,0 +1,326 @@
+{
+  "method": "20,000 percentile bootstrap resamples, stratified by player count; paired differences only for matching seed/seat/opponent/variant",
+  "scope": "Intervals describe this fixed opponent suite; they do not measure human strength or account for development model selection.",
+  "reports": [
+    {
+      "path": "experiments/v2/selection/main128-plan12-standard.json",
+      "name": "main128-plan12-standard",
+      "overall": {
+        "win": {
+          "mean": 0.29375,
+          "ci95": [
+            0.2375,
+            0.35208333333333336
+          ],
+          "games": 240
+        },
+        "score": {
+          "mean": 2026.4583333333333,
+          "ci95": [
+            1921.2447916666667,
+            2128.5416666666665
+          ],
+          "games": 240
+        },
+        "wasted": {
+          "mean": 1.9333333333333333,
+          "ci95": [
+            1.7583333333333333,
+            2.1125
+          ],
+          "games": 240
+        }
+      },
+      "byPlayers": {
+        "3": {
+          "mean": 0.4166666666666667,
+          "ci95": [
+            0.3,
+            0.55
+          ],
+          "games": 60
+        },
+        "4": {
+          "mean": 0.25833333333333336,
+          "ci95": [
+            0.15,
+            0.3668749999999818
+          ],
+          "games": 60
+        },
+        "5": {
+          "mean": 0.2833333333333333,
+          "ci95": [
+            0.16666666666666666,
+            0.4
+          ],
+          "games": 60
+        },
+        "6": {
+          "mean": 0.21666666666666667,
+          "ci95": [
+            0.11666666666666667,
+            0.31666666666666665
+          ],
+          "games": 60
+        }
+      },
+      "latency": {
+        "decisions": 6407,
+        "mean": 186.75367834259436,
+        "p50": 155.9936250000028,
+        "p95": 460.19933400000446,
+        "max": 1116.027791999979
+      },
+      "pairedWinningShareDifference": {
+        "reference": "experiments/v2/selection/baseline-standard.json",
+        "mean": 0.07916666666666666,
+        "ci95": [
+          0.004166666666666667,
+          0.15625
+        ],
+        "games": 240
+      }
+    },
+    {
+      "path": "experiments/v2/selection/value64-plan12-standard.json",
+      "name": "value64-plan12-standard",
+      "overall": {
+        "win": {
+          "mean": 0.3541666666666667,
+          "ci95": [
+            0.29583333333333334,
+            0.4125
+          ],
+          "games": 240
+        },
+        "score": {
+          "mean": 2213.75,
+          "ci95": [
+            2109.5833333333335,
+            2319.5833333333335
+          ],
+          "games": 240
+        },
+        "wasted": {
+          "mean": 1.6583333333333334,
+          "ci95": [
+            1.5125,
+            1.8083333333333333
+          ],
+          "games": 240
+        }
+      },
+      "byPlayers": {
+        "3": {
+          "mean": 0.5333333333333333,
+          "ci95": [
+            0.4,
+            0.65
+          ],
+          "games": 60
+        },
+        "4": {
+          "mean": 0.4166666666666667,
+          "ci95": [
+            0.3,
+            0.5333333333333333
+          ],
+          "games": 60
+        },
+        "5": {
+          "mean": 0.25,
+          "ci95": [
+            0.15,
+            0.36666666666666664
+          ],
+          "games": 60
+        },
+        "6": {
+          "mean": 0.21666666666666667,
+          "ci95": [
+            0.11666666666666667,
+            0.31666666666666665
+          ],
+          "games": 60
+        }
+      },
+      "latency": {
+        "decisions": 6647,
+        "mean": 178.16190870121875,
+        "p50": 145.11804100003792,
+        "p95": 459.08795899996767,
+        "max": 1152.5558329999913
+      },
+      "pairedWinningShareDifference": {
+        "reference": "experiments/v2/selection/baseline-standard.json",
+        "mean": 0.13958333333333334,
+        "ci95": [
+          0.0625,
+          0.21666666666666667
+        ],
+        "games": 240
+      }
+    },
+    {
+      "path": "experiments/v2/selection/main512-plan12-standard.json",
+      "name": "main512-plan12-standard",
+      "overall": {
+        "win": {
+          "mean": 0.38333333333333336,
+          "ci95": [
+            0.325,
+            0.44375
+          ],
+          "games": 240
+        },
+        "score": {
+          "mean": 2225.625,
+          "ci95": [
+            2108.75,
+            2342.9166666666665
+          ],
+          "games": 240
+        },
+        "wasted": {
+          "mean": 1.8208333333333333,
+          "ci95": [
+            1.6666666666666667,
+            1.9791666666666667
+          ],
+          "games": 240
+        }
+      },
+      "byPlayers": {
+        "3": {
+          "mean": 0.5166666666666667,
+          "ci95": [
+            0.39166666666666666,
+            0.6416666666666667
+          ],
+          "games": 60
+        },
+        "4": {
+          "mean": 0.45,
+          "ci95": [
+            0.3333333333333333,
+            0.5833333333333334
+          ],
+          "games": 60
+        },
+        "5": {
+          "mean": 0.35,
+          "ci95": [
+            0.23333333333333334,
+            0.4666666666666667
+          ],
+          "games": 60
+        },
+        "6": {
+          "mean": 0.21666666666666667,
+          "ci95": [
+            0.11666666666666667,
+            0.31666666666666665
+          ],
+          "games": 60
+        }
+      },
+      "latency": {
+        "decisions": 6585,
+        "mean": 183.19350552832168,
+        "p50": 154.03779200001736,
+        "p95": 451.9556250000023,
+        "max": 1087.4332500000019
+      },
+      "pairedWinningShareDifference": {
+        "reference": "experiments/v2/selection/baseline-standard.json",
+        "mean": 0.16875,
+        "ci95": [
+          0.0875,
+          0.24791666666666667
+        ],
+        "games": 240
+      }
+    },
+    {
+      "path": "experiments/v2/selection/planning256-plan12-standard.json",
+      "name": "planning256-plan12-standard",
+      "overall": {
+        "win": {
+          "mean": 0.37083333333333335,
+          "ci95": [
+            0.3125,
+            0.43333333333333335
+          ],
+          "games": 240
+        },
+        "score": {
+          "mean": 2224.5833333333335,
+          "ci95": [
+            2125.8333333333335,
+            2323.125
+          ],
+          "games": 240
+        },
+        "wasted": {
+          "mean": 1.7833333333333334,
+          "ci95": [
+            1.6083333333333334,
+            1.9625
+          ],
+          "games": 240
+        }
+      },
+      "byPlayers": {
+        "3": {
+          "mean": 0.48333333333333334,
+          "ci95": [
+            0.36666666666666664,
+            0.6166666666666667
+          ],
+          "games": 60
+        },
+        "4": {
+          "mean": 0.38333333333333336,
+          "ci95": [
+            0.26666666666666666,
+            0.5166666666666667
+          ],
+          "games": 60
+        },
+        "5": {
+          "mean": 0.35,
+          "ci95": [
+            0.23333333333333334,
+            0.4666666666666667
+          ],
+          "games": 60
+        },
+        "6": {
+          "mean": 0.26666666666666666,
+          "ci95": [
+            0.16666666666666666,
+            0.38333333333333336
+          ],
+          "games": 60
+        }
+      },
+      "latency": {
+        "decisions": 6560,
+        "mean": 192.26931302454267,
+        "p50": 164.06616600003326,
+        "p95": 476.46979199995985,
+        "max": 1064.813042
+      },
+      "pairedWinningShareDifference": {
+        "reference": "experiments/v2/selection/baseline-standard.json",
+        "mean": 0.15625,
+        "ci95": [
+          0.08125,
+          0.23125
+        ],
+        "games": 240
+      }
+    }
+  ]
+}

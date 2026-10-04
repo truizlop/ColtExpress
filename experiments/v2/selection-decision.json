@@ -1,0 +1,126 @@
+{
+  "method": "Highest pooled fractional winning share across the fixed 240 standard and 120 expert selection games. Small gaps between shortlisted models are not proof of universal superiority. Final holdouts remain separate.",
+  "selected": "planning256-plan12",
+  "candidates": [
+    {
+      "name": "main128-plan12",
+      "standard": {
+        "games": 240,
+        "winRate": 0.29375,
+        "chance": 0.23750000000000024,
+        "score": 2026.4583333333333,
+        "wastedPerGame": 1.9333333333333333,
+        "programmedPerGame": 17.254166666666666,
+        "drawsPerGame": 2.7291666666666665
+      },
+      "expert": {
+        "games": 120,
+        "winRate": 0.38333333333333336,
+        "chance": 0.23749999999999988,
+        "score": 2062.5,
+        "wastedPerGame": 1.975,
+        "programmedPerGame": 16.833333333333332,
+        "drawsPerGame": 3.2416666666666667
+      },
+      "pooledWinningShare": 0.3236111111111111,
+      "games": 360,
+      "model": "training/runs/v2-main/ppo-00128.json"
+    },
+    {
+      "name": "value64-plan12",
+      "standard": {
+        "games": 240,
+        "winRate": 0.3541666666666667,
+        "chance": 0.2375,
+        "score": 2213.75,
+        "wastedPerGame": 1.6583333333333334,
+        "programmedPerGame": 16.9125,
+        "drawsPerGame": 3.0708333333333333
+      },
+      "expert": {
+        "games": 120,
+        "winRate": 0.35833333333333334,
+        "chance": 0.2375,
+        "score": 1990.4166666666667,
+        "wastedPerGame": 1.5833333333333333,
+        "programmedPerGame": 16.391666666666666,
+        "drawsPerGame": 3.683333333333333
+      },
+      "pooledWinningShare": 0.35555555555555557,
+      "games": 360,
+      "model": "training/runs/v2-value-calibration/ppo-00064.json"
+    },
+    {
+      "name": "main512-plan12",
+      "standard": {
+        "games": 240,
+        "winRate": 0.38333333333333336,
+        "chance": 0.2375,
+        "score": 2225.625,
+        "wastedPerGame": 1.8208333333333333,
+        "programmedPerGame": 17.0875,
+        "drawsPerGame": 2.8958333333333335
+      },
+      "expert": {
+        "games": 120,
+        "winRate": 0.35,
+        "chance": 0.2375,
+        "score": 2070.8333333333335,
+        "wastedPerGame": 2.2333333333333334,
+        "programmedPerGame": 16.766666666666666,
+        "drawsPerGame": 3.308333333333333
+      },
+      "pooledWinningShare": 0.37222222222222223,
+      "games": 360,
+      "model": "training/runs/v2-main-fast/ppo-00512.json"
+    },
+    {
+      "name": "planning256-plan12",
+      "standard": {
+        "games": 240,
+        "winRate": 0.37083333333333335,
+        "chance": 0.2375,
+        "score": 2224.5833333333335,
+        "wastedPerGame": 1.7833333333333334,
+        "programmedPerGame": 17.166666666666668,
+        "drawsPerGame": 2.816666666666667
+      },
+      "expert": {
+        "games": 120,
+        "winRate": 0.425,
+        "chance": 0.2375,
+        "score": 2291.6666666666665,
+        "wastedPerGame": 1.7833333333333334,
+        "programmedPerGame": 16.9,
+        "drawsPerGame": 3.175
+      },
+      "pooledWinningShare": 0.3888888888888889,
+      "games": 360,
+      "model": "training/runs/v2-planning-league/ppo-00256.json"
+    }
+  ],
+  "parametersUnchangedOnPromotion": true,
+  "parameterSha256": "60d5368064a1bd2a8f9dd83c33bbe6ad9a320d2f41977e3ef0ddefa9d67a4c94",
+  "selectedCheckpointSha256": "e3ac1300a61e33e5fc26a4d960bd5a22f5dadbbbf3667b59a0d736bed8ad3c0a",
+  "directLineage": [
+    {
+      "run": "v2-distill",
+      "checkpoint": "distill-00080",
+      "games": 5120,
+      "learnerDecisions": 673376
+    },
+    {
+      "run": "v2-main",
+      "checkpoint": "ppo-00128",
+      "games": 16384,
+      "learnerDecisions": 1337128
+    },
+    {
+      "run": "v2-planning-league",
+      "checkpoint": "ppo-00256",
+      "games": 24576,
+      "learnerDecisions": 1647150
+    }
+  ],
+  "selectionCheckpointHashesVerified": true
+}

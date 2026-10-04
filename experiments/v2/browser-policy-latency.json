@@ -1,0 +1,3278 @@
+{
+  "model": "public/models/champion.json",
+  "modelSha256": "06cda0d0fd8fa86a3b856e1ee8166368f2031b8738fd050a1005662aa5d3fb00",
+  "runtime": "v24.19.0",
+  "scope": "Single-thread Node measurements of browser decision functions on legal game observations. Not a mobile-device benchmark or a strength test.",
+  "reports": [
+    {
+      "level": "released-legend",
+      "decisions": 92,
+      "mean": 32.873198847826075,
+      "p50": 29.892707999999857,
+      "p95": 91.14404100000002,
+      "max": 113.82525000000032,
+      "rows": [
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 0,
+          "legalActions": 11,
+          "milliseconds": 1.40379200000001
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 42.01962499999999
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 11.166541999999993
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 32.956124999999986
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 11.176540999999986
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 33.953250000000025
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 10.442417000000034
+        },
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 3,
+          "legalActions": 13,
+          "milliseconds": 0.1316669999999931
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 18.30324999999999
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 12.988292000000001
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 30.939625000000035
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 2,
+          "milliseconds": 2.0160000000000196
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 9,
+          "milliseconds": 60.31070799999998
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 39.79358400000001
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 19.125167000000033
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 3.963124999999991
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 62.026791
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 50.20895799999994
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.06020899999998619
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.043750000000045475
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.0416250000000673
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 11.71958399999994
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 4.429832999999917
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 57.92595800000004
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 43.119417
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.056500000000028194
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.06820900000002439
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.10162500000001273
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 6.892708999999968
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 62.65716700000007
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 41.44791699999996
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 16.735624999999914
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 75.15562499999999
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 48.11108300000001
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 36.318250000000035
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 13.472624999999994
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 11,
+          "milliseconds": 48.17004199999997
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 29.892707999999857
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 15.118291999999883
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 52.9582089999999
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 34.67483399999992
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 20.763999999999896
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 8.610417000000098
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 12.563709000000017
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 57.06504199999995
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 36.707999999999856
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 10.244499999999789
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 10.311582999999928
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 38.64887499999986
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 22.897458000000142
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 10.590208000000075
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 4.607665999999881
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 88.34179099999983
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 61.69137500000011
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 44.72054099999991
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.07391699999993762
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.048584000000118976
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 103.10012499999993
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 83.6137920000001
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 60.69158300000004
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.05195800000001327
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.03749999999990905
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.03774999999995998
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 12.210583999999926
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 7,
+          "milliseconds": 98.74012500000003
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 74.73895800000014
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 66.92954199999986
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.07491699999991397
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.03741700000000492
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.04470900000023903
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.03570799999988594
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 16.949333000000024
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 113.82525000000032
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 91.14404100000002
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 69.42074999999977
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 39.643583000000035
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 30.91924999999992
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 20.057332999999744
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 97.02408300000025
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 81.50195799999983
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 56.27229199999965
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 40.64883299999974
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 31.70733300000029
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 18.280833000000257
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 8.165749999999662
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 68.8601249999997
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 52.185249999999996
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 33.46637499999997
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 17.53591600000027
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 21.455875000000106
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 85.00070800000003
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 59.939834000000246
+        }
+      ]
+    },
+    {
+      "level": "greenhorn",
+      "decisions": 92,
+      "mean": 0.2998732065217481,
+      "p50": 0.29504099999985556,
+      "p95": 0.6975840000000062,
+      "max": 3.0240410000001248,
+      "rows": [
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 0,
+          "legalActions": 11,
+          "milliseconds": 3.0240410000001248
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.6994580000000497
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.3073330000001988
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 0.5715840000002572
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.0025000000000545697
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.4341669999998885
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.001833000000260654
+        },
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 3,
+          "legalActions": 13,
+          "milliseconds": 0.00537499999973079
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 0.37329100000033577
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 0.27891600000020844
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 0.44229200000017954
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 2,
+          "milliseconds": 0.0017090000001189765
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 9,
+          "milliseconds": 0.8124590000002172
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.5460840000000644
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 0.005791999999928521
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 0.508792000000085
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.3544999999999163
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 0.004334000000199012
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.3253749999998945
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.2695840000001226
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.28287500000033106
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.3150839999998425
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.26291700000001583
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 0.002250000000003638
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 0.5317089999998643
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.29504099999985556
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.36866699999973207
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.29691700000012133
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 0.3984169999998812
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 0.006667000000106782
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 0.5457910000000084
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 0.42416599999978644
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 0.004540999999790074
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.5585829999999987
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.0032919999998739513
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 0.36837500000001455
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 11,
+          "milliseconds": 0.0019579999998313724
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.5168749999997999
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.26175000000012005
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 0.0019999999999527063
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.38879199999973935
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 0.0018749999999272404
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.2689170000003287
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.28037499999982174
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 0.6975840000000062
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 0.40770800000018426
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 0.31899999999996
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 0.3534159999999247
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 0.002167000000099506
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 0.44087500000023283
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 0.31087499999966894
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 0.2620830000000751
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.0016249999998763087
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.4265830000003916
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.0017499999999017746
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.24604100000033213
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.0015830000002097222
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.004292000000077678
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.43991700000015044
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 0.0017499999999017746
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.2527500000001055
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.0016249999998763087
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.2496249999999236
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.0016249999998763087
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 7,
+          "milliseconds": 0.5312920000001213
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 0.002124999999978172
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.400166999999783
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.2602500000002692
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.2354169999998703
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.0017079999997804407
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.0011660000000119908
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 0.42429200000015044
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 0.515625
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.44416699999965203
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.0016249999998763087
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 0.7529589999999189
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 0.41108299999996234
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 0.002791000000343047
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.0012080000001333246
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.49149999999963256
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 0.42275000000017826
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.004708999999820662
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 0.4468339999998534
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.2763749999999163
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.4047080000000278
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 0.643500000000131
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.0022080000003370515
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.45083299999987503
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.248124999999618
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 0.0015410000000883883
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 0.0011669999998957792
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 0.42808300000024246
+        }
+      ]
+    },
+    {
+      "level": "bandit",
+      "decisions": 92,
+      "mean": 0.32644789130434854,
+      "p50": 0.3109580000000278,
+      "p95": 0.5131249999999454,
+      "max": 0.8371250000000146,
+      "rows": [
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 0,
+          "legalActions": 11,
+          "milliseconds": 0.48783300000013696
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.32616600000028484
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.20804199999975026
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 0.4257920000000013
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.22375000000010914
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.287166999999954
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.20249999999987267
+        },
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 3,
+          "legalActions": 13,
+          "milliseconds": 0.5662919999999758
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 0.23379100000011022
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 0.1799580000001697
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 0.30512499999986176
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 2,
+          "milliseconds": 0.18733400000019174
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 9,
+          "milliseconds": 0.5131249999999454
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.3135409999999865
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 0.26375000000007276
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 0.26633300000003146
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.2242919999998776
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 0.5041670000000522
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.26220899999998437
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.21408299999984592
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.1979999999998654
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.23495899999988978
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.1888330000001588
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 0.3164590000001226
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 0.36062500000025466
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.17841699999962657
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.17691699999977573
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.18537500000002183
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 0.22854099999995015
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 0.4496670000003178
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 0.3117499999998472
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 0.23441700000012133
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 0.38991599999963
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.34779200000002675
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.37029100000017934
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 0.27025000000003274
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 11,
+          "milliseconds": 0.5805409999998119
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.33837499999981446
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.22079200000007404
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 0.24108299999988958
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.3108750000001237
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 0.3021670000002814
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.2011250000000473
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.19354199999997945
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 0.4967079999996713
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 0.29891700000007404
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 0.2305420000002414
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 0.26183299999956944
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 0.35316599999987375
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 0.46645799999987503
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 0.3635000000003856
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 0.23641600000019025
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.39604099999996834
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.36479099999996834
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.4012500000003456
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.21391700000003766
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.21908399999983885
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.8371250000000146
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.4531659999997828
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 0.38879199999973935
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.2351250000001528
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.26350000000002183
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.21579099999962637
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.3184999999998581
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 7,
+          "milliseconds": 0.4915000000000873
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 0.3036250000000109
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.3648329999996349
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.2161660000001575
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.2055409999998119
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.23608400000011898
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.21270800000002055
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 0.3550420000001395
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 0.45495900000014444
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.42833399999972244
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 0.4890830000003916
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 0.36179200000015044
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 0.3341249999998581
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 0.2834170000000995
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.2859170000001541
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.4339589999999589
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 0.39912500000036744
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 0.3907920000001468
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 0.42774999999983265
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.24899999999979627
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 0.33529200000020865
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 0.6041250000002947
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.3924159999996846
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 0.42129099999965547
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.2412920000001577
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 0.34704099999999016
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 0.3109580000000278
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 0.4164580000001479
+        }
+      ]
+    },
+    {
+      "level": "outlaw",
+      "decisions": 92,
+      "mean": 54.226568391304326,
+      "p50": 47.497583000000304,
+      "p95": 170.01908300000014,
+      "max": 226.89387499999975,
+      "rows": [
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 0,
+          "legalActions": 11,
+          "milliseconds": 0.7482079999999769
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 55.62233399999968
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 14.886041000000205
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 71.34683399999994
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 23.41254200000003
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 63.83866699999999
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 17.70445800000016
+        },
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 3,
+          "legalActions": 13,
+          "milliseconds": 0.5609999999996944
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 21.91220899999962
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 21.35683300000028
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 58.92816599999969
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 2,
+          "milliseconds": 0.951542000000245
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 9,
+          "milliseconds": 121.1865829999997
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 68.86274999999978
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 26.74166699999978
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 6.420165999999881
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 80.376667
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 87.43679100000008
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.18687499999987267
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.18887500000028012
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.17562500000030923
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 12.946750000000065
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 4.126999999999953
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 96.46362499999987
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 75.17249999999967
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.16224999999940337
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.15362499999991996
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.1560829999998532
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 11.86620800000037
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 205.30454199999986
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 65.78162500000053
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 28.589042000000518
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 172.0537089999998
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 74.19437500000004
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 59.08325000000059
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 28.653416000000107
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 11,
+          "milliseconds": 124.19845799999985
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 50.54008299999987
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 19.974583000000166
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 61.99833300000046
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 61.91966700000012
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 28.454458999999588
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 12.565666999999848
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 12.786958000000595
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 96.20224999999937
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 52.83829100000003
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 15.397249999999985
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 17.23895899999934
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 75.19137499999943
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 43.21124999999938
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 12.24474999999984
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 4.88379199999963
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 170.01908300000014
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 99.7079590000003
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 93.59254199999941
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.23254199999973935
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.1852920000001177
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 183.1050839999998
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 119.69495800000004
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 95.00966700000026
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.2106659999999465
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.18162500000016735
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.17700000000058935
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 19.24487499999941
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 7,
+          "milliseconds": 127.2166670000006
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 67.64550000000054
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 72.56425000000036
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.1924169999992955
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.1705840000004173
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.18541599999934988
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.17070800000055897
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 26.451125000000502
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 226.89387499999975
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 168.57504100000006
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 92.871083
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 49.61108400000012
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 47.497583000000304
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 28.902125000000524
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 103.6499159999994
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 135.56383300000016
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 64.23158299999977
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 58.038165999999364
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 65.84799999999996
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 25.954917000000023
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 11.802417000000787
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 130.41391699999986
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 70.90166700000009
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 57.05937499999982
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 25.941541000000143
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 30.794708999999784
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 132.9124579999998
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 118.2240839999995
+        }
+      ]
+    },
+    {
+      "level": "legend",
+      "decisions": 92,
+      "mean": 163.17636007608675,
+      "p50": 139.0064999999995,
+      "p95": 478.8681250000009,
+      "max": 650.3234579999989,
+      "rows": [
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 0,
+          "legalActions": 11,
+          "milliseconds": 0.5116250000010041
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 169.00658399999884
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 37.13054200000079
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 159.2345839999998
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 54.59575000000041
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 139.63074999999844
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 42.0341669999998
+        },
+        {
+          "players": 2,
+          "phase": "choose",
+          "round": 3,
+          "legalActions": 13,
+          "milliseconds": 0.5019589999992604
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 76.5971669999999
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 55.90979199999856
+        },
+        {
+          "players": 2,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 176.75575000000026
+        },
+        {
+          "players": 2,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 2,
+          "milliseconds": 2.6936249999998836
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 9,
+          "milliseconds": 403.1137920000001
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 203.06095800000003
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 76.77404100000058
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 18.450832999998966
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 232.30025000000023
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 279.82058400000096
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.3204999999998108
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.18999999999869033
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.1763329999994312
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 34.5046250000014
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 11.413249999999607
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 304.04404200000135
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 274.048291000001
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.18433299999924202
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.16391599999951723
+        },
+        {
+          "players": 3,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.1712500000012369
+        },
+        {
+          "players": 3,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 29.627542000000176
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 490.4781669999993
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 203.62808399999994
+        },
+        {
+          "players": 3,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 3,
+          "milliseconds": 68.51433300000099
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 458.17883299999994
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 259.2321659999998
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 193.73295900000085
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 74.1490419999991
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 11,
+          "milliseconds": 345.2853750000013
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 155.5630000000001
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 60.086749999998574
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 190.7324579999986
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 173.58233400000063
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 79.54133299999921
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 32.51441700000032
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 33.3734170000007
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 9,
+          "milliseconds": 304.2081249999992
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 168.36366599999928
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 2,
+          "milliseconds": 42.221958000000086
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 46.33320900000035
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 219.39858299999833
+        },
+        {
+          "players": 4,
+          "phase": "scheme",
+          "round": 4,
+          "legalActions": 5,
+          "milliseconds": 135.61937500000022
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 35.141874999999345
+        },
+        {
+          "players": 4,
+          "phase": "execute",
+          "round": 4,
+          "legalActions": 3,
+          "milliseconds": 14.315458000000945
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 480.2126250000001
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 346.4700840000005
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 256.54712500000096
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.20424999999886495
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 0,
+          "legalActions": 2,
+          "milliseconds": 0.17954199999985576
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 591.8527079999985
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 406.4750839999979
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 304.5516659999994
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.18691599999874597
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.1757499999985157
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 0.17566599999918253
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 48.0737079999999
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 7,
+          "milliseconds": 451.6814999999988
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 3,
+          "milliseconds": 255.31637499999852
+        },
+        {
+          "players": 5,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 280.06324999999924
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.20170800000050804
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.1729589999995369
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.18595799999820883
+        },
+        {
+          "players": 5,
+          "phase": "retain",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 0.16837500000110595
+        },
+        {
+          "players": 5,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 87.99279199999728
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 6,
+          "milliseconds": 650.3234579999989
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 478.8681250000009
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 5,
+          "milliseconds": 303.73262500000055
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 139.0064999999995
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 4,
+          "milliseconds": 157.2645420000008
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 0,
+          "legalActions": 3,
+          "milliseconds": 75.0925410000018
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 317.80725000000166
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 373.1335829999989
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 4,
+          "milliseconds": 255.26308399999834
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 1,
+          "legalActions": 3,
+          "milliseconds": 164.36437499999738
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 6,
+          "milliseconds": 187.30845899999986
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 2,
+          "milliseconds": 74.45058300000164
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 1,
+          "legalActions": 5,
+          "milliseconds": 38.81195799999841
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 6,
+          "milliseconds": 368.3457920000001
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 234.52674999999726
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 2,
+          "legalActions": 4,
+          "milliseconds": 179.55625000000146
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 2,
+          "milliseconds": 57.692291999999725
+        },
+        {
+          "players": 6,
+          "phase": "execute",
+          "round": 2,
+          "legalActions": 5,
+          "milliseconds": 101.30566700000054
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 4,
+          "milliseconds": 437.03099999999904
+        },
+        {
+          "players": 6,
+          "phase": "scheme",
+          "round": 3,
+          "legalActions": 5,
+          "milliseconds": 340.2905000000028
+        }
+      ]
+    }
+  ]
+}

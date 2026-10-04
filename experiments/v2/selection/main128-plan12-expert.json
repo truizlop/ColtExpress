@@ -1,0 +1,3918 @@
+{
+  "provenance": {
+    "sourceSha256": "32489a88ef0fc1003f74e3f952be213146cc4c85ee1dad9dc3d96ef640122b02",
+    "node": "v24.19.0",
+    "models": {
+      "training/runs/v2-main/ppo-00128.json": "269fa812bf7608e7cfad2c432d48bcc417964cf9eb37a71125c93aacb10dd7e5",
+      "experiments/v2/models/express64-release.json": "bb904d8c3171e9281c42a291abd33952c7885c30f10f7a834bca770427456c6d"
+    }
+  },
+  "config": {
+    "seed": 3400000001,
+    "games": 120,
+    "players": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "expert": true,
+    "opponents": [
+      {
+        "name": "released-legend",
+        "model": "experiments/v2/models/express64-release.json",
+        "search": {
+          "samples": 8,
+          "maxCandidates": 3,
+          "rollout": "policy",
+          "horizon": "round"
+        }
+      }
+    ],
+    "name": "main128-plan12-expert",
+    "candidate": {
+      "name": "main128-plan12",
+      "model": "training/runs/v2-main/ppo-00128.json",
+      "planner": {
+        "worlds": 12,
+        "warmup": 4,
+        "finalists": 4,
+        "opponents": "mixed"
+      }
+    },
+    "output": "training/runs/v2-selection/main128-plan12-expert.json"
+  },
+  "seconds": 1877.150176957,
+  "overall": {
+    "games": 120,
+    "winRate": 0.38333333333333336,
+    "chance": 0.23749999999999988,
+    "score": 2062.5,
+    "wastedPerGame": 1.975,
+    "programmedPerGame": 16.833333333333332,
+    "drawsPerGame": 3.2416666666666667
+  },
+  "byPlayers": {
+    "3": {
+      "games": 30,
+      "winRate": 0.5,
+      "chance": 0.3333333333333333,
+      "score": 2276.6666666666665,
+      "wastedPerGame": 2.2666666666666666,
+      "programmedPerGame": 18.066666666666666,
+      "drawsPerGame": 3.7333333333333334
+    },
+    "4": {
+      "games": 30,
+      "winRate": 0.3333333333333333,
+      "chance": 0.25,
+      "score": 1988.3333333333333,
+      "wastedPerGame": 2.6666666666666665,
+      "programmedPerGame": 18.133333333333333,
+      "drawsPerGame": 3.533333333333333
+    },
+    "5": {
+      "games": 30,
+      "winRate": 0.26666666666666666,
+      "chance": 0.2000000000000001,
+      "score": 1858.3333333333333,
+      "wastedPerGame": 1.5333333333333334,
+      "programmedPerGame": 15.533333333333333,
+      "drawsPerGame": 2.933333333333333
+    },
+    "6": {
+      "games": 30,
+      "winRate": 0.43333333333333335,
+      "chance": 0.16666666666666666,
+      "score": 2126.6666666666665,
+      "wastedPerGame": 1.4333333333333333,
+      "programmedPerGame": 15.6,
+      "drawsPerGame": 2.7666666666666666
+    }
+  },
+  "latency": {
+    "decisions": 6086,
+    "mean": 183.44876211731778,
+    "p50": 25.77708300005179,
+    "p95": 690.2262500000652,
+    "max": 1440.4780000000028
+  },
+  "records": [
+    {
+      "game": 0,
+      "seed": 3400000001,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2900,
+      "scores": [
+        2900,
+        1500,
+        1650
+      ],
+      "decisions": 50,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "punch": 4,
+        "shoot": 5,
+        "loot": 2,
+        "climb": 4,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 1,
+      "seed": 3400031338,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        1000,
+        1000,
+        1650,
+        1950
+      ],
+      "decisions": 48,
+      "wasted": 3,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "loot": 4,
+        "shoot": 6,
+        "punch": 2,
+        "climb": 3,
+        "marshal": 2,
+        "move": 1
+      }
+    },
+    {
+      "game": 2,
+      "seed": 3400062675,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2150,
+      "scores": [
+        2150,
+        2150,
+        1250,
+        850,
+        2000
+      ],
+      "decisions": 55,
+      "wasted": 0,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "climb": 3,
+        "move": 1,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 3,
+      "seed": 3400094012,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2400,
+      "scores": [
+        2400,
+        1600,
+        1650,
+        2100,
+        700,
+        2200
+      ],
+      "decisions": 45,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "loot": 3,
+        "shoot": 6,
+        "punch": 2,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 4,
+      "seed": 3400125349,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1500,
+      "scores": [
+        1500,
+        1500,
+        2400
+      ],
+      "decisions": 45,
+      "wasted": 3,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "punch": 2,
+        "loot": 5,
+        "move": 3,
+        "climb": 3,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 5,
+      "seed": 3400156686,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 750,
+      "scores": [
+        3550,
+        750,
+        2350,
+        400
+      ],
+      "decisions": 52,
+      "wasted": 3,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "punch": 3,
+        "loot": 5,
+        "climb": 4,
+        "move": 2,
+        "marshal": 1,
+        "shoot": 4
+      }
+    },
+    {
+      "game": 6,
+      "seed": 3400188023,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2650,
+      "scores": [
+        1750,
+        2650,
+        250,
+        2250,
+        900
+      ],
+      "decisions": 45,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 2,
+      "played": {
+        "shoot": 4,
+        "loot": 4,
+        "climb": 2,
+        "move": 3,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 7,
+      "seed": 3400219360,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1800,
+      "scores": [
+        2850,
+        1800,
+        1500,
+        3250,
+        1200,
+        1400
+      ],
+      "decisions": 58,
+      "wasted": 0,
+      "programmed": 13,
+      "draws": 5,
+      "played": {
+        "shoot": 2,
+        "loot": 4,
+        "move": 3,
+        "climb": 2,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 8,
+      "seed": 3400250697,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3000,
+      "scores": [
+        1750,
+        1400,
+        3000
+      ],
+      "decisions": 49,
+      "wasted": 0,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "loot": 4,
+        "shoot": 5,
+        "punch": 3,
+        "move": 3,
+        "climb": 3
+      }
+    },
+    {
+      "game": 9,
+      "seed": 3400282034,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1350,
+      "scores": [
+        2500,
+        2250,
+        1350,
+        2150
+      ],
+      "decisions": 48,
+      "wasted": 3,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "loot": 6,
+        "climb": 2,
+        "move": 3,
+        "marshal": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 10,
+      "seed": 3400313371,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        500,
+        1500,
+        1250,
+        3150,
+        3000
+      ],
+      "decisions": 51,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "climb": 4,
+        "move": 2,
+        "marshal": 2,
+        "loot": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 11,
+      "seed": 3400344708,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2250,
+      "scores": [
+        750,
+        2250,
+        2250,
+        1200,
+        2300,
+        500
+      ],
+      "decisions": 45,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "punch": 1,
+        "shoot": 3,
+        "loot": 4,
+        "climb": 2,
+        "marshal": 2,
+        "move": 4
+      }
+    },
+    {
+      "game": 12,
+      "seed": 3400376045,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2250,
+      "scores": [
+        2250,
+        2300,
+        750
+      ],
+      "decisions": 54,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "marshal": 2,
+        "shoot": 6,
+        "punch": 2,
+        "climb": 3,
+        "loot": 3,
+        "move": 1
+      }
+    },
+    {
+      "game": 13,
+      "seed": 3400407382,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3250,
+      "scores": [
+        2450,
+        750,
+        1950,
+        3250
+      ],
+      "decisions": 45,
+      "wasted": 2,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "loot": 5,
+        "climb": 3,
+        "punch": 2,
+        "move": 4,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 14,
+      "seed": 3400438719,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2300,
+      "scores": [
+        2750,
+        1000,
+        2050,
+        2300,
+        1250
+      ],
+      "decisions": 41,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 5,
+        "punch": 2,
+        "move": 2,
+        "loot": 4,
+        "marshal": 1,
+        "climb": 3
+      }
+    },
+    {
+      "game": 15,
+      "seed": 3400470056,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        2400,
+        1250,
+        1250,
+        1250,
+        1500,
+        2100
+      ],
+      "decisions": 42,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "loot": 3,
+        "climb": 5,
+        "move": 2,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 16,
+      "seed": 3400501393,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2550,
+      "scores": [
+        1450,
+        2550,
+        1600
+      ],
+      "decisions": 53,
+      "wasted": 1,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "punch": 2,
+        "loot": 4,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 17,
+      "seed": 3400532730,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        1000,
+        2700,
+        700,
+        3050
+      ],
+      "decisions": 46,
+      "wasted": 2,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "punch": 2,
+        "loot": 5,
+        "climb": 4,
+        "move": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 18,
+      "seed": 3400564067,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        500,
+        2000,
+        1850,
+        2050,
+        1000
+      ],
+      "decisions": 50,
+      "wasted": 3,
+      "programmed": 14,
+      "draws": 4,
+      "played": {
+        "loot": 4,
+        "shoot": 4,
+        "climb": 2,
+        "move": 1,
+        "marshal": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 19,
+      "seed": 3400595404,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3700,
+      "scores": [
+        2100,
+        1700,
+        1750,
+        1000,
+        3700,
+        1400
+      ],
+      "decisions": 42,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 5,
+        "loot": 5,
+        "climb": 3,
+        "move": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 20,
+      "seed": 3400626741,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2500,
+      "scores": [
+        2000,
+        1600,
+        2500
+      ],
+      "decisions": 43,
+      "wasted": 5,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "loot": 5,
+        "climb": 3,
+        "move": 1,
+        "marshal": 1,
+        "punch": 2
+      }
+    },
+    {
+      "game": 21,
+      "seed": 3400658078,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3900,
+      "scores": [
+        1650,
+        3900,
+        2750,
+        750
+      ],
+      "decisions": 46,
+      "wasted": 3,
+      "programmed": 20,
+      "draws": 1,
+      "played": {
+        "shoot": 7,
+        "loot": 5,
+        "move": 2,
+        "climb": 3,
+        "marshal": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 22,
+      "seed": 3400689415,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        1000,
+        2750,
+        2800,
+        1600,
+        550
+      ],
+      "decisions": 51,
+      "wasted": 3,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "loot": 6,
+        "punch": 1,
+        "climb": 2,
+        "move": 2
+      }
+    },
+    {
+      "game": 23,
+      "seed": 3400720752,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        500,
+        1150,
+        2350,
+        1700,
+        2500,
+        2750
+      ],
+      "decisions": 47,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "shoot": 3,
+        "loot": 5,
+        "punch": 2,
+        "climb": 3,
+        "move": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 24,
+      "seed": 3400752089,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2100,
+      "scores": [
+        2100,
+        1650,
+        750
+      ],
+      "decisions": 55,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "punch": 3,
+        "shoot": 5,
+        "loot": 5,
+        "move": 2,
+        "marshal": 2,
+        "climb": 1
+      }
+    },
+    {
+      "game": 25,
+      "seed": 3400783426,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2600,
+      "scores": [
+        2450,
+        2750,
+        2600,
+        2550
+      ],
+      "decisions": 53,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "loot": 3,
+        "shoot": 7,
+        "punch": 2,
+        "climb": 3,
+        "move": 1,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 26,
+      "seed": 3400814763,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 950,
+      "scores": [
+        1900,
+        950,
+        3000,
+        1750,
+        1700
+      ],
+      "decisions": 54,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 4,
+      "played": {
+        "shoot": 4,
+        "loot": 4,
+        "punch": 2,
+        "move": 2,
+        "climb": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 27,
+      "seed": 3400846100,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        1750,
+        500,
+        650,
+        2000,
+        2250,
+        2850
+      ],
+      "decisions": 42,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 0,
+      "played": {
+        "shoot": 5,
+        "climb": 3,
+        "marshal": 2,
+        "move": 3,
+        "loot": 3,
+        "punch": 1
+      }
+    },
+    {
+      "game": 28,
+      "seed": 3400877437,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        750,
+        1750,
+        2250
+      ],
+      "decisions": 53,
+      "wasted": 2,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "climb": 3,
+        "move": 3,
+        "marshal": 3,
+        "punch": 2,
+        "loot": 3
+      }
+    },
+    {
+      "game": 29,
+      "seed": 3400908774,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        900,
+        1450,
+        1800,
+        2750
+      ],
+      "decisions": 51,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 7,
+        "loot": 4,
+        "punch": 1,
+        "climb": 3,
+        "move": 1,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 30,
+      "seed": 3400940111,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 750,
+      "scores": [
+        1750,
+        1650,
+        750,
+        2050,
+        1150
+      ],
+      "decisions": 59,
+      "wasted": 3,
+      "programmed": 14,
+      "draws": 5,
+      "played": {
+        "marshal": 2,
+        "shoot": 4,
+        "loot": 4,
+        "move": 2,
+        "climb": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 31,
+      "seed": 3400971448,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2500,
+      "scores": [
+        2500,
+        2500,
+        750,
+        1650,
+        2600,
+        3250
+      ],
+      "decisions": 53,
+      "wasted": 1,
+      "programmed": 14,
+      "draws": 4,
+      "played": {
+        "shoot": 3,
+        "loot": 3,
+        "climb": 3,
+        "move": 3,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 32,
+      "seed": 3401002785,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        1000,
+        2250,
+        2750
+      ],
+      "decisions": 58,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "punch": 2,
+        "shoot": 6,
+        "loot": 5,
+        "marshal": 1,
+        "climb": 2,
+        "move": 1
+      }
+    },
+    {
+      "game": 33,
+      "seed": 3401034122,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1250,
+        2050,
+        1250,
+        3500
+      ],
+      "decisions": 59,
+      "wasted": 5,
+      "programmed": 18,
+      "draws": 5,
+      "played": {
+        "shoot": 5,
+        "loot": 6,
+        "punch": 2,
+        "marshal": 1,
+        "move": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 34,
+      "seed": 3401065459,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        1750,
+        1050,
+        2850,
+        1000,
+        1150
+      ],
+      "decisions": 69,
+      "wasted": 0,
+      "programmed": 10,
+      "draws": 8,
+      "played": {
+        "shoot": 6,
+        "loot": 2,
+        "punch": 1,
+        "move": 1
+      }
+    },
+    {
+      "game": 35,
+      "seed": 3401096796,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2700,
+      "scores": [
+        550,
+        750,
+        2700,
+        500,
+        2400,
+        350
+      ],
+      "decisions": 42,
+      "wasted": 3,
+      "programmed": 18,
+      "draws": 1,
+      "played": {
+        "loot": 5,
+        "shoot": 5,
+        "climb": 3,
+        "move": 3,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 36,
+      "seed": 3401128133,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2750,
+      "scores": [
+        2750,
+        1250,
+        1950
+      ],
+      "decisions": 49,
+      "wasted": 0,
+      "programmed": 19,
+      "draws": 4,
+      "played": {
+        "loot": 3,
+        "punch": 2,
+        "shoot": 5,
+        "marshal": 3,
+        "climb": 4,
+        "move": 2
+      }
+    },
+    {
+      "game": 37,
+      "seed": 3401159470,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2500,
+      "scores": [
+        2000,
+        2500,
+        1350,
+        1750
+      ],
+      "decisions": 59,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "loot": 5,
+        "shoot": 6,
+        "move": 2,
+        "marshal": 1,
+        "climb": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 38,
+      "seed": 3401190807,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        3250,
+        2250,
+        1300,
+        2400,
+        1250
+      ],
+      "decisions": 52,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 4,
+        "loot": 4,
+        "punch": 2,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 39,
+      "seed": 3401222144,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3800,
+      "scores": [
+        1750,
+        1650,
+        1250,
+        3800,
+        1750,
+        1250
+      ],
+      "decisions": 52,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 3,
+        "loot": 6,
+        "climb": 2,
+        "move": 3,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 40,
+      "seed": 3401253481,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2850,
+      "scores": [
+        1700,
+        2850,
+        1250
+      ],
+      "decisions": 50,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "punch": 3,
+        "shoot": 4,
+        "loot": 5,
+        "climb": 2,
+        "move": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 41,
+      "seed": 3401284818,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2900,
+      "scores": [
+        2550,
+        850,
+        2900,
+        1050
+      ],
+      "decisions": 50,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "punch": 3,
+        "climb": 4,
+        "move": 2
+      }
+    },
+    {
+      "game": 42,
+      "seed": 3401316155,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2250,
+      "scores": [
+        2250,
+        2000,
+        1950,
+        2400,
+        450
+      ],
+      "decisions": 42,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 3,
+        "punch": 2,
+        "climb": 4,
+        "move": 3,
+        "loot": 4,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 43,
+      "seed": 3401347492,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 1750,
+      "scores": [
+        1000,
+        1200,
+        1550,
+        650,
+        1750,
+        1550
+      ],
+      "decisions": 47,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "shoot": 6,
+        "punch": 1,
+        "loot": 4,
+        "climb": 3,
+        "move": 3
+      }
+    },
+    {
+      "game": 44,
+      "seed": 3401378829,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2150,
+      "scores": [
+        1550,
+        1000,
+        2150
+      ],
+      "decisions": 53,
+      "wasted": 5,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 4,
+        "loot": 5,
+        "punch": 2,
+        "move": 4,
+        "climb": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 45,
+      "seed": 3401410166,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        3100,
+        500,
+        2250,
+        1750
+      ],
+      "decisions": 51,
+      "wasted": 3,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "punch": 2,
+        "loot": 5,
+        "shoot": 4,
+        "climb": 3,
+        "move": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 46,
+      "seed": 3401441503,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1950,
+      "scores": [
+        1400,
+        1950,
+        2250,
+        1750,
+        2500
+      ],
+      "decisions": 48,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 1,
+      "played": {
+        "shoot": 4,
+        "climb": 3,
+        "move": 3,
+        "loot": 5,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 47,
+      "seed": 3401472840,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        750,
+        2200,
+        1000,
+        1250,
+        2000,
+        1000
+      ],
+      "decisions": 57,
+      "wasted": 0,
+      "programmed": 15,
+      "draws": 4,
+      "played": {
+        "loot": 3,
+        "climb": 2,
+        "move": 4,
+        "marshal": 2,
+        "shoot": 3,
+        "punch": 1
+      }
+    },
+    {
+      "game": 48,
+      "seed": 3401504177,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3250,
+      "scores": [
+        3250,
+        3050,
+        1750
+      ],
+      "decisions": 55,
+      "wasted": 2,
+      "programmed": 19,
+      "draws": 4,
+      "played": {
+        "loot": 5,
+        "shoot": 4,
+        "punch": 2,
+        "climb": 4,
+        "move": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 49,
+      "seed": 3401535514,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        1750,
+        3050,
+        1000,
+        1500
+      ],
+      "decisions": 53,
+      "wasted": 2,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "loot": 3,
+        "climb": 3,
+        "marshal": 2,
+        "move": 3,
+        "punch": 1
+      }
+    },
+    {
+      "game": 50,
+      "seed": 3401566851,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        1750,
+        850,
+        1750,
+        2000,
+        0
+      ],
+      "decisions": 43,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 1,
+      "played": {
+        "loot": 5,
+        "shoot": 5,
+        "climb": 2,
+        "move": 4,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 51,
+      "seed": 3401598188,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2600,
+      "scores": [
+        2600,
+        1500,
+        1000,
+        1800,
+        1150,
+        500
+      ],
+      "decisions": 53,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 7,
+        "loot": 4,
+        "move": 3,
+        "punch": 1,
+        "climb": 1
+      }
+    },
+    {
+      "game": 52,
+      "seed": 3401629525,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2500,
+      "scores": [
+        2350,
+        2500,
+        1100
+      ],
+      "decisions": 60,
+      "wasted": 7,
+      "programmed": 16,
+      "draws": 6,
+      "played": {
+        "loot": 4,
+        "shoot": 6,
+        "punch": 1,
+        "climb": 2,
+        "marshal": 1,
+        "move": 2
+      }
+    },
+    {
+      "game": 53,
+      "seed": 3401660862,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        1250,
+        1000,
+        1000,
+        2400
+      ],
+      "decisions": 53,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "punch": 2,
+        "loot": 4,
+        "climb": 2,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 54,
+      "seed": 3401692199,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2500,
+      "scores": [
+        1250,
+        1150,
+        1250,
+        2500,
+        1750
+      ],
+      "decisions": 52,
+      "wasted": 1,
+      "programmed": 13,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "loot": 3,
+        "climb": 3,
+        "move": 2
+      }
+    },
+    {
+      "game": 55,
+      "seed": 3401723536,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3350,
+      "scores": [
+        2900,
+        3350,
+        1250,
+        3150,
+        1250,
+        1800
+      ],
+      "decisions": 48,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 2,
+        "loot": 7,
+        "climb": 2,
+        "move": 3,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 56,
+      "seed": 3401754873,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1550,
+      "scores": [
+        2750,
+        1650,
+        1550
+      ],
+      "decisions": 55,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "shoot": 5,
+        "punch": 2,
+        "loot": 4,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 57,
+      "seed": 3401786210,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1900,
+      "scores": [
+        2850,
+        2800,
+        1900,
+        1250
+      ],
+      "decisions": 56,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "punch": 2,
+        "climb": 2,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 58,
+      "seed": 3401817547,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1800,
+      "scores": [
+        1100,
+        250,
+        2050,
+        2750,
+        1800
+      ],
+      "decisions": 45,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "loot": 5,
+        "climb": 2,
+        "move": 2,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 59,
+      "seed": 3401848884,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2100,
+      "scores": [
+        2250,
+        3200,
+        2100,
+        250,
+        1800,
+        3000
+      ],
+      "decisions": 48,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "climb": 3,
+        "move": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 60,
+      "seed": 3401880221,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2200,
+      "scores": [
+        2200,
+        2500,
+        1500
+      ],
+      "decisions": 52,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 2,
+      "played": {
+        "loot": 4,
+        "shoot": 5,
+        "punch": 3,
+        "move": 3,
+        "climb": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 61,
+      "seed": 3401911558,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1150,
+      "scores": [
+        1500,
+        1550,
+        2500,
+        1150
+      ],
+      "decisions": 55,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "shoot": 6,
+        "punch": 3,
+        "loot": 3,
+        "climb": 3,
+        "marshal": 1,
+        "move": 1
+      }
+    },
+    {
+      "game": 62,
+      "seed": 3401942895,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1500,
+      "scores": [
+        1500,
+        1800,
+        1500,
+        1250,
+        2700
+      ],
+      "decisions": 43,
+      "wasted": 4,
+      "programmed": 18,
+      "draws": 2,
+      "played": {
+        "loot": 4,
+        "shoot": 6,
+        "move": 3,
+        "climb": 4,
+        "punch": 1
+      }
+    },
+    {
+      "game": 63,
+      "seed": 3401974232,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1400,
+        900,
+        1600,
+        1250,
+        2450,
+        1550
+      ],
+      "decisions": 54,
+      "wasted": 2,
+      "programmed": 15,
+      "draws": 4,
+      "played": {
+        "loot": 5,
+        "shoot": 2,
+        "punch": 2,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 64,
+      "seed": 3402005569,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        1500,
+        1000,
+        2500
+      ],
+      "decisions": 53,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "punch": 3,
+        "shoot": 6,
+        "loot": 3,
+        "climb": 2,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 65,
+      "seed": 3402036906,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2300,
+      "scores": [
+        2300,
+        1700,
+        2100,
+        850
+      ],
+      "decisions": 48,
+      "wasted": 2,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "loot": 4,
+        "punch": 2,
+        "move": 2,
+        "marshal": 1,
+        "climb": 2
+      }
+    },
+    {
+      "game": 66,
+      "seed": 3402068243,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        750,
+        2000,
+        1950,
+        500,
+        2400
+      ],
+      "decisions": 54,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "punch": 2,
+        "loot": 4,
+        "shoot": 4,
+        "move": 3,
+        "climb": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 67,
+      "seed": 3402099580,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3350,
+      "scores": [
+        250,
+        1500,
+        1450,
+        2500,
+        3350,
+        1300
+      ],
+      "decisions": 51,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "marshal": 1,
+        "climb": 2,
+        "move": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 68,
+      "seed": 3402130917,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2250,
+      "scores": [
+        1500,
+        3500,
+        2250
+      ],
+      "decisions": 52,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "punch": 3,
+        "shoot": 3,
+        "loot": 6,
+        "marshal": 2,
+        "move": 2,
+        "climb": 3
+      }
+    },
+    {
+      "game": 69,
+      "seed": 3402162254,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2650,
+      "scores": [
+        2450,
+        2650,
+        1200,
+        1350
+      ],
+      "decisions": 55,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "punch": 2,
+        "loot": 4,
+        "shoot": 6,
+        "move": 1,
+        "marshal": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 70,
+      "seed": 3402193591,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        2550,
+        2350,
+        2000,
+        2000,
+        750
+      ],
+      "decisions": 50,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "punch": 2,
+        "loot": 4,
+        "marshal": 2,
+        "climb": 2,
+        "move": 1
+      }
+    },
+    {
+      "game": 71,
+      "seed": 3402224928,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 900,
+      "scores": [
+        950,
+        750,
+        1000,
+        3550,
+        1500,
+        900
+      ],
+      "decisions": 55,
+      "wasted": 2,
+      "programmed": 15,
+      "draws": 4,
+      "played": {
+        "shoot": 4,
+        "move": 3,
+        "loot": 4,
+        "punch": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 72,
+      "seed": 3402256265,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2400,
+      "scores": [
+        2400,
+        2000,
+        2800
+      ],
+      "decisions": 52,
+      "wasted": 3,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "loot": 5,
+        "marshal": 1,
+        "climb": 4,
+        "punch": 1,
+        "move": 2
+      }
+    },
+    {
+      "game": 73,
+      "seed": 3402287602,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2750,
+      "scores": [
+        1400,
+        1900,
+        2750,
+        3150
+      ],
+      "decisions": 47,
+      "wasted": 1,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "punch": 1,
+        "loot": 4,
+        "shoot": 5,
+        "climb": 4,
+        "move": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 74,
+      "seed": 3402318939,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2050,
+      "scores": [
+        3750,
+        2300,
+        2000,
+        2050,
+        1750
+      ],
+      "decisions": 53,
+      "wasted": 0,
+      "programmed": 15,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "punch": 2,
+        "climb": 3,
+        "move": 1
+      }
+    },
+    {
+      "game": 75,
+      "seed": 3402350276,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2750,
+      "scores": [
+        2750,
+        3000,
+        0,
+        2150,
+        250,
+        1250
+      ],
+      "decisions": 51,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "loot": 4,
+        "shoot": 6,
+        "climb": 2,
+        "punch": 2,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 76,
+      "seed": 3402381613,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1150,
+      "scores": [
+        2000,
+        1150,
+        2300
+      ],
+      "decisions": 52,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 4,
+      "played": {
+        "shoot": 4,
+        "loot": 4,
+        "climb": 3,
+        "marshal": 1,
+        "move": 3,
+        "punch": 1
+      }
+    },
+    {
+      "game": 77,
+      "seed": 3402412950,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        2350,
+        500,
+        2500,
+        2000
+      ],
+      "decisions": 51,
+      "wasted": 1,
+      "programmed": 17,
+      "draws": 4,
+      "played": {
+        "punch": 2,
+        "shoot": 4,
+        "loot": 4,
+        "climb": 3,
+        "move": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 78,
+      "seed": 3402444287,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3300,
+      "scores": [
+        500,
+        850,
+        1750,
+        1650,
+        3300
+      ],
+      "decisions": 44,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "punch": 2,
+        "shoot": 4,
+        "loot": 4,
+        "climb": 4,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 79,
+      "seed": 3402475624,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 0,
+      "scores": [
+        250,
+        0,
+        500,
+        1500,
+        2300,
+        3000
+      ],
+      "decisions": 51,
+      "wasted": 1,
+      "programmed": 14,
+      "draws": 4,
+      "played": {
+        "loot": 2,
+        "shoot": 4,
+        "punch": 1,
+        "climb": 4,
+        "marshal": 1,
+        "move": 2
+      }
+    },
+    {
+      "game": 80,
+      "seed": 3402506961,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2800,
+      "scores": [
+        2000,
+        2450,
+        2800
+      ],
+      "decisions": 52,
+      "wasted": 1,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "punch": 3,
+        "shoot": 5,
+        "loot": 5,
+        "climb": 2,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 81,
+      "seed": 3402538298,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2500,
+      "scores": [
+        2500,
+        1800,
+        1650,
+        3200
+      ],
+      "decisions": 56,
+      "wasted": 3,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "punch": 1,
+        "move": 2,
+        "climb": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 82,
+      "seed": 3402569635,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2950,
+      "scores": [
+        2950,
+        700,
+        2000,
+        1000,
+        1950
+      ],
+      "decisions": 60,
+      "wasted": 1,
+      "programmed": 12,
+      "draws": 6,
+      "played": {
+        "punch": 1,
+        "loot": 5,
+        "shoot": 3,
+        "climb": 2,
+        "move": 1
+      }
+    },
+    {
+      "game": 83,
+      "seed": 3402600972,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 750,
+      "scores": [
+        1400,
+        2000,
+        750,
+        500,
+        2500,
+        3050
+      ],
+      "decisions": 57,
+      "wasted": 0,
+      "programmed": 13,
+      "draws": 5,
+      "played": {
+        "loot": 2,
+        "shoot": 4,
+        "punch": 2,
+        "climb": 3,
+        "move": 2
+      }
+    },
+    {
+      "game": 84,
+      "seed": 3402632309,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2600,
+      "scores": [
+        2600,
+        1250,
+        2150
+      ],
+      "decisions": 59,
+      "wasted": 0,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "shoot": 6,
+        "loot": 5,
+        "punch": 2,
+        "climb": 1,
+        "marshal": 2,
+        "move": 1
+      }
+    },
+    {
+      "game": 85,
+      "seed": 3402663646,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1500,
+      "scores": [
+        1250,
+        1500,
+        3100,
+        1850
+      ],
+      "decisions": 52,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "move": 3,
+        "climb": 2,
+        "marshal": 1,
+        "punch": 2
+      }
+    },
+    {
+      "game": 86,
+      "seed": 3402694983,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2050,
+      "scores": [
+        1500,
+        2050,
+        1500,
+        1750,
+        1450
+      ],
+      "decisions": 50,
+      "wasted": 3,
+      "programmed": 15,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "loot": 4,
+        "move": 2,
+        "punch": 2,
+        "climb": 1
+      }
+    },
+    {
+      "game": 87,
+      "seed": 3402726320,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1550,
+      "scores": [
+        1500,
+        1000,
+        1250,
+        1550,
+        2850,
+        250
+      ],
+      "decisions": 50,
+      "wasted": 1,
+      "programmed": 14,
+      "draws": 4,
+      "played": {
+        "loot": 4,
+        "shoot": 4,
+        "punch": 1,
+        "climb": 3,
+        "move": 2
+      }
+    },
+    {
+      "game": 88,
+      "seed": 3402757657,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 4000,
+      "scores": [
+        500,
+        4000,
+        1150
+      ],
+      "decisions": 51,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "loot": 5,
+        "punch": 2,
+        "climb": 2,
+        "marshal": 2,
+        "move": 1
+      }
+    },
+    {
+      "game": 89,
+      "seed": 3402788994,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 4050,
+      "scores": [
+        2500,
+        2000,
+        4050,
+        2200
+      ],
+      "decisions": 57,
+      "wasted": 0,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "punch": 2,
+        "loot": 5,
+        "move": 2,
+        "marshal": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 90,
+      "seed": 3402820331,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2550,
+      "scores": [
+        2600,
+        1500,
+        2550,
+        2050,
+        2150
+      ],
+      "decisions": 53,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "punch": 2,
+        "climb": 3,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 91,
+      "seed": 3402851668,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3300,
+      "scores": [
+        1500,
+        1300,
+        650,
+        3050,
+        3300,
+        1250
+      ],
+      "decisions": 48,
+      "wasted": 0,
+      "programmed": 16,
+      "draws": 1,
+      "played": {
+        "shoot": 4,
+        "loot": 4,
+        "punch": 2,
+        "climb": 3,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 92,
+      "seed": 3402883005,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        2750,
+        2700,
+        1250
+      ],
+      "decisions": 61,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 5,
+      "played": {
+        "punch": 2,
+        "shoot": 4,
+        "loot": 5,
+        "climb": 3,
+        "move": 2
+      }
+    },
+    {
+      "game": 93,
+      "seed": 3402914342,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2250,
+      "scores": [
+        1100,
+        750,
+        750,
+        2250
+      ],
+      "decisions": 49,
+      "wasted": 5,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "shoot": 8,
+        "marshal": 2,
+        "loot": 4,
+        "climb": 2,
+        "move": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 94,
+      "seed": 3402945679,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        900,
+        2600,
+        1750,
+        1250,
+        2500
+      ],
+      "decisions": 49,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 4,
+        "loot": 4,
+        "punch": 1,
+        "climb": 2,
+        "marshal": 1,
+        "move": 4
+      }
+    },
+    {
+      "game": 95,
+      "seed": 3402977016,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 750,
+      "scores": [
+        1550,
+        1750,
+        700,
+        2150,
+        2500,
+        750
+      ],
+      "decisions": 50,
+      "wasted": 3,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "loot": 4,
+        "shoot": 4,
+        "climb": 2,
+        "punch": 2,
+        "move": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 96,
+      "seed": 3403008353,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3000,
+      "scores": [
+        3000,
+        1550,
+        1900
+      ],
+      "decisions": 49,
+      "wasted": 2,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "loot": 5,
+        "punch": 2,
+        "shoot": 6,
+        "climb": 3,
+        "move": 1,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 97,
+      "seed": 3403039690,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 1750,
+      "scores": [
+        1750,
+        1000,
+        500,
+        1700
+      ],
+      "decisions": 57,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 5,
+      "played": {
+        "loot": 2,
+        "climb": 6,
+        "move": 1,
+        "marshal": 2,
+        "punch": 1,
+        "shoot": 4
+      }
+    },
+    {
+      "game": 98,
+      "seed": 3403071027,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2250,
+      "scores": [
+        1200,
+        1000,
+        1750,
+        1450,
+        2250
+      ],
+      "decisions": 46,
+      "wasted": 2,
+      "programmed": 17,
+      "draws": 2,
+      "played": {
+        "shoot": 4,
+        "loot": 4,
+        "climb": 3,
+        "move": 3,
+        "marshal": 2,
+        "punch": 1
+      }
+    },
+    {
+      "game": 99,
+      "seed": 3403102364,
+      "players": 6,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1250,
+        700,
+        850,
+        1750,
+        2200,
+        1100
+      ],
+      "decisions": 63,
+      "wasted": 0,
+      "programmed": 13,
+      "draws": 6,
+      "played": {
+        "loot": 4,
+        "shoot": 4,
+        "punch": 2,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 100,
+      "seed": 3403133701,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        1500,
+        1750,
+        2050
+      ],
+      "decisions": 45,
+      "wasted": 2,
+      "programmed": 19,
+      "draws": 2,
+      "played": {
+        "punch": 4,
+        "shoot": 5,
+        "loot": 3,
+        "climb": 3,
+        "marshal": 2,
+        "move": 2
+      }
+    },
+    {
+      "game": 101,
+      "seed": 3403165038,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1850,
+      "scores": [
+        2200,
+        1850,
+        2800,
+        3600
+      ],
+      "decisions": 55,
+      "wasted": 3,
+      "programmed": 18,
+      "draws": 4,
+      "played": {
+        "shoot": 6,
+        "loot": 6,
+        "punch": 1,
+        "move": 2,
+        "climb": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 102,
+      "seed": 3403196375,
+      "players": 5,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2250,
+      "scores": [
+        2250,
+        2550,
+        2200,
+        1700,
+        2000
+      ],
+      "decisions": 47,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "punch": 2,
+        "climb": 3,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 103,
+      "seed": 3403227712,
+      "players": 6,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2050,
+      "scores": [
+        2400,
+        2050,
+        2700,
+        250,
+        2000,
+        250
+      ],
+      "decisions": 43,
+      "wasted": 1,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "loot": 4,
+        "shoot": 5,
+        "punch": 2,
+        "climb": 2,
+        "move": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 104,
+      "seed": 3403259049,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2750,
+      "scores": [
+        3150,
+        600,
+        2750
+      ],
+      "decisions": 44,
+      "wasted": 4,
+      "programmed": 20,
+      "draws": 2,
+      "played": {
+        "shoot": 4,
+        "marshal": 3,
+        "punch": 2,
+        "loot": 4,
+        "climb": 5,
+        "move": 2
+      }
+    },
+    {
+      "game": 105,
+      "seed": 3403290386,
+      "players": 4,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 550,
+      "scores": [
+        3000,
+        1450,
+        550,
+        3100
+      ],
+      "decisions": 56,
+      "wasted": 4,
+      "programmed": 18,
+      "draws": 5,
+      "played": {
+        "shoot": 6,
+        "loot": 3,
+        "punch": 2,
+        "climb": 3,
+        "move": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 106,
+      "seed": 3403321723,
+      "players": 5,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 1950,
+      "scores": [
+        950,
+        1950,
+        1900,
+        1050,
+        1950
+      ],
+      "decisions": 41,
+      "wasted": 1,
+      "programmed": 18,
+      "draws": 1,
+      "played": {
+        "shoot": 5,
+        "loot": 3,
+        "punch": 2,
+        "move": 4,
+        "climb": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 107,
+      "seed": 3403353060,
+      "players": 6,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2500,
+      "scores": [
+        600,
+        700,
+        2500,
+        2100,
+        1250,
+        2450
+      ],
+      "decisions": 58,
+      "wasted": 1,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "shoot": 4,
+        "climb": 2,
+        "move": 4,
+        "loot": 3,
+        "marshal": 1,
+        "punch": 1
+      }
+    },
+    {
+      "game": 108,
+      "seed": 3403384397,
+      "players": 3,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1250,
+      "scores": [
+        1250,
+        3000,
+        1650
+      ],
+      "decisions": 55,
+      "wasted": 2,
+      "programmed": 17,
+      "draws": 4,
+      "played": {
+        "shoot": 5,
+        "marshal": 2,
+        "loot": 4,
+        "punch": 2,
+        "move": 2,
+        "climb": 2
+      }
+    },
+    {
+      "game": 109,
+      "seed": 3403415734,
+      "players": 4,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1650,
+      "scores": [
+        2000,
+        1950,
+        1750,
+        1650
+      ],
+      "decisions": 42,
+      "wasted": 6,
+      "programmed": 22,
+      "draws": 0,
+      "played": {
+        "shoot": 5,
+        "loot": 6,
+        "move": 3,
+        "punch": 3,
+        "climb": 4,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 110,
+      "seed": 3403447071,
+      "players": 5,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 250,
+      "scores": [
+        1450,
+        2600,
+        250,
+        2150,
+        1500
+      ],
+      "decisions": 36,
+      "wasted": 6,
+      "programmed": 18,
+      "draws": 0,
+      "played": {
+        "shoot": 5,
+        "loot": 4,
+        "move": 3,
+        "punch": 2,
+        "climb": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 111,
+      "seed": 3403478408,
+      "players": 6,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3250,
+      "scores": [
+        1500,
+        0,
+        900,
+        3250,
+        1000,
+        950
+      ],
+      "decisions": 52,
+      "wasted": 2,
+      "programmed": 15,
+      "draws": 3,
+      "played": {
+        "loot": 4,
+        "punch": 2,
+        "shoot": 2,
+        "climb": 2,
+        "move": 4,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 112,
+      "seed": 3403509745,
+      "players": 3,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        3050,
+        1000,
+        2100
+      ],
+      "decisions": 49,
+      "wasted": 4,
+      "programmed": 19,
+      "draws": 4,
+      "played": {
+        "shoot": 7,
+        "loot": 3,
+        "punch": 2,
+        "marshal": 1,
+        "climb": 4,
+        "move": 2
+      }
+    },
+    {
+      "game": 113,
+      "seed": 3403541082,
+      "players": 4,
+      "seat": 0,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1050,
+      "scores": [
+        1050,
+        1650,
+        1800,
+        1250
+      ],
+      "decisions": 56,
+      "wasted": 4,
+      "programmed": 17,
+      "draws": 5,
+      "played": {
+        "loot": 5,
+        "shoot": 5,
+        "climb": 2,
+        "move": 2,
+        "punch": 2,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 114,
+      "seed": 3403572419,
+      "players": 5,
+      "seat": 3,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 3850,
+      "scores": [
+        1000,
+        0,
+        500,
+        3850,
+        2550
+      ],
+      "decisions": 46,
+      "wasted": 3,
+      "programmed": 16,
+      "draws": 3,
+      "played": {
+        "loot": 5,
+        "shoot": 4,
+        "punch": 2,
+        "climb": 2,
+        "marshal": 1,
+        "move": 2
+      }
+    },
+    {
+      "game": 115,
+      "seed": 3403603756,
+      "players": 6,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1750,
+      "scores": [
+        750,
+        1200,
+        1250,
+        2400,
+        1750,
+        3200
+      ],
+      "decisions": 47,
+      "wasted": 2,
+      "programmed": 16,
+      "draws": 2,
+      "played": {
+        "loot": 4,
+        "shoot": 4,
+        "climb": 4,
+        "move": 3,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 116,
+      "seed": 3403635093,
+      "players": 3,
+      "seat": 2,
+      "opponents": [
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2550,
+      "scores": [
+        1500,
+        3050,
+        2550
+      ],
+      "decisions": 44,
+      "wasted": 5,
+      "programmed": 18,
+      "draws": 3,
+      "played": {
+        "shoot": 7,
+        "loot": 4,
+        "punch": 1,
+        "climb": 4,
+        "move": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 117,
+      "seed": 3403666430,
+      "players": 4,
+      "seat": 1,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 2000,
+      "scores": [
+        1600,
+        2000,
+        1000,
+        2400
+      ],
+      "decisions": 47,
+      "wasted": 1,
+      "programmed": 19,
+      "draws": 3,
+      "played": {
+        "loot": 4,
+        "punch": 3,
+        "shoot": 5,
+        "climb": 3,
+        "move": 2,
+        "marshal": 2
+      }
+    },
+    {
+      "game": 118,
+      "seed": 3403697767,
+      "players": 5,
+      "seat": 4,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 0,
+      "score": 1000,
+      "scores": [
+        750,
+        2500,
+        1700,
+        500,
+        1000
+      ],
+      "decisions": 53,
+      "wasted": 0,
+      "programmed": 13,
+      "draws": 4,
+      "played": {
+        "loot": 4,
+        "shoot": 4,
+        "move": 2,
+        "climb": 1,
+        "punch": 1,
+        "marshal": 1
+      }
+    },
+    {
+      "game": 119,
+      "seed": 3403729104,
+      "players": 6,
+      "seat": 5,
+      "opponents": [
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend",
+        "released-legend"
+      ],
+      "win": 1,
+      "score": 2700,
+      "scores": [
+        1750,
+        1000,
+        750,
+        2500,
+        750,
+        2700
+      ],
+      "decisions": 48,
+      "wasted": 0,
+      "programmed": 15,
+      "draws": 2,
+      "played": {
+        "loot": 4,
+        "shoot": 3,
+        "climb": 2,
+        "move": 4,
+        "marshal": 1,
+        "punch": 1
+      }
+    }
+  ]
+}
