@@ -23,6 +23,7 @@ interface Config {
   opponents: PolicySpec[];
   games: number;
   seed: number;
+  seedStride?: number;
   players: number[];
   expert?: boolean;
   lineup?: 'mixed' | 'homogeneous' | 'rotating';
@@ -110,7 +111,7 @@ const start = performance.now();
 for (let game = records.length; game < config.games; game++) {
   const players = config.players[game % config.players.length],
     seat = Math.floor(game / config.players.length) % players;
-  const seed = (config.seed + game * 31337) >>> 0;
+  const seed = (config.seed + game * (config.seedStride ?? 31337)) >>> 0;
   const state = createGame({ players, expert: !!config.expert, seed });
   const policies = state.players.map((p) =>
     p.id === seat
@@ -215,7 +216,8 @@ const report = {
     max: timing[timing.length - 1],
   },
   records,
+  latencySamples: timing,
 };
 fs.writeFileSync(config.output, JSON.stringify(report, null, 2));
 if (fs.existsSync(progressPath)) fs.unlinkSync(progressPath);
-console.log(JSON.stringify({ ...report, records: undefined }, null, 2));
+console.log(JSON.stringify({ ...report, records: undefined, latencySamples: undefined }, null, 2));

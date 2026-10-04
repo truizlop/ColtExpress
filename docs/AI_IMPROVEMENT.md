@@ -82,3 +82,7 @@ Full-game rollouts with 12 sampled worlds fell to 20.83% on the mixed developmen
 Parameter averaging and a temperature sweep did not produce a clear improvement over the best existing candidates. The fast-policy sweep also confirmed that the learned actor's native training temperature is weaker in these matches than near-greedy selection. This motivates a controlled value-head recalibration experiment: all policy and shared-encoder weights remain exactly frozen, while the separate value head learns Monte Carlo outcomes from near-greedy games. The smoke test verifies that only `valueHidden` and `value` tensors change. The resulting checkpoints are evaluated through planning, because their direct policy is identical by construction.
 
 `training/plot_v2.py` renders the current development learning curves and uncertainty intervals. These are diagnostic plots, not final benchmark evidence.
+
+## Parallel tournament equivalence
+
+`training/arena_sharded.py` splits a tournament by table size while preserving its original global seed sequence and seat rotation. It rejects incompatible opponent schedules, combines complete game records and raw latency samples, and verifies common source/model hashes. A 30-game test across 2–6 players with expert rules produced identical records and summaries to sequential evaluation. This reduces final-evaluation wall time without changing the benchmark.
